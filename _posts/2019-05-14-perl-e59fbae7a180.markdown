@@ -1,0 +1,213 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:37:05+00:00
+layout: post
+link: http://localhost/blog/?p=429
+slug: perl-%e5%9f%ba%e7%a1%80
+title: Perl 基础
+wordpress_id: 429
+categories:
+- perl
+---
+
+索引
+
+  1. 	命令行参数
+  2. 注释
+  3. 双引号（“”） 与 单引号（‘’） 的用法
+  4. 单个语句的条件处理符
+  5. 多个语句的条件处理符
+  6. True/False 条件判断
+  7. perl 命令行脚本
+  8. scope
+
+  
+
+
+
+
+
+  1. 命令行参数
+
+
+
+    1. $ARGV[0], $ARGV[1],......
+
+
+  2. 注释
+
+
+
+    1. 以“#”开头的行
+
+
+  3. 双引号（“”） 与 单引号（‘’） 的用法
+
+
+
+    1. 用来括起 字符串
+
+
+    2. 区别1 ： 双引号中的变量可以被 其实际 值代替(interpolation)。 例如， print “hello， $name ”， 会得到 “hello, lexiao”。 单引号中则不会， 之后得到 “hello， $name”
+
+
+    3. 转义字符
+
+
+
+      1. 单引号只能识别 2 个转义字符 _'_ & __， 即是 单引号 和 斜杠。
+
+
+      2. 双引号中可以识别很多转义字符， 包括“  ”等等。
+      3. 例子：
+        1.         2. my $answer = 42; # an integer
+        3. my $pi = 3.14159265; # a "real" number
+        4. my $avocados = 6.02e23; # scientific notation
+        5. my $pet = "Camel"; # string
+        6. my $sign = "I love my $pet"; # string with interpolation
+        7. my $cost = 'It costs $100'; # string without interpolation
+        8. my $thence = $whence; # another variable's value
+        9. my $salsa = $moles * $avocados; # a gastrochemical expression
+        10. my $exit = system("vi $file"); # numeric status of a command
+        11. my $cwd = `pwd`; # string output from a command
+* 单个语句的条件处理符
+
+  1. if EXPR
+    1. [print](http://perldoc.perl.org/functions/print.html) "Basset hounds got long ears" if [length](http://perldoc.perl.org/functions/length.html) $ear >= 10;
+  2. unless EXPR
+    1. go_outside() and play() unless $is_raining;
+  3. while EXPR
+    1. [print](http://perldoc.perl.org/functions/print.html) $i++ while $i <= 10;
+  4. until EXPR
+    1. [print](http://perldoc.perl.org/functions/print.html) $j++ until $j >  10;
+  5. for LIST
+    1. [print](http://perldoc.perl.org/functions/print.html) "Hello $_!\n" [for](http://perldoc.perl.org/functions/for.html) qw(world Dolly nurse);
+  6. foreach LIST
+  7. when EXPR
+* 多个语句的条件处理符
+
+  1. if
+    1. [if](http://perldoc.perl.org/functions/if.html) (EXPR) BLOCK
+    2.    [if](http://perldoc.perl.org/functions/if.html) (EXPR) BLOCK [else](http://perldoc.perl.org/functions/else.html) BLOCK
+    3.    [if](http://perldoc.perl.org/functions/if.html) (EXPR) BLOCK [elsif](http://perldoc.perl.org/functions/elsif.html) (EXPR) BLOCK ...
+    4.    [if](http://perldoc.perl.org/functions/if.html) (EXPR) BLOCK [elsif](http://perldoc.perl.org/functions/elsif.html) (EXPR) BLOCK ... [else](http://perldoc.perl.org/functions/else.html) BLOCK
+  2. unless
+    1. [unless](http://perldoc.perl.org/functions/unless.html) (EXPR) BLOCK
+    2.    [unless](http://perldoc.perl.org/functions/unless.html) (EXPR) BLOCK [else](http://perldoc.perl.org/functions/else.html) BLOCK
+    3.    [unless](http://perldoc.perl.org/functions/unless.html) (EXPR) BLOCK [elsif](http://perldoc.perl.org/functions/elsif.html) (EXPR) BLOCK ...
+    4.    [unless](http://perldoc.perl.org/functions/unless.html) (EXPR) BLOCK [elsif](http://perldoc.perl.org/functions/elsif.html) (EXPR) BLOCK ... [else](http://perldoc.perl.org/functions/else.html) BLOCK
+  3. while & until
+    1. [while](http://perldoc.perl.org/functions/while.html) (EXPR) BLOCK
+    2. [while](http://perldoc.perl.org/functions/while.html) (EXPR) BLOCK [continue](http://perldoc.perl.org/functions/continue.html) BLOCK
+    3. [until](http://perldoc.perl.org/functions/until.html) (EXPR) BLOCK
+    4. [until](http://perldoc.perl.org/functions/until.html) (EXPR) BLOCK [continue](http://perldoc.perl.org/functions/continue.html) BLOCK
+  4. for
+    1. [for](http://perldoc.perl.org/functions/for.html) (EXPR; EXPR; EXPR) BLOCK
+      1. for ($i = 1; $i < 10; $i++) {...}
+    2. [for](http://perldoc.perl.org/functions/for.html) VAR (LIST) BLOCK
+      1. [for](http://perldoc.perl.org/functions/for.html) (@ary) { s/foo/bar/ }
+      2. [for](http://perldoc.perl.org/functions/for.html) [my](http://perldoc.perl.org/functions/my.html) $elem (@elements) {
+      3. 	$elem *= 2;
+      4.    }
+    3. [for](http://perldoc.perl.org/functions/for.html) VAR (LIST) BLOCK [continue](http://perldoc.perl.org/functions/continue.html) BLOCK
+  5. foreach
+    1. [foreach](http://perldoc.perl.org/functions/foreach.html) (EXPR; EXPR; EXPR) BLOCK
+    2. [foreach](http://perldoc.perl.org/functions/foreach.html) VAR (LIST) BLOCK
+      1. [foreach](http://perldoc.perl.org/functions/foreach.html) $item ([split](http://perldoc.perl.org/functions/split.html)(/:[\\\n:]*/, $ENV{TERMCAP})) {
+      2. 	[print](http://perldoc.perl.org/functions/print.html) "Item: $item\n";
+      3.    }
+    3. [foreach](http://perldoc.perl.org/functions/foreach.html) VAR (LIST) BLOCK [continue](http://perldoc.perl.org/functions/continue.html) BLOCK
+* True/False 条件判断
+
+  1. always evaluated in scalar context.总是在标量上下文中判断。
+  2. 字符串
+    1. Any string is true except for ""and "0".
+  3. 数字
+    1. Any number is true except for 0.
+  4. Any reference is true.
+  5. Any undefined value is false.
+  6. False:  0, '0', undef, and '' (the empty string)
+  7. True:  除了以上第6里面提到的,都是 true.
+
+  
+
+
+  1. 7.......perl 命令行脚本
+
+  1. 使用  -i 选项来修改源文件
+    1. perl -pi -e "tr/[a-z]/[A-Z]/" sample.txt
+      1. 以上命令是把  sample。txt 文件中的小写字母替换成为大写字母
+  2. 使用  -a 选项来分割输入行
+  3. 使用 -n 来遍历文件
+    1. the empty diamond operator '<>' means it expects input from outside the script
+    2. 是
+  4.   
+
+
+  
+
+
+<table cellpadding="1" width="80%" style="line-height: 28px;" cellspacing="1" border="1" ><tbody style="line-height: 28px;" ><tr style="line-height: 28px;" >
+<td style="line-height: 28px;" > -n
+</td>
+<td style="line-height: 28px;" > assume 'while (<>) { ... }' loop around program
+</td></tr><tr style="line-height: 28px;" >
+<td style="line-height: 28px;" > -p
+</td>
+<td style="line-height: 28px;" > assume loop like -n but print line also, like sed
+</td></tr><tr style="line-height: 28px;" >
+<td style="line-height: 28px;" > -i[extension]
+</td>
+<td style="line-height: 28px;" > edit <> files in place (makes backup if extension supplied)
+</td></tr><tr style="line-height: 28px;" >
+<td style="line-height: 28px;" > -l[octal]
+</td>
+<td style="line-height: 28px;" > enable line ending processing, specifies line terminator
+</td></tr><tr style="line-height: 28px;" >
+<td style="line-height: 28px;" > -e 'command'
+</td>
+<td style="line-height: 28px;" > one line of program (several -e's allowed, omit program file)
+</td></tr><tr style="line-height: 28px;" >
+<td style="line-height: 28px;" >
+</td>
+<td style="line-height: 28px;" >
+</td></tr><tr style="line-height: 28px;" >
+<td style="line-height: 28px;" >
+</td>
+<td style="line-height: 28px;" >
+</td></tr><tr style="line-height: 28px;" >
+<td style="line-height: 28px;" >
+</td>
+<td style="line-height: 28px;" >
+</td></tr></table>
+
+  
+
+
+  
+
+
+8.  Perl scope
+
+  1. "my" 关键字
+    1. 在该block中所有声明为 “my”的变量，将会覆盖在此block之前声明的同名变量，而且在离开该block后，这些“my”变量的生命周期马上结束。
+    2. 在声明block中，如果调用了其它block（例如调用了某一个函数），需要注意的是，被调用block中，并不能看见calling block 中的“my”变量，它看见的还会是 global 变量。
+    3. “my”变量不可以被 export，即在其它 module 中是不可见的。把“our”关键字用于“my”变量也是无效的。
+  2. “local”关键字
+    1. “local”只影响变量的值，不改变该变量的可访问性。
+    2. 当把“local”用于 global 变量时，它依然在 global scope 内可见，只不过在这个使用了local的block内，其值是以local的声明为准。
+    3. 不能把“local”用于export 的变量。
+  3. “our”关键字
+    1. “our”关键字是在 Perl 5.6 版本后引进的。
+    2. “our”可以使一个局部block内声明的变量，声明为global变量。即是用了它后，一个函数内声明的变量也可以覆盖函数外的变量。
+  
+
+
+"package" 关键字
+
+  1. 类似Java的 package，用来避免名字冲突。
+  2. 可以在一个文件里面声明多个 package ，或者多个文件里面声明一个 package 。不过，一般在一个文件的第一行声明一个 package 。例如， “package WebService::Basecamp;”
+  3. 默认的 package 是 “main“，如果没有显式声明一个 package 的话。
+  4. 要引用某个 package 里面的变量、函数，需要使用操作符“::”，类似于 C++。例如， “$Basemath::PI”。如果要引用 main package 的，可以用“$::var”
+  5. package 可以嵌套。

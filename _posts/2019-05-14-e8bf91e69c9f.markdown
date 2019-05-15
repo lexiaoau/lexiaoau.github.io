@@ -1,0 +1,41 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:03+00:00
+layout: post
+link: http://localhost/blog/?p=367
+slug: '%e8%bf%91%e6%9c%9f'
+title: 近期
+wordpress_id: 367
+categories:
+- 工作方法论
+---
+
+不要依赖别人的帮助 不要假设别人拥有某些知识，除非问清楚  
+  
+CR 问题分析：
+
+ 
+
+ 
+
+ 
+  1. 问题描述
+ 
+  2. 软件信息（版本，路径。。。）
+ 
+  3. 硬件信息（搭配，型号。。。）
+ 
+  4. 问题表现症状（alarm，log。。。）
+ 
+
+ 
+
+如何理清思路
+
+ 
+
+ 
+  1. 可以画图帮助分析
+ 
+  2. 逆向思维 （待续。。）

@@ -1,0 +1,15 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:09+00:00
+layout: post
+link: http://localhost/blog/?p=373
+slug: '%e5%b8%b8%e7%94%a8%e8%8b%b1%e6%96%87%e8%a1%a8%e8%be%be'
+title: 常用英文表达
+wordpress_id: 373
+categories:
+- 默认分类
+---
+
+  1. interested parties --- 感兴趣的人，相关的人  
+

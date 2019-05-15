@@ -1,0 +1,104 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:29+00:00
+layout: post
+link: http://localhost/blog/?p=395
+slug: uml-%e5%9f%ba%e7%a1%80
+title: UML 基础
+wordpress_id: 395
+categories:
+- 杂而无多
+---
+
+[](http://img.blog.163.com/photo/WtOorpCdqiy8S6zzCHjRmg==/5084563979301661329.jpg)UML 基础
+
+
+
+
+
+
+
+
+
+  1. Association（classes are connected together conceptually） 
+
+
+    1. Figure 4.1 讲解 
+
+
+      1. 在横线上有箭头的字，描述了两个 class 之间的关系。
+
+
+      2. 两个 class 旁边的小字，指出了每个 class 的 role。
+
+
+      3. Figure 4.1[![](http://img.blog.163.com/photo/4utwnj2y5pgHgHYnAUt23Q==/857935729014496706.jpg)](http://img.blog.163.com/photo/4utwnj2y5pgHgHYnAUt23Q==/857935729014496706.jpg)
+
+
+    2. Figure 4.2 讲解 
+
+
+      1. 在 class旁边，用大括号“{}”括起来的字，表明是某种 constraint。在本例中，显示了 Customer 是按排队顺序（order），来等候 BankTeller服务的。
+
+
+      2. Figure 4.2[![](http://img.blog.163.com/photo/84cfYd8-2_NtD4-cGdVBnA==/2831356790732988473.jpg)](http://img.blog.163.com/photo/84cfYd8-2_NtD4-cGdVBnA==/2831356790732988473.jpg)
+
+
+    3. Figure 4.3 讲解 
+
+
+      1. 在图中，用点虚线和“{or}”来表示一种“或然”关系。
+
+
+      2. Figure 4.3[![](http://img.blog.163.com/photo/0vYiIEnCSbE4AGMsyyzUaw==/1175720977720937830.jpg)](http://img.blog.163.com/photo/0vYiIEnCSbE4AGMsyyzUaw==/1175720977720937830.jpg)
+
+
+    4. Figure 4.4 讲解 
+
+
+      1. 如果 Association 本身也是一个类，则可以像下图中那样用点虚线表示。
+
+
+      2. Figure 4.4[![](http://img.blog.163.com/photo/AcDjq6yU9BHvG-3crIkzUw==/608548899648958215.jpg)](http://img.blog.163.com/photo/AcDjq6yU9BHvG-3crIkzUw==/608548899648958215.jpg)
+
+
+    5. Figure 4.5 讲解 
+
+
+      1. 在 Association 图中要表示 “一对多”的关系，可以像下图一样 。
+
+
+      2. “*”表示多个；“..”表示某个连续的值范围；“，”表示几个可能的、但是不连续的值。
+
+
+      3. Figure 4.5[![](http://img.blog.163.com/photo/PHQCyggszRoxZTjBlw0soQ==/1993687260042115861.jpg)](http://img.blog.163.com/photo/PHQCyggszRoxZTjBlw0soQ==/1993687260042115861.jpg)
+
+
+  2. 继承（generalization） （one class is a kind of another） 
+
+
+    1. 注意箭头形状。
+
+
+    2. 图中用红色圆圈的是抽象类，类名 以斜体字表示。
+
+
+    3. Figure 4.6 [![](http://img.blog.163.com/photo/sA-BZ9roJyRH1xZ3Z3vWiw==/5419237726610549781.jpg)](http://img.blog.163.com/photo/sA-BZ9roJyRH1xZ3Z3vWiw==/5419237726610549781.jpg)
+
+
+  3. Dependencies（one class uses another） 
+
+
+    1. 图形表示，是一个带箭头的点虚线。
+
+
+    2. Figure 4.7 [![](http://img.blog.163.com/photo/pDBb_rZ8Ln-lfr_dOibm7g==/2879770486727074764.jpg)](http://img.blog.163.com/photo/pDBb_rZ8Ln-lfr_dOibm7g==/2879770486727074764.jpg)[![](http://img.blog.163.com/photo/WtOorpCdqiy8S6zzCHjRmg==/5084563979301661329.jpg)](http://img.blog.163.com/photo/WtOorpCdqiy8S6zzCHjRmg==/5084563979301661329.jpg)
+
+
+
+
+
+
+
+

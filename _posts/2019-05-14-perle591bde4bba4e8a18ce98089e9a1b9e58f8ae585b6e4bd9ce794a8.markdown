@@ -1,0 +1,273 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:34:44+00:00
+layout: post
+link: http://localhost/blog/?p=326
+slug: perl%e5%91%bd%e4%bb%a4%e8%a1%8c%e9%80%89%e9%a1%b9%e5%8f%8a%e5%85%b6%e4%bd%9c%e7%94%a8
+title: perl命令行选项及其作用
+wordpress_id: 326
+categories:
+- perl
+---
+
+## [http://www.rexegg.com/regex-perl-one-liners.html](http://www.rexegg.com/regex-perl-one-liners.html)
+
+  
+
+
+## Task 1: Process the file line by line, and return all matches
+
+
+We expect to match _cat_, _carrot_, _caramel_. Use this:  
+
+`perl -ne 'while(/\bc\w+/g){print "$&\n";}' yourfile`
+  
+
+  
+
+
+
+
+## Task 2: Process the file line by line, and return all matching lines
+
+
+We expect to match lines 1 and 3. Use this:  
+
+`perl -ne 'print if /\bc\w+/' yourfile`
+  
+
+  
+
+
+
+
+## Task 3: Process the file line by line, and return the first match of each line
+
+
+We expect to match _cat_ and _caramel_. Use this:  
+
+`perl -ne 'print "$&\n" if /\bc\w+/' yourfile`
+  
+  
+
+
+
+
+## Task 4: Process the file as a block, and return all matches
+
+
+We expect to match _cat_, _carrot_, _caramel_. Use this:  
+
+`perl -0777 -ne 'while(m/\bc\w+/g){print "$&\n";}' yourfile`
+  
+  
+
+
+
+
+## Task 5: Process the file as a block, and return the first match
+
+
+We expect to match _cat_. Use this:  
+
+`perl -0777 -ne 'print "$&\n" if /\bc\w+/' yourfile`
+  
+  
+
+
+
+
+## Task 6: Process the file as a block, and replace all matches
+
+
+To replace with _ZAP_, use this:  
+
+`perl -0777 -pe 's/\bc\w+/ZAP/g' yourfile`
+  
+  
+
+
+
+
+## Task 7: Process the file as a block, and replace the first match
+
+
+To replace with _ZAP_, use this:  
+
+`perl -0777 -pe 's/\bc\w+/ZAP/' yourfile`
+  
+  
+
+
+
+
+## Task 8: Process the file line by line, and replace all matches
+
+
+To replace with _ZAP_, use this:  
+
+`perl -pe 's/\bc\w+/ZAP/g' yourfile`
+  
+  
+
+
+
+
+## Task 9: Process the file line by line, and replace the first match
+
+
+To replace with _ZAP_, use this:  
+
+`perl -pe 's/\bc\w+/ZAP/' yourfile`
+  
+  
+
+
+
+
+## Task 10: Process the file as a block, and split
+
+
+Use this:  
+
+`perl -0777 -ne 'if(@r=split(m/\bc\w+/,$_)){foreach(@r){print "$_\n";}}' yourfile`
+  
+  
+
+
+
+
+## Task 11: Process the file line by line, and split
+
+
+Use this:  
+
+`perl -ne 'if(@r=split(m/\bc\w+/,$_)){foreach(@r){print "$_\n";}}' yourfile`
+
+`  
+`
+
+`  
+`
+
+`
+
+## General Notes on Syntax
+
+
+These are for reference only, feel free to skip if you're not 
+interested. Rather than spread out the explanations among the recipes, I
+ gathered them in this short section.  
+  
+
+
+? The -e (execute) flag is what allows us to
+ specify the Perl code we want to run right on the command line. The 
+Perl code is within quotes. Although it's possible to string several -e statements in a row, we won't do it here.  
+
+
+ ? The -n flag feeds the input to Perl line by line.  
+
+ 
+ ? -0777 changes the line separator to _undef_, letting us to slurp the file, feeding all the lines to Perl in one go.  
+
+
+ ? All the examples assume we're working on one file called _yourfile_, but you could specify multiple files with yourfile yourfile2 yourfile3 or with *.txt
+   
+
+
+? All the examples assume we're working on one file called _yourfile_, but you could instead pipe some output to the one-liner, e.g. echo $PATH | perl…
+  
+
+
+ ? The -p flag (printing loop) processes the file line by line and prints the output.  
+
+
+ ? To replace directly in the file you can use the -i flag… but first test your one-liner without the -i to make sure it's what you want.  
+
+
+ ? If you're planning to use (*SKIP)(*F), remember this only works in Perl 5.10 and above: check your Perl version with perl -v  
+
+
+ ? The perl command is in apostrophes, and escaping those is hard work… 
+So if your regex happens to contain apostrophes, first place it in an 
+env variable then refer to it by name, e.g. env mypattern="'\w+" perl -0777 -ne 'while(m/$ENV{mypattern}/g){print "$&\n";}' yourfile   
+`
+
+`------------------------------------------------------------------------------------------`
+
+`  
+`
+
+[http://www.softpanorama.org/Scripting/Perlorama/perl_in_command_line.shtml](http://www.softpanorama.org/Scripting/Perlorama/perl_in_command_line.shtml)
+
+  
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+
+[https://blogs.oracle.com/ksplice/entry/the_top_10_tricks_of](https://blogs.oracle.com/ksplice/entry/the_top_10_tricks_of)
+
+  
+
+
+  
+
+
+  
+
+
+例子:
+
+  
+
+
+1) 在文件包含 William 的行前面插入 Nick 一行。
+
+perl -pi.bak -e "/\bWilliam\b/i && print qq/Nick\n/;" filename.txt
+
+  
+
+
+2) 在“login_edit” 文件中，第58行之后（行号是 $.），查找第一个符合pattern的行，并插入一行（InsertLine），然后不再做任何修改。
+
+  
+
+
+perl -pi -e 'if( !$flagVal && $. > 58 && /^\s*[^#]/ ) { print "InsertLine\n"; $flagVal = 1;}' login_edit
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+`  
+`
+
+`  
+`
+
+`
+
+  
+
+
+  
+
+
+  
+`

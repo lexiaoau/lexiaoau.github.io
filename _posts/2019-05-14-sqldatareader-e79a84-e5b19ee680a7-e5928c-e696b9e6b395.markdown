@@ -1,0 +1,13 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:33+00:00
+layout: post
+link: http://localhost/blog/?p=399
+slug: sqldatareader-%e7%9a%84-%e5%b1%9e%e6%80%a7-%e5%92%8c-%e6%96%b9%e6%b3%95
+title: SqlDataReader 的 属性 和 方法
+wordpress_id: 399
+categories:
+- reference
+---
+

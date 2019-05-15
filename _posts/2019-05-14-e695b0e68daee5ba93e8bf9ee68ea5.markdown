@@ -1,0 +1,95 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:37+00:00
+layout: post
+link: http://localhost/blog/?p=402
+slug: '%e6%95%b0%e6%8d%ae%e5%ba%93%e8%bf%9e%e6%8e%a5'
+title: 数据库连接
+wordpress_id: 402
+categories:
+- SQL Server 和 .NET
+---
+
+
+
+  1. SqlConnection 类
+
+
+
+    1. 重要属性
+
+
+
+      * ConnectionString ———— 用以连接数据库的信息
+
+
+      * ConnectionTimeout （int）
+
+
+      * Database ———— 当前连接的数据库的名字
+
+
+      * DataSource ———— 数据库 server 的名字
+
+
+      * PacketSize ———— 网络 packet 的大小
+
+
+      * ServerVersion ———— Sql Server 的版本号
+
+
+      * State ———— 连接的状态：【Broken | Closed | Connecting | Executing | Fetching | Open】
+
+
+      * WorkstationId ———— 连接到数据库的 计算机的 ID
+
+
+    2. 重要函数
+
+
+
+      * BeginTransaction()
+
+
+      * ChangeDatabase()
+
+
+      * Close()
+
+
+      * CreateCommand()
+
+
+      * Open()
+
+
+    3. 重要 event
+
+
+
+      * StateChange
+
+
+      * InfoMessage ———— Fires when the database returns a warning or information message.
+
+
+    4. Constructor 例子
+
+
+
+      1. 使用 Windows integrated security ： 【 string strConnection="**Trusted_Connection**=SSPI;";  
+strConnection+="**initial catalog**=AdventureWorks;**Server**=IMAGE;";  
+strConnection+="**Connect Timeout**=30";  
+SqlConnection objConnection=new SqlConnection(strConnection); 】
+
+
+      2. 使用 user id 和 pwd ：【 string connectionString = "**server**=localhost;**database**=Northwind;**uid**=sa;**pwd**=sa"+ "**connection timeout**=10"; SqlConnection mySqlConnection = new SqlConnection(connectionString); 】
+
+
+  2. Connection Pooling
+
+
+
+    1. ADO.NET 提供 pooling的功能，就是为所有的连接建立一个“连接池”，这个池有最大、最小的数量限制。当池未满时，如果新建一个连接，那么这个连接会放在池中；在close这个连接时，只是把它标成 unused，而不是真正关闭；如果再次要求打开相同连接时，那么就会重新调用这个已有的连接。  
+如果池已满但是要新建一个连接，那么就必须等待其中某个被close时，才可以执行；如果等待时间超过 TimeOut 值，那么就会报错。

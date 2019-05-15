@@ -1,0 +1,451 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:05+00:00
+layout: post
+link: http://localhost/blog/?p=369
+slug: perl%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84
+title: perl数据结构
+wordpress_id: 369
+categories:
+- perl
+---
+
+  1. [数组（array）](http://xl2.blog.163.com/blog/#mozTocId166668)            
+    1. [访问数组中的元素](http://xl2.blog.163.com/blog/#mozTocId80451)
+      
+    2. [引用整个数组：](http://xl2.blog.163.com/blog/#mozTocId582006)
+      
+    3. [对数组元素进行操作：](http://xl2.blog.163.com/blog/#mozTocId574065)                    
+      1. [堆栈操作：  pop  && push](http://xl2.blog.163.com/blog/#mozTocId876556)
+          
+      2. [元素移位操作：  shift  && unshift](http://xl2.blog.163.com/blog/#mozTocId751480)
+          
+      3. [当数组为空时，“pop& rdquo; 和 “shift" 会返回 “undef”](http://xl2.blog.163.com/blog/#mozTocId592969)
+          
+      4. [遍历数组：  foreach](http://xl2.blog.163.com/blog/#mozTocId804621)
+          
+      5. [反向排序：  reverse](http://xl2.blog.163.com/blog/#mozTocId480972)
+          
+      6. [排序  ：  sort](http://xl2.blog.163.com/blog/#mozTocId228250)
+      7. join
+      8. map
+      9. grep函数
+               
+      
+    4. [嵌入数组到字符串：](http://xl2.blog.163.com/blog/#mozTocId177321)
+       
+  
+  2. [列表（list ）](http://xl2.blog.163.com/blog/#mozTocId286535)            
+    1. [声明列表](http://xl2.blog.163.com/blog/#mozTocId426302)
+      
+    2. [列表的赋值](http://xl2.blog.163.com/blog/#mozTocId741746)
+       
+  
+  3. [哈希（hash )](http://xl2.blog.163.com/blog/#mozTocId332333)            
+    1. [声明及赋值：](http://xl2.blog.163.com/blog/#mozTocId386100)
+      
+    2. [键值互换：](http://xl2.blog.163.com/blog/#mozTocId985012)
+      
+    3. [哈希函数](http://xl2.blog.163.com/blog/#mozTocId819064)                    
+      1. [keys和 values 函数](http://xl2.blog.163.com/blog/#mozTocId665967)
+          
+      2. [each 函数](http://xl2.blog.163.com/blog/#mozTocId978987)
+               
+      
+    4. [注意：](http://xl2.blog.163.com/blog/#mozTocId358375)
+      
+    5. [哈希的典型应用:](http://xl2.blog.163.com/blog/#mozTocId987330)
+       
+  
+
+
+  
+  1.     
+
+# 数 组（array）
+
+  
+       
+    1.       
+
+## 访 问数组中的元素
+
+    
+           
+      1. 例子：
+               
+        1. $fred[0] = "yahoo";
+        
+        2. $fred[1] = "google";
+             
+      2. 在代码中，凡是可以使用标量的地方，就可以使用下标表 达式。
+      
+      3. 任何能求值的表达式都可以作为下标，例如 $fred[ $number - 1 ]
+      
+      4. 如果下标越界，则对应值是  “undef”
+      
+      5. 最后一个元素的索引值是：  $#数组名字，例如  $#fred.
+      6. 数组的长度（元素个数）：  $length =  scalar(@array);
+      
+      7. 使用负数下标：
+               
+        1. “-1” 表示最后一个元素，“-2”是倒数第二个，以此类推。
+      8. 访问多个数组元素
+        1. @weekdays = @shortdays[0,1,2,3,4]; —— 访问 5 个元素
+        2. @weekdays = @shortdays[0..4]; —— 访问连续的 0~4 元素。
+        3. @weekdays = @shortdays[0..4,6,7]; —— 访问连续的 0~4 元素，还有第7 、第8 元素。
+                
+    2.       
+
+## 引 用整个数组：
+
+    
+           
+      1. @array =  qw/  elem1  elem2  elem3 /;  # 数组赋值
+      
+      2. @array = ( );  # 空列表
+      
+      3. @values = 1..1e5;  # 包含100,000 个元素的列表
+      
+      4. @stuff  = (@values , undef, @values )  # 包含200,001 个元素的列表
+      
+      5. @copy = @stuff;  # 将一个数组复制到另一个数组
+         
+    3.       
+
+## 对 数组元素进行操作：
+
+    
+           
+      1.         
+
+### 堆 栈操作：  pop  && push
+
+      
+               
+        1. pop ： 取出数组最后一个元素。
+        
+        2. push： 添加一个元素到数组末尾。
+        
+        3. 例子：
+                   
+          1. @array = 5..9;
+          
+          2. $fred = pop( @array );  # fred = 9, array中只剩下4个元素
+          
+          3. $barney = pop  @array; #  barney=8， array中只剩下3个元素
+          
+          4. pop  @array; #  array 只剩下2个元素
+          
+          5. push (@array, 0);
+          
+          6. push (@array,  1..10  );
+          
+          7. push( @array,  @others);
+                      
+      2.         
+
+### 元 素移位操作：  shift  && unshift
+
+      
+               
+        1. shift ： 从数组开头取出一个元素
+        
+        2. unshift ： 放入一个元素到数组开头；
+        
+        3. 例子：
+                                 
+          1. @array =  qw/  elem1  elem2  elem3 /; 
+                            
+          2. $m  = shift ;  # m 是 elem1，数组剩下两个元素
+          
+          3. unshift(  @array, 4 );  # 数组第一个元素是4，现在有3个元素
+          
+          4. unshift( @array, @others)
+          5. 当 数组为空时，“pop” 和 “shift" 会返回 “undef”
+      
+      3.         
+
+### 遍 历数组：  foreach
+
+      
+               
+        1. 例子：
+                   
+          1. foreach $singleRoc  ( @rocks )  { .........} ;
+          
+          2. 注意：
+                       
+            1. 在循环过程中的修改会直接影响到数组中元 素的值。
+                                 
+      4.         
+
+### 反 向排序：  reverse
+
+      
+               
+        1. 例子：
+                   
+          1. @fred = 6..10;
+          
+          2. @barney = reverse ( @fred );
+          
+          3. @wilma = reverse  6..10;  # 赋值一个逆向数组
+          
+          4. @fred  =  reverse @fred;  # 反向排序并把结果赋给自己
+                      
+      5.         
+
+### 排 序  ：  sort
+
+      
+               
+        1. sort 的语法
+          1. **sort SUBNAME LIST**
+          2. **sort BLOCK LIST**
+          3. **sort LIST**
+        2. **sort底层规则简介**
+          1. 针对list中每两个元素进行比较，这两个元素分别定义为  $a  和  $b  （这两个是系统自动定义的变量）。
+          2. 默认是根据 ASCII 表决定顺序。
+          3. 如何根据比较结果决定顺序：
+            1. 结果值为  -1： $a  在  $b  前面
+            2. 结果值为  1： $a  在  $b  后面
+            3. 结果值为  0： $a  和  $b  可以任意顺序。
+          4. 比较符：
+            1. 数字比较符： <, >, <=, >=, ==, <=>
+            2. 字符串比较符：lt, gt, le, gr, eq, cmp
+            3. cmp 或者 <=> 的比较结果 ：
+            4. <blockquote><table cellpadding="1" cellspacing="0" style="line-height: 28px;" border="1" width="400" ><tbody style="line-height: 28px;" ><tr style="line-height: 28px;" >
+> <td width="200" style="line-height: 28px;" valign="top" >**$a 和 $b 之间的关系**
+> </td>
+> <td width="200" style="line-height: 28px;" valign="top" >**$a <=> $b 的返回值**
+> </td></tr><tr style="line-height: 28px;" >
+> <td width="200" style="line-height: 28px;" valign="top" >$a 大于$b
+> </td>
+> <td width="200" style="line-height: 28px;" valign="top" >1
+> </td></tr><tr style="line-height: 28px;" >
+> <td width="200" style="line-height: 28px;" valign="top" >$a 等于$b
+> </td>
+> <td width="200" style="line-height: 28px;" valign="top" >0
+> </td></tr><tr style="line-height: 28px;" >
+> <td width="200" style="line-height: 28px;" valign="top" >$a 小于$b
+> </td>
+> <td width="200" style="line-height: 28px;" valign="top" >-1
+> </td></tr></table></blockquote>
+
+            5. 3
+        
+        3. 例子：
+                   
+          1. @numbers = 97..102;  # 得到  100, 101, 102, 97, 98, 99 因为ASCII 中 “1” 拍在 “9” 前面。
+          2. <p>sub dateorder<br>{<br>		my $av = $date_hash{<span style="background-color: rgb(0, 204, 255);">$a</span>};<br>		my $bv = $date_hash{<span style="background-color: rgb(0, 204, 255);">$b</span>};<br>                my $res = ($av <=> $bv);			#  $a,$b  are all PERL pre-defined special variable<br>                return $res;<br>}<br>sort <span style="background-color: rgb(204, 153, 255);">dateorder</span> keys %hash_layer_1；</p>
+
+  
+
+      6. 获得数组属性
+        1. 数组长度 是 “scalar @数组名 ”
+        2. 数组最后一个元素的index  是 “$#数组名 ”
+      7. join() 函数可以一个数组中多个元素用某个scalar 连接起来，成为一个 string
+        1. 例子：print join('', @resultArray)."\n";
+      8. map 函数
+        1. 作用：对数组 A 的每个元素执行指定操作，并将所有操作结果汇总为数组 B。
+        2. 语法：
+          1. **map BLOCK LIST**
+          2. ****map EXPR,LIST****
+        3. 例子：
+          1. **@chars = map(chr, @numbers);  # chr是一个函数，把数字转为 ASCII 字符**
+          2. **my @squares = map { $_ * $_ } @numbers;  # 对每个数组元素，进去求平方操作**
+          3. **my @squares = map { $_ * $_ } grep { $_ > 5 } @numbers;**
+            1. **判断元素数值是否大于5，是的话就求平方，**
+          4. **map EXPR,LIST**
+      9. grep 函数
+        1. 作用：对数组 A 的每个元素执行指定条件判断，并将所有判断为true结果汇总为数组 B；或者返回判断为true的元素个数（取决于上下文）。
+          1. 注意：返回的数组，其实是对原数组的引用。所以修改返回的数组的值，原数组中的值也会被改变。
+        2. 语法：**grep EXPR,LIST**
+        3. 例子：
+          1. @foo = grep(!/^#/, @bar); # 找到所以不是以 #  开头的行，使用了正则表达式。
+        4.   
+
+                         
+    4.       
+
+## 嵌 入数组到字符串：
+
+    
+           
+      1. 例子：
+               
+        1. print "Three rocks are : @rocks.\n"  #可以把整个数组嵌入到字符串
+        
+        2. 注意：
+                   
+          1. 如果希望在print的字符串里面包括 “@”符号，例如电子邮件时，可以使用转义符或者单引号。
+                          
+  2.     
+
+# 列 表（list ）
+
+  
+       
+    1.       
+
+## 声 明列表
+
+    
+           
+      1. 各种各样例子：
+               
+        1. (1, 2, 3)  #包含3个数字的列表
+        
+        2. ("fred", 4.5)  # 包含一个字符串和一个数字的列表
+        
+        3. （）  # 空列表，零个元素
+        
+        4. （1...100)  # 100个整数的列表，该例使用了范围操作符（range operator），范围操作符只会正增长
+             
+      2. 使用 qw （quoted word） 关键字声明列表
+               
+        1. 例子：
+                   
+          1. qw ( monday tuesday wednesday)
+                 
+        2. qw 会将括号里面的字符串当成单引号内的处理。因为是单引号，所以不能使用 "\n"  or  "$fred"  。其中的空白字符会被忽略。
+        
+        3. qw 允许用任何标点符号作为定界符。例如:
+                   
+          1. qw!  a b c d !
+          
+          2. qw/  a b c d /
+          
+          3. qw#  a b c d #
+          
+          4. qw< a b c d >
+                         
+    2.       
+
+## 列 表的赋值
+
+    
+           
+      1. 例子：
+               
+        1. ( $fred ,  $andy ,  $dino ) = ("file1" , "file2", undef )  #赋值给3个变量，前两个是字符串，最后一个是 undefined
+        
+        2. ( $fred ,  $andy) = ( $andy ,  $fred)  # 交换两个变量的值，swap
+        
+        3. ( $fred ,  $andy ,  $dino ) = ("file1" , "file2")  # 当等号左边（变量）多于等号右边（值）的时候，多余的变量会被赋予 “undef”
+                 
+  3.     
+
+# 哈 希（hash )
+
+  
+       
+    1.       
+
+## 声 明及赋值：
+
+    
+           
+      1. 对单个元素的赋值：
+               
+        1. 例子：
+                   
+          1. $family_name{ "barney" } = "rubble";  #在该例中，key为“barney”，value为“rubble";，注意：key是被花括号 （“{ }”）包围，而不是圆括号。
+          
+          2. key的取值只可以是不重复的字符串，而 value可以是任何数据类型。
+                 
+        2. 大箭头（ big arrow )
+                   
+          1. 可以用符号 ” => "  来分隔“键” ， “值”， 例如,
+                       
+            1. %my_hash = (
+                           
+              1. "fred" => "aaa",
+              
+              2. "dino" => undef,
+              
+              3. "bbbb" => "rubble",  );
+                                                 
+    2.       
+
+## 键 值互换：
+
+    
+           
+      1. 例子：
+               
+        1. %inverse_hash  = reverse %any_hash;  # 这会把 any_hash 里面的 值作为 inverse_hash 的键，而对应的键作为相应的值，而得到一个新的键值互换的 hash。但是前提是旧hash中的值是没有重复值的。
+                
+    3.       
+
+## 哈 希函数
+
+    
+           
+      1.         
+
+### keys 和 values 函数
+
+      
+               
+        1. keys 函数可以返回 键列表，values 函数返回  值列表。
+                   
+          1. 例子：
+                       
+            1. %hash = ( "a"=>"1", "b"=>"2", "c"=>"3");
+            
+            2. @k = keys  %hash;
+            
+            3. @v = values  %hash;
+            4. <ol><li>    foreach <span>$key</span> <span>(</span><a href="http://perldoc.perl.org/functions/sort.html" rel="nofollow">sort</a><span>(</span><a href="http://perldoc.perl.org/functions/keys.html" rel="nofollow">keys</a> <span>%ENV</span><span>)</span><span>)</span> <span>{</span></li><li>        <a href="http://perldoc.perl.org/functions/print.html" rel="nofollow">print</a> <span>$key</span><span>,</span> <span>'='</span><span>,</span> <span>$ENV</span>{<span>$key</span>}<span>,</span> <span>"\n"</span><span>;</span></li><li>    <span>}</span></li></ol>
+
+  
+
+                     
+          2. 注意：
+                       
+            1. 由于 perl存储 hash的顺序无法预测，因此每个列表里面的元素的顺序无法确定，但是两个列表中的元素是相互对应的，即如果"c" 是 @k 的最后一个元素，则 “3” 必定是@v 的最后一个元素。
+                                 
+      2.         
+
+### each 函数
+
+      
+               
+        1. 枚举哈希的每个键/值对
+                   
+          1. 例子：
+                       
+            1. while ( ( $key, $value ) = each ( %hash ) )  { print "$key => $value\n"; }
+                                    
+    4.       
+
+## 注 意：
+
+    
+           
+      1. 访问hash里面不存在的值会得到  undef 。
+         
+    5.       
+
+## 哈 希的典型应用:
+
+    
+           
+      1. 检查某个键是否存在：
+               
+        1. if ( exists $books{"dino"} {  }
+             
+      2. delete函数： 删除指定的键及其对应值；如果键不存在，则直接结束。
+               
+        1. delete $books{$person};
+             
+      3. %ENV 哈希
+               
+        1. 这是个特殊哈希，包含了perl程序运行的系统变 量
+                 
+  4. Hash 中元素的 排列顺序 是无法预见和保证的。如果要保证按一定的顺序访问hash元素，可以 把 keys 调用 sort（）函数后，保存在一个数组中，然后按照这个数组元素的顺序去访问hash。
+  5. 要知道hash的长度，可以用“scalar keys %hash ”
+                                                 

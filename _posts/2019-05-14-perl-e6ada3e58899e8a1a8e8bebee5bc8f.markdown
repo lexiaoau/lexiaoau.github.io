@@ -1,0 +1,317 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:52+00:00
+layout: post
+link: http://localhost/blog/?p=416
+slug: perl-%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f
+title: Perl 正则表达式
+wordpress_id: 416
+categories:
+- perl
+---
+
+  1. 匹配的机制
+    1. 简易模式（只匹配  $_  中的内容）
+      1. if(  /abba/  )  {  }  # 匹配 $_ 中是否包含  “abba” 字符串
+      2. 匹配结果是返回  true/false
+    2. 标准匹配模式（匹配某个字符串中是否包含某个pattern）
+      1. if( $some_str  =~ /apple/  )  {  }
+      2. if( $some_str  !~ /apple/  )  {  }  # 如果匹配没找到
+    3. 替换模式（ 把符合匹配的字符串替换为另一个字符串 ）
+      1. s/Hu/Xi/  ;  # 把  $_  中的  Hu 替换成  Xi 
+      2. $some_str =~  s/Hu/Xi/ ;  #  把  $some_str 中的  Hu 替换成  Xi 
+    4. 字符替换模式（
+    5. 匹配参数
+      1. /s
+        1. 让句号 "."  匹配 [\d\D] ，即能匹配换行符
+      2. /i
+        1. 匹配忽略大小写
+      3. /x
+        1. 忽略模式中的空白
+      4. /g
+        1. 全局替换，通常是用在 s/ / / 之后。  如  s/.../.../g ；
+      5. /m
+        1. 字符串包含多行 ；如 ^  $ ，将不仅是匹配 pattern 中的开头和结尾，而是会匹配pattern中每一行的开头和结尾。
+      6. /r
+        1. 在 s/// 之后使用，不修改源字符串，只是把修改结果返回。
+      7. /e
+        1. 在 s/// 之后使用，等于是把replacement string用  eval{..} 包含并处理后，再用以替换源字符串。
+        2. 例子
+          1. $x =~ s/(\w+)/reverse $1/ge;         # ？？？？？？？？？？？？
+          2. 上例是把源字符串中每个单词的顺序逆反，再替换掉，如 “the”-》“eht”
+  2. 通配符 ———— * + ? .
+  3. 特殊匹配机制
+    1. 列表机制  --  匹配某个列表中任意一个字符。
+      1. 例如
+        1. [A-Z]  ---  匹配26个大写英文字母
+        2. [^0-9]  ----  匹配非数字， ^ 表示取反
+        3. 注意：  "|"  在 [] 里面是取其本身，并不是特殊字符（不表示or）
+    2. 多选一机制  --  匹配多个字符中的某一个
+      1. 例如：  (a|e|i|o|u)  ----  匹配元音字母，表示括号中的任何一个都算是匹配
+      2. 注意：
+        1. 必须要用 () 包括所有候选项
+        2. 各个候选项的匹配顺序是从括号左边开始，直到有匹配（或者到尽头）为止。
+  4. 与 split（）函数结合使用
+    1. 例子：  @word = split /\s+/, $x;  # 假如 $x = "Calvin and Hobbes";  那么  $word[0] = 'Calvin' 。。。
+    2. split（）会以给定的正则表达式，如/\s+/，作为分隔标志，把源字符串分隔为多个部分放到一个数组中。
+
+  
+
+
+  
+
+
+  1. [],[^] ———— match any or match except any 
+  2. \ ———— escape characters
+  3. ^ match start with…
+  4. $ match end with…
+  5. {} match specific **times**
+  6. | match one of them
+  7. /case/i match case,CASE,cAsE…
+  8. /reg **. ***sion/s match ‘regular \n expression’
+  9. /..../x space is ignored
+  10. Substitution
+    1. $str = “regular expression”;  
+$str =~ s/regular/non-regular/;  
+#now $str = “non-regular expression”
+  11. Translation
+    1. $str = “regular expression”;  
+$str =~ tr/reg/REG/;  
+#now $str = “REGulaR ExprEssion”
+
+  
+
+
+  
+
+
+  
+
+
+*    *           Match 0 or more [times](http://perldoc.perl.org/functions/times.html)  {0,}
+*    +           Match 1 or more [times](http://perldoc.perl.org/functions/times.html)   {1,}
+*    ?           Match 1 or 0 [times](http://perldoc.perl.org/functions/times.html)      {0,1}
+*    {n}         Match exactly n [times](http://perldoc.perl.org/functions/times.html)      =n
+*    {n,}        Match at least n [times](http://perldoc.perl.org/functions/times.html)    >=n
+*    {n,m}       Match at least n but not more than m times      >=n, <=m
+
+  
+
+
+  
+
+
+*    *?        Match 0 or more [times](http://perldoc.perl.org/functions/times.html), not greedily
+*    +?        Match 1 or more times, not greedily
+*        ??        Match 0 or 1 [time](http://perldoc.perl.org/functions/time.html), not greedily
+*    {n}?      Match exactly n times, not greedily (redundant)
+*        {n,}?     Match at least n [times](http://perldoc.perl.org/functions/times.html), not greedily
+*    {n,m}?    Match at least n but not more than m times, not greedily
+
+  
+
+
+????????????????????
+
+* *+     Match 0 or more [times](http://perldoc.perl.org/functions/times.html) and give nothing back
+* ++     Match 1 or more [times](http://perldoc.perl.org/functions/times.html) and give nothing back
+* ?+     Match 0 or 1 [time](http://perldoc.perl.org/functions/time.html) and give nothing back
+* {n}+   Match exactly n [times](http://perldoc.perl.org/functions/times.html) and give nothing back (redundant)
+* {n,}+  Match at least n [times](http://perldoc.perl.org/functions/times.html) and give nothing back
+* {n,m}+ Match at least n but not more than m times and give nothing back
+
+  
+
+
+  
+
+
+  
+
+
+* Sequence   Note    Description
+*  [...]     [1]  Match a character according to the rules of the
+*                   bracketed character class [defined](http://perldoc.perl.org/functions/defined.html) by the "...".
+*                   Example: [a-z] matches "a" or "b" or "c" ... or "z"
+*  [[:...:]] [2]  Match a character according to the rules of the POSIX
+*                   character class "..." within the outer bracketed
+*                   character class.  Example: [[:upper:]] matches any
+*                   uppercase character.
+*  \w        [3]  Match a "word" character (alphanumeric plus "_", plus
+*                   other connector punctuation chars plus Unicode
+*                   marks)
+*  \W        [3]  Match a non-"word" character
+*  \s        [3]  Match a whitespace character
+*    \S        [3]  Match a non-whitespace character
+*  \d        [3]  Match a decimal digit character
+*  \D        [3]  Match a non-digit character
+*  \pP       [3]  Match P, named property.  Use \p{Prop} for longer names
+*  \PP       [3]  Match non-P
+*  \X        [4]  Match Unicode "eXtended grapheme cluster"
+*  \C             Match a single C-language char (octet) even if that is
+*                   part of a larger UTF-8 character.  Thus it breaks up
+*                   characters into their UTF-8 bytes, so you may end up
+*                   with malformed pieces of UTF-8.  Unsupported in
+*                   lookbehind.
+*  \1        [5]  Backreference to a specific capture group or buffer.
+*                   '1' may actually be any positive integer.
+*  \g1       [5]  Backreference to a specific or previous group,
+*  \g{-1}    [5]  The number may be negative indicating a relative
+*                   previous group and may optionally be wrapped in
+*                   curly brackets for safer parsing.
+*  \g{name}  [5]  Named backreference
+*  \k<name>  [5]  Named backreference
+*  \K        [6]  Keep the stuff left of the \K, don't include it in $&
+*  \N        [7]  Any character but \n (experimental).  Not affected by
+*                   /s modifier
+*    \v        [3]  Vertical whitespace
+*    \V        [3]  Not vertical whitespace
+*    \h        [3]  Horizontal whitespace
+*    \H        [3]  Not horizontal whitespace
+*    \R        [4]  Linebreak
+
+  
+
+
+  
+
+
+*    \b  Match a word boundary                      # 在  \w  和 \W 之间的位置
+*    \B  Match except at a word boundary
+*    \A  Match only at beginning of string         # 类似于  ^
+*    \Z  Match only at end of string, or before newline at the end       # 类似于 $
+*    \z  Match only at end of string
+*    \G  Match only at [pos](http://perldoc.perl.org/functions/pos.html)() (e.g. at the end-of-match position
+*        of prior m//g)
+
+  
+
+
+\g1 or \g{1} or \1 or $1
+
+$+  ---  表示上一个括号匹配的字符串
+
+$& ---  整个被匹配到的字符串
+
+$·  ---  pre-matched
+
+$'  ---  post-matched
+
+$^N  ---  最近一个group的match
+
+  
+
+
+$string1 = quotemeta($string1);
+
+quotemeta()的作用是给字符串里的特殊符号加上合适的转义符号。
+
+  
+
+
+  
+
+
+[http://fhqdddddd.blog.163.com/blog/static/18699154201051310212474/](http://fhqdddddd.blog.163.com/blog/static/18699154201051310212474/)
+
+  
+
+
+  
+
+
+  
+
+
+匹配中文字符的正则表达式： [\u4e00-\u9fa5]
+
+匹配双字节字符(包括汉字在内)：[^\x00-\xff]
+
+匹配空白行的正则表达式：^\s*$  # 演示  \s  * ^  $ , 
+
+匹配HTML标记的正则表达式：< (\S*?)[^>]*>.*?|< .*? />，这个得改改
+
+匹配首尾空白字符的正则表达式：^\s*|\s*$
+
+匹配Email地址的正则表达式：\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*  # 演示  \w +  ()  ,  \w  是字母数字下划线 
+
+匹配网址URL的正则表达式：[a-zA-z]+://[^\s]*  # 演示  []  [^ ]  ,  \w  是字母数字下划线 
+
+匹配帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：  
+^[a-zA-Z][a-zA-Z0-9_]{4,15}$
+
+匹配国内电话号码：\d{3}-\d{8}|\d{4}-\d{7}
+
+匹配腾讯QQ号：[1-9][0-9]{4,}
+
+匹配中国邮政编码：[1-9]\d{5}(?!\d)
+
+匹配身份证：\d{15}|\d{18}
+
+匹配ip地址：\d+\.\d+\.\d+\.\d+
+
+匹配特定数字：  
+^[1-9]\d*$　 　 //匹配正整数  
+^-[1-9]\d*$ 　 //匹配负整数  
+^-?[1-9]\d*$　　 //匹配整数  
+^[1-9]\d*|0$　 //匹配非负整数（正整数 + 0）  
+^-[1-9]\d*|0$　　 //匹配非正整数（负整数 + 0）  
+^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$　　 //匹配正浮点数  
+^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$　 //匹配负浮点数  
+^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$　 //匹配浮点数  
+^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$　　 //匹配非负浮点数（正浮点数 + 0）  
+^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$　　//匹配非正浮点数（负浮点数 +  
+0）
+
+匹配特定字符串：  
+^[A-Za-z]+$　　//匹配由26个英文字母组成的字符串  
+^[A-Z]+$　　//匹配由26个英文字母的大写组成的字符串  
+^[a-z]+$　　//匹配由26个英文字母的小写组成的字符串  
+^[A-Za-z0-9]+$　　//匹配由数字和26个英文字母组成的字符串  
+^\w+$　　//匹配由26个英文字母组成的字符串
+
+  
+
+
+/perl/ 找到含有 perl 的字符串
+
+/^perl/ 找到开头是 perl 的字符串
+
+/perl$/ 找到结尾是 perl 的字符串
+
+/c|g|i/ 找到含有 c 或 g 或 i 的字符串
+
+/cg{2,4}i/ 找到 c 后面跟着 2个到 4个 g ，再跟着 i 的字符串
+
+/cg{2,}i/ 找到 c 后面跟着 2个以上 g ，再跟着 i 的字符串
+
+/cg{2}i/ 找到 c 后面跟着 2个 g，再跟着 i 的字符串
+
+/cg*i/ 找到 c 后面跟着 0个或多个 g ，再跟着 i 的字符串，如同/cg{0,1}i/
+
+/cg+i/ 找到 c 后面跟着一个以上 g，再跟着 i 的字符串，如同/cg{1,}i/
+
+/cg?i/ 找到 c 后面跟着 0个或是 1个 g ，再跟着 i 的字符串，如同/cg{0,1}i/
+
+/c.i/ 找到 c 后面跟着一个任意字符，再跟着 i 的字符串
+
+/c..i/ 找到 c 后面跟着二个任意字符，再跟着 i 的字符串
+
+/[cgi]/ 找到符合有这三个字符任意一个的字符串
+
+/[^cgi]/ 找到没有这三个字符中任意一个的字符串
+
+/\d/ 找寻符合数字的字符，可以使用/\d+/来表示一个或是多个数字组成的字符串
+
+/\D/ 找寻符合不是数字的字符，可以使用/\D+/来表示一个或是更多个非数字组成的字符串
+
+/\*/ 找寻符合 * 这个字符，因为 * 在常规表达式中有它的特殊意思，所以要在这个特殊符号前加上 \ 符号，这样才会让这个特殊字符失效
+
+/abc/i 找寻符合 abc 的字符串而且不考虑这些字符串的大小写
+
+  
+
+
+  
+

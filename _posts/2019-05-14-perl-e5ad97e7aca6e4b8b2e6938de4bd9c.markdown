@@ -1,0 +1,140 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:37:04+00:00
+layout: post
+link: http://localhost/blog/?p=428
+slug: perl-%e5%ad%97%e7%ac%a6%e4%b8%b2%e6%93%8d%e4%bd%9c
+title: Perl 字符串操作
+wordpress_id: 428
+categories:
+- perl
+---
+
+
+
+  1. 字符串操作符
+
+
+
+    1. " . " --- "m"."y" == "my"
+
+
+    2. ".=" --- "ad".="d" == "add"
+
+
+    3. "x" --- "bye"x2 == "byebye" 2个bye
+
+
+    4. 比较操作符 ： eq, ne（不等于）, lt, gt , le, ge, cmp
+
+
+  2. 字符串函数
+
+
+
+    1. chop（） -- 强制 去掉 字符串结尾 最后一个 字符
+
+
+    2. chomp（） -- 强制 去掉 字符串结尾 最后一个特殊 字符
+
+
+    3. length($str) —— 返回一个字符串的长度（字符个数）
+
+
+    4. lc(), lcfirst(), uc(), ucfirst() -- 字符串大小写转换函数
+
+
+    5. index(), rindex() —— 子字符串查找  [http://perldoc.perl.org/functions/index.html](http://perldoc.perl.org/functions/index.html)
+
+
+    6. substr() —— 提取子字符串
+      1. **substr EXPR,OFFSET,LENGTH,REPLACEMENT**
+
+
+   
+
+
+
+
+
+
+
+        * **substr EXPR,OFFSET,LENGTH**
+
+
+
+        * **substr EXPR,OFFSET**
+    7. split() ------  [http://perldoc.perl.org/functions/split.html](http://perldoc.perl.org/functions/split.html)
+
+
+    8. $line =~ s/^\s+|\s+$//g;	# remove white space from both ends of a string
+    9. 删除字符串的最后一部分
+      1. 例如，字符串 str 是  /home/eo/crtext/Q04014815.txt
+      2. 那么  substr  $str,  0,  rindex($str, "/") 的结果是  /home/eo/crtext
+      3.   
+
+  
+
+
+  
+
+
+包含中文（utf8）的文件处理：
+
+  
+
+
+1）如果要在代码中使用中文：
+
+		use utf8;
+
+  
+
+
+2）如果读入文件是 ansi 格式的，就使用普通打开方式，但是读入的字符串要经过decode/encode :
+
+	open(INPUT_FH, "$templateFileFullPath");
+
+	my $dcStr = decode($inputCode, $one_input_line);
+
+	$valStr = encode("utf8",$cleanedStrHash{$this_key});
+
+	print OUTPUT_FH $valStr."\n";
+
+  
+
+
+3) 如果读入文件是 utf 格式的，就使用utf8打开方式，输出文件最好是utf8格式：
+
+	open(INPUT_FH, "<:encoding(UTF-8)", $templateFileFullPath);
+
+	my $dcStr = $one_input_line;
+
+	open(OUTPUT_FH, ">:encoding(UTF-8)", $testOutputFile);
+
+	print OUTPUT_FH $cleanedStrHash{$this_key}."\n";
+
+  
+
+
+4）相关导入：
+
+	use Encode;
+
+	use Encode::CN;
+
+  
+
+
+	use utf8;
+
+5）常用几种编码：
+
+	utf8
+
+	gbk
+
+	gb2312
+
+	

@@ -1,0 +1,60 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:37:10+00:00
+layout: post
+link: http://localhost/blog/?p=435
+slug: '%e5%87%bd%e6%95%b0%e9%87%8d%e8%bd%bd%e7%9a%84%e5%8c%b9%e9%85%8d%e8%bf%87%e7%a8%8b%e3%80%81%e8%a7%84%e5%88%99'
+title: 函数重载的匹配过程、规则
+wordpress_id: 435
+categories:
+- C++
+---
+
+
+
+  1. 确定Candidate Function
+
+
+
+    1. “Candidate Function”指的是可以被该调用考虑的函数的集合
+
+
+    2. “Candidate Function”的条件是：
+
+
+
+      1. 与被调函数同名；
+
+
+      2. 在调用点上，声明可见。
+
+
+  2. 确定Viable Function
+
+
+
+    1. “Viable Function”指的是能够满足调用中实参要求的函数。
+
+
+    2. “Viable Function”的条件是：
+
+
+
+      1. 函数形参与实参的个数相同。
+
+
+      2. 每一个实参的类型必须与形参类型匹配，或者能够被隐式转换。（如果有默认实参，则所需参数会比较少）。
+
+
+  3. 寻找最佳匹配（如果有的话）
+
+
+
+    1. 
+
+
+<blockquote>
+
+> 
+> </blockquote>

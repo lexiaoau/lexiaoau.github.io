@@ -1,0 +1,485 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:35:07+00:00
+layout: post
+link: http://localhost/blog/?p=340
+slug: python-%e4%bb%8a%e6%97%a5%e4%bb%a3%e7%a0%81
+title: python 今日代码
+wordpress_id: 340
+categories:
+- python
+---
+
+索引:
+
+  
+
+
+  * list 操作
+  * 系统判断及调用进程
+  * 文件读写
+  * 日期及字符串操作
+  * 数据库操作和unicode处理结合的例子
+  * 类的代码
+  * 出错处理
+  * 杂代码
+
+  
+
+
+  
+
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+list 操作
+
+  
+
+
+self.invalidStockDataList = []  # 声明空列表
+
+  
+
+
+# 遍历某个列表，并提取每个元素（元素本身也是列表）中的第一个元素（是个object）
+
+for elem in invStockList:
+
+curData = elem[0]
+
+  
+
+
+# 获取列表的长度
+
+len(stockDataList)
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+1. 判断操作系统类型
+
+2. 调用系统进程（ping）并分析该进程的输出
+
+  
+
+
+  
+
+
+import platform
+
+import subprocess
+
+  
+
+
+IsUsuingCloud = False
+
+  
+
+
+sysstr = platform.system()
+
+if(sysstr =="Windows"):					#  判断当前操作系统类型 ，还有 sysstr == "Linux"
+
+website = "142.133.48.179"
+
+ping = subprocess.Popen(["ping", website], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+						# 尝试去ping 一个网址
+
+out, error = ping.communicate()
+
+						# 获得上行的命令的返回文本
+
+if( out.find('Request timed out') == -1 ):
+
+IsUsuingCloud = True
+
+else:
+
+website = "142.133.48.179"
+
+ping = subprocess.Popen(["ping", "-n", "-c 5", website], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+						# 尝试去ping 一个网址，-n 是不转换数字为域名，-c 5 是只发5次包
+
+out, error = ping.communicate()
+
+if( out.find('100% packet loss') == -1 ):
+
+IsUsuingCloud = True 
+
+  
+
+
+  
+
+
+--------------------------------------------------------------------
+
+打开文件并写入：
+
+打开模式： 'rt' -- r 是只读，
+
+  
+
+
+with open(file_name, 'rt') as file_handle:
+
+line = file_handle.readline()
+
+while( line ):
+
+	line_fulltext = unicode(line_fulltext )
+
+。。。。。。。。
+
+  
+
+
+打开文件并写入
+
+with open(file_name, 'wt') as file_handle:
+
+for elem in invStockList:
+
+curData = elem[0]
+
+file_handle.write(curData.__str__()+'\n')
+
+  
+
+
+  
+
+
+--------------------------------------------------------------------
+
+获得某个日期前几天的日期
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+	d1 = datetime.datetime.now()			# 获得当前时间
+
+d3 = d1 - datetime.timedelta(days=Constants.GET_MISSING_URL_BACK_DAYS)
+
+				# 函数的参数指定了天数，d3 是 d1 之前多少（例如30）天 的日期
+
+s = '  '
+
+s = str(d3.strftime('%Y-%m-%d') )		# 以年月日格式返回日期
+
+return s
+
+  
+
+
+# 从字符串生成日期，计算两个日期的天数差值
+
+from datetime import datetime
+
+data_start_date_str = '2008-01-01'  # 'YYYY-mm-dd'
+
+data_end_date_str  = '2008-01-05'  # 'YYYY-mm-dd' 
+
+d1 = datetime.strptime(data_start_date_str, '%Y-%m-%d')
+
+d2 = datetime.strptime(data_end_date_str, '%Y-%m-%d')
+
+d3 = d2 - d1
+
+diff = d3.days
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+--------------------------------------------------------------------
+
+数据库操作和unicode处理结合的例子
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+		ps = rp.find_all('p')
+
+combined_content = u''			# 字符串前面的 u 表示该字符串是 unicode，不是 ascii
+
+for p in ps:
+
+if p.string:
+
+zenstring = unicode(p.string)					# 把字符串转换为unicode的函数
+
+head_unicode_pattern=re.compile(ur"^[\u3000|\u0020]+", re.U)				# 匹配unicode中的空格，全角和半角的，使用了正则表达式匹配多个连续的空格， 字母r 表示 raw string，即字符串内容不要正则替换
+
+re.UNICODE				# 打开unicode环境开关，不知道有没有用
+
+zenstring = re.sub(head_unicode_pattern, u'<p>', zenstring, 1)	# 正则替换，1表示只替换一次，该例子中是替换行首空格
+
+zenstring += ur'</p>'
+
+combined_content += zenstring
+
+combined_content= unicode(combined_content)
+
+asc_single = u"'" 
+
+utf_single = u"‘"
+
+combined_content = combined_content.replace(asc_single , utf_single)  # 以上3行的目的是把字符串中的英文单引号替换为中文单引号，不要直接在 replace函数中使用 u"'" ，有可能出问题。
+
+combined_content = combined_content.replace('\\','\\\\')
+
+asc_double = u'"'
+
+utf_double = u'“'
+
+combined_content = combined_content.replace(asc_double , utf_double)
+
+  
+
+
+st = "INSERT INTO report_content VALUE('%s', '%s', '%s');"
+
+query = st % (record_id, combined_content, record_link_id)  		# 使用字符替换的方法来构造带参数的 SQL 语句
+
+query_count = self.sapi.executeUpdate(query)
+
+if( query_count == 1):
+
+return query_count
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+--------------------------------------------------------------------
+
+  
+
+
+类的代码
+
+  
+
+
+def __init__(self):
+
+	类的构造函数
+
+def __del__(self):
+
+	类的希构函数
+
+def executeQuery(self, query):
+
+	接受一个参数的函数
+
+  
+
+
+def isValidStockData(self, currentStockData, preStockData):	### 该函数接受“自定义类型”的object作为参数，并且调用该“自定义类型”中的函数来获取值
+
+# if not equal, it means two company stock are received
+
+if currentStockData.getStockId() != preStockData.getStockId():
+
+return True
+
+  
+
+
+  
+
+
+if __name__ == '__main__':
+
+crawler = GetMissingReport()
+
+crawler.getMissingReport()
+
+如果定义了一个类（class），那么可以这样的方式去调用类的代码
+
+  
+
+
+# 创建并初始化一个 object：
+
+currentStockData = StockData.StockData(oneRow[0], 。。。。。。。)
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+--------------------------------------------------------------------
+
+  
+
+
+  
+
+
+出错处理
+
+import sys
+
+  
+
+
+try：
+
+			response = urllib2.urlopen(full_url)
+
+stock_csv = response.read(Constants.CHARS_READ_BY_EACH_STOCK_CSV)
+
+					#从改url 读取 n 个char
+
+	print '====== %d' % sys._getframe().f_lineno
+
+except Exception as e:
+
+	print e
+
+  
+
+
+except urllib2.HTTPError, e:
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+--------------------------------------------------------------------
+
+杂代码
+
+  
+
+
+  
+
+
+for i in range(1,len(rows)):		# 如何循环遍历
+
+content = rows[i].split(',')		# 分割字符串
+
+date = datetime.strptime(content[0], "%Y-%m-%d").date()			# 从字符串构造一个 date 对象
+
+str(obj)  					# 把对象转换为字符串
+
+int(obj)					# 把字符串转为数字
+
+if( datetime.now().hour in Constants.UPDATE_REPORT_SET_HOURS  ):
+
+			# 判断当前的小时数是否某个list 里面的值
+
+time.asctime( )			# 当前时间
+
+time.sleep(sec）				# 让当前线程休眠多少秒
+
+  
+
+
+  
+

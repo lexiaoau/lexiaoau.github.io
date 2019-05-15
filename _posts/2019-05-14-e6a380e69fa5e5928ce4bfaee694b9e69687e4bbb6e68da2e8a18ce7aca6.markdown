@@ -1,0 +1,64 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:35:26+00:00
+layout: post
+link: http://localhost/blog/?p=347
+slug: '%e6%a3%80%e6%9f%a5%e5%92%8c%e4%bf%ae%e6%94%b9%e6%96%87%e4%bb%b6%e6%8d%a2%e8%a1%8c%e7%ac%a6'
+title: 检查和修改文件换行符
+wordpress_id: 347
+categories:
+- linux命令
+---
+
+在 windows 下：
+
+  
+
+
+当然是用 ultraedit 了。
+
+  
+
+
+  
+
+
+在 Unix/Linux 下：
+
+  
+
+
+  
+查看：
+
+vi
+
+file <文件名>
+
+dos文件会显示”.... ASCII text, with CRLF line terminators“
+
+  
+
+
+修改：
+
+方法（1）
+
+dos2unix
+
+unix2dos
+
+  
+
+
+方法（2）
+
+使用 vi 打开文件，输入“set ff=unix" ，保存
+
+  
+
+
+方法（3）
+
+perl -pe 's/\r$//' < dos_file > unix_file

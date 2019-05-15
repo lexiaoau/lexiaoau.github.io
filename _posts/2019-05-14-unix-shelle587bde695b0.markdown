@@ -1,0 +1,25 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:35:47+00:00
+layout: post
+link: http://localhost/blog/?p=353
+slug: unix-shell%e5%87%bd%e6%95%b0
+title: unix shell函数
+wordpress_id: 353
+categories:
+- 默认分类
+---
+
+  1. 声明一个函数
+    1. name () { commands; }
+    2. 例子：
+    3. repeat() { 。。。。 }
+  2. 调用一个函数
+    1. repeat Your Name
+  3. 使用函数参数
+    1. $1， $2， $3 ..............
+  4. 函数返回值
+    1. return 值
+    2.   
+

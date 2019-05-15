@@ -1,0 +1,1580 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:35:39+00:00
+layout: post
+link: http://localhost/blog/?p=349
+slug: zt-perl-%e6%93%8d%e4%bd%9c%e7%ac%a6
+title: '[zt] perl 操作符'
+wordpress_id: 349
+categories:
+- perl
+---
+
+<table align="left" border="0" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" ><tbody ><tr >
+<td bgcolor="#CCCCFF" >1. NUMERIC PERL OPERATORS
+</td></tr></table>  
+  
+<table align="left" border="0" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" ><tbody ><tr >
+<td height="18" >
+</td>
+<td bgcolor="#CC99FF" >1.1. ARITHMETIC PERL OPERATORS
+</td></tr></table>  
+  
+In the table below you see the Perl operators used in arithmetic operations.  
+  
+<table width="540" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" border="1" ><tbody ><tr >
+<td bgcolor="#993399" align="center" >Symbol
+</td>
+<td bgcolor="#993399" align="center" >Name
+</td>
+<td bgcolor="#993399" align="center" >Definition
+</td></tr><tr >
+<td width="47" align="center" >+
+</td>
+<td width="100" >addition
+</td>
+<td width="371" >It's a binary operator that returns the sum of two operands.	  
+  
+Example:  
+  
+
+
+`
+    
+     $v1 = 12;
+     $v2 = 5;
+     $v = $v1+$v2;
+     print "$v (expected 17)\n";
+    
+
+`
+
+  
+
+</td></tr><tr >
+<td align="center" >-
+</td>
+<td >subtraction
+</td>
+<td >It's a binary operator that returns the difference of two operands.   
+  
+Example:  
+  
+
+
+`
+    
+     $v1 = 12;
+     $v2 = 5;
+     $v = $v1-$v2;
+     print "$v (expected 7)\n";
+    
+
+`
+
+  
+
+</td></tr><tr >
+<td align="center" >-
+</td>
+<td >negation
+</td>
+<td >I's a unary operator that performs arithmetic negation.   
+  
+Example:  
+  
+
+
+`
+    
+     $v1 = 12; 
+     $v2 = -$v1;
+     print "$v2 (expected -12)\n"; 
+    
+
+`
+
+  
+
+</td></tr><tr >
+<td align="center" >*
+</td>
+<td >multiplication
+</td>
+<td >It's a binary operator that multiplies two operands.	  
+  
+Example:  
+  
+
+
+`
+    
+     $v1 = 12; 
+     $v2 = 5;
+     $v = $v1 * $v2;
+     print "$v (expected 60)\n"; 
+    
+
+`
+
+  
+
+</td></tr><tr >
+<td align="center" >/
+</td>
+<td >division
+</td>
+<td >It's a binary operator that divides left value by right value.	  
+  
+Example:  
+  
+
+
+`
+    
+     $v1 = 12; 
+     $v2 = 5;
+     $v = $v1 / $v2;
+     print "$v (expected 2.4)\n"; 
+    
+
+`
+
+  
+
+</td></tr><tr >
+<td align="center" >**
+</td>
+<td >exponentiation
+</td>
+<td >It's a binary operator that raises the left value to the power of the right value.	  
+  
+Example:  
+  
+
+
+`
+    
+     $v1 = 12; 
+     $v2 = 2;
+     $v = $v1 ** $v2;
+     print "$v (expected 144)\n";
+    
+
+`
+
+  
+
+</td></tr><tr >
+<td align="center" >%
+</td>
+<td >modulus
+</td>
+<td >It's a binary operator that returns the remainder of dividing left value by right value.	  
+  
+Example:  
+  
+
+
+`
+    
+     $v1 = 12;
+     $v2 = 5;
+     $v = $v1 % $v2;
+     print "$v (expected 2)\n";
+    
+
+`
+
+  
+
+</td></tr><tr >
+<td align="center" >++
+</td>
+<td >autoincrement
+</td>
+<td >If you place this unary operator before/after a variable, the variable will be incremented before/after returning the value.	  
+  
+Example:  
+  
+
+
+`
+    
+     $v1 = 10; 
+     $v2 = ++$v1;
+     print "$v1 $v2(expected 11 11)\n";
+     $v1 = 10; 
+     $v2 = $v1++;
+     print "$v1 $v2(expected 11 10)\n";
+    
+
+`
+
+  
+
+</td></tr><tr >
+<td align="center" >--
+</td>
+<td >autodecrement
+</td>
+<td >If you place this unary operator before/after a variable, the variable will be decremented before/after returning the value.	  
+  
+Example:  
+  
+
+
+`
+    
+     $v1 = 10;
+     $v2 = --$v1;
+     print "$v1 $v2(expected 9 9)\n"; 
+     $v1 = 10;
+     $v2 = $v1--;
+     print "$v1 $v2(expected 9 10)\n";
+    
+
+`
+
+  
+
+</td></tr></table>  
+  
+<table align="left" border="0" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" ><tbody ><tr >
+<td height="18" >
+</td>
+<td bgcolor="#CC99FF" >1.2. NUMERIC RELATIONAL PERL OPERATORS
+</td></tr></table>  
+  
+The numeric relational Perl operators compare two numbers and determine the validity of a relationship.  
+
+
+<table width="540" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" border="1" ><tbody ><tr >
+<td bgcolor="#993399" align="center" >Symbol
+</td>
+<td bgcolor="#993399" align="center" >Name
+</td>
+<td bgcolor="#993399" align="center" >Definition
+</td></tr><tr >
+<td width="47" align="center" ><
+</td>
+<td width="100" >less then
+</td>
+<td width="371" >The "less then" operator indicates if the value of the left operand is less than the value of the right one.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = (5, 7);
+     if($v1 < $v2){
+       print "OK (expected)\n";
+     }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" ><=
+</td>
+<td >less than or equal to
+</td>
+<td >The "less than or equal to" operator indicates if the value of the left operand is less than or equal to the value of the right one.	  
+  
+Example:
+
+`
+    
+      ($v1, $v2) = (5, 5);
+      if($v1 <= $v2){
+        print "OK (expected)\n";
+      }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >>
+</td>
+<td >greater than
+</td>
+<td >The "greater than" operator indicates if the value of the left operand is greater than the value of the right one.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = (5, 7);
+     if($v2 > $v1){
+       print "OK (expected)\n";
+     }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >>=
+</td>
+<td >greater than or equal to
+</td>
+<td >The "greater than or equal to" operator indicates if the value of the left operand is greater than or equal to the value of the right one.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = (5, 5);
+     if($v2 >= $v1){
+       print "OK (expected)\n";
+     }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >==
+</td>
+<td >equal
+</td>
+<td >The "equal" operator returns true if the left operand is equal to the right one.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = (5, 5);
+     if($v1 == $v2){
+       print "OK (expected)\n";
+     }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >!=
+</td>
+<td >not equal to
+</td>
+<td >The "not equal to" operator returns true if the left operand is not equal to the right one.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = (5, 7);
+     if($v1 != $v2){
+       print "OK (expected)\n";
+    }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" ><=>
+</td>
+<td >numeric comparison
+</td>
+<td >This binary operator returns -1, 0, or 1 if the left operand is less than, equal to or greater than the right one.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = (5, 7);
+     $v = $v1 <=> $v2;
+     print "$v\n"; # displays -1;
+    
+
+`
+
+</td></tr></table>  
+<table align="left" border="0" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" ><tbody ><tr >
+<td >
+</td>
+<td bgcolor="#CC99FF" >1.3. NUMERIC LOGICAL PERL OPERATORS
+</td></tr></table>  
+  
+The numeric logical Perl operators are generally derived from boolean algebra and they are mainly used to control program flow, finding them as part of an if, a while or some other control statement. See in the table below the logical numerical Perl operators.  
+  
+<table width="540" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" border="1" ><tbody ><tr >
+<td bgcolor="#993399" align="center" >Symbol
+</td>
+<td bgcolor="#993399" align="center" >Name
+</td>
+<td bgcolor="#993399" align="center" >Definition
+</td></tr><tr >
+<td width="47" align="center" height="170" >!
+</td>
+<td width="100" >negation
+</td>
+<td width="371" >This unary operator evaluates an operand and return true if the operand has the false value (0) and false otherwise.  
+  
+Example:
+
+`
+    
+     $v1 = !25;
+     $v2 = !0;
+     print "v1=$v1,v2=$v2\n"; # displays v1=,v2=1
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >not
+</td>
+<td >not
+</td>
+<td >It has the same meaning as the "!" operator, described above.
+</td></tr><tr >
+<td align="center" >and, &&
+</td>
+<td >and
+</td>
+<td >The "and" operator returns the logical conjunction of two operands.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = (5, 7);
+     if($v1 == 5 && $v2 == 7) {
+       print "OK (expected)\n";
+     }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >or, ||
+</td>
+<td >or
+</td>
+<td >The "or" operator returns the logical disjunction of two operands.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = (5, 7);
+     if($v1 == 5 || $v2 == 0) {
+       print "OK (expected)\n";
+     }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >xor
+</td>
+<td >exclusive or
+</td>
+<td >The "exclusive or" operator returns the logical exclusive-or of two operands (the result is true if either but not both of the operands is true).	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = (5, 7);
+     print ($v1==5 xor $v2==3); # displays 1
+     print ($v1==5 xor $v2==7); # displays
+    
+
+`
+
+</td></tr><tr >
+<td align="center" height="151" >?
+</td>
+<td >conditional operator
+</td>
+<td >This ternary operator is like the symbolic if ... then ... else clause from the C language. It returns the second operand if the leftmost operand is true and the third operand otherwise.   
+  
+Example:
+
+`
+    
+     $v = (2 == 2) ? "Equal\n" : "Not equal\n";
+     print $v; # displays Equal
+    
+
+`
+
+</td></tr></table>  
+  
+<table align="left" border="0" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" ><tbody ><tr >
+<td >
+</td>
+<td bgcolor="#CC99FF" >1.4. NUMERIC BITWISE PERL OPERATORS
+</td></tr></table>  
+  
+Numeric bitwise Perl operators are similar to the logical operators, but they work on the binary representation of data. They are used to change individual bits in an operand. Please note that both operands associated with bitwise operators are integers.   
+  
+<table width="540" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" border="1" ><tbody ><tr >
+<td bgcolor="#993399" align="center" >Symbol
+</td>
+<td bgcolor="#993399" align="center" >Name
+</td>
+<td bgcolor="#993399" align="center" >Definition
+</td></tr><tr >
+<td width="47" align="center" ><<
+</td>
+<td width="100" >shift left
+</td>
+<td width="371" >The "shift left" << operator is a binary operator that shifts the bits to the left. Its first operand specifies the integer value to be shifted meanwhile the second one specifies the number of position that the bits in the value will be shifted. The rightmost bits of the integer value will be assigned with 0 and the leftmost bits will be discarded.   
+  
+Example:
+
+`
+    
+     $v = 25 << 3;
+     print "$v (expected 200)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >>>
+</td>
+<td >shift right
+</td>
+<td >The "shift right" >> operator is a binary operator that shifts the bits to the right. Its first operand specifies the integer value to be shifted meanwhile the second one specifies the number of position that the bits in the value will be shifted. The leftmost bits of the integer value will be assigned with 0 and the rightmost bits will be discarded.	  
+  
+Example:
+
+`
+    
+     $v = 32 >> 3;
+     print "$v (expected 4)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >&
+</td>
+<td >and
+</td>
+<td >The "and" operator sets a bit to 1 if both of the corresponding bits in its operands are 1, and 0 otherwise.	  
+  
+Example:
+
+`
+    
+     $v = 32 & 16;
+     print "$v (expected 0)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >|
+</td>
+<td >or
+</td>
+<td >The "or" operator sets a bit to 0 if both of the corresponding bits in its operands are 0, and 1 otherwise.	  
+  
+Example:
+
+`
+    
+     $v = 32 | 16;
+     print "$v (expected 48)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >^
+</td>
+<td >exclusive or
+</td>
+<td >The "exclusive or" operator sets a bit to 1 if the corresponding bits in its operands are different, and 0 otherwise.	  
+  
+Example:
+
+`
+    
+     $v = 3 ^ 9;
+     print "$v (expected 10)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >~
+</td>
+<td >not
+</td>
+<td >The unary "not" operator inverts each bit in the operand, changing all the ones to zeros and zeros to ones.	  
+  
+Example:
+
+`
+    
+     $v = ~1024;
+    
+
+`
+
+</td></tr></table>  
+<table align="left" border="0" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" ><tbody ><tr >
+<td >
+</td>
+<td bgcolor="#CC99FF" >1.5. OTHER NUMERIC PERL OPERATORS
+</td></tr></table>  
+  
+See in the table below other numeric Perl operators:   
+  
+<table width="540" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" border="1" ><tbody ><tr >
+<td bgcolor="#993399" align="center" >Symbol
+</td>
+<td bgcolor="#993399" align="center" >Name
+</td>
+<td bgcolor="#993399" align="center" >Definition
+</td></tr><tr >
+<td width="47" align="center" >,
+</td>
+<td width="100" >comma
+</td>
+<td width="371" >In scalar context this binary operator evaluates its left argument, discards this value, then evaluates its right argument and returns that value. In a list context, it's just a separator and inserts both its arguments into the list.	  
+  
+Example (in scalar context):
+
+`
+    
+     $v1 = 2; $v2 = 4; $v3 = $v1 == $v2;
+     $v = ($v3, 5 == 5);
+     print(" $v3(expected )\n");
+     print(" $v(expected 1)\n");
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >=>
+</td>
+<td >comma
+</td>
+<td >It has the same function like the comma operator described above.
+</td></tr><tr >
+<td align="center" >..
+</td>
+<td >Range operator
+</td>
+<td >In scalar context, this operator returns false as long as its left operand is false. When the left operand becomes true, the range operator returns true until the right operator remains true, after which it becomes false again. In a list context, this operator will return an array with contiguous sequences of items, beginning with the left operand value and ending with the right operand value (the items can be characters or numbers).	  
+  
+Example (in a list context):
+
+`
+    
+     print ('a'..'zz');  
+     print ('1'..'10');
+    
+
+`
+
+</td></tr></table>  
+<table align="left" border="0" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" ><tbody ><tr >
+<td >
+</td>
+<td bgcolor="#CC99FF" >1.6. NUMERIC ASSIGNMENT PERL OPERATORS
+</td></tr></table>  
+  
+Numeric assignment Perl operators perform some type of numeric operation and then assign the value to the existing variable.  
+  
+<table width="540" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" border="1" ><tbody ><tr >
+<td bgcolor="#993399" align="center" >Symbol
+</td>
+<td bgcolor="#993399" align="center" >Name
+</td>
+<td bgcolor="#993399" align="center" >Definition
+</td></tr><tr >
+<td width="47" align="center" >=
+</td>
+<td width="100" >assignment
+</td>
+<td width="371" >This is the ordinary assignment operator. In a scalar context, it assigns the right operand's value to the left operand. In a list context, it assigns multiple values to the left array operand if the right operand is a list.	  
+  
+Example:
+
+`
+    
+     $v = 15;  
+     print $v, "\n";   # displays 15
+     @array = (10, 20, 30);
+     print "@array\n"; # displays 10 20 30
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >+=
+</td>
+<td >addition
+</td>
+<td >It adds the right operand's value to the left operand.	  
+  
+Example:
+
+`
+    
+     $v = 10;
+     $v += 15;
+     print "$v (expected 25)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >-=
+</td>
+<td >subtraction
+</td>
+<td >It subtracts the right operand from the left operand.
+
+`
+    
+     $v = 25;
+     $v -= 15;
+     print "$v (expected 10)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >*=
+</td>
+<td >multiplication
+</td>
+<td >It multiplies the left operand's value by the right operand's value.	  
+  
+Example:
+
+`
+    
+     $v = 10; 
+     $v *= 15;
+     print "$v (expected 150)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >/=
+</td>
+<td >division
+</td>
+<td >It divides the left operand's value by the right operand's value.	  
+  
+Example:
+
+`
+    
+     $v = 150;
+     $v /= 15;
+     print "$v (expected 10)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >**=
+</td>
+<td >exponentiation
+</td>
+<td >It raises the left operand's value to the power of the right operand's value.	  
+  
+Example:
+
+`
+    
+     $v = 12;
+     $v **= 2;
+     print "$v (expected 144)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >%=
+</td>
+<td >modulus
+</td>
+<td >It divides the left operand value by the right operand value and assigns the remainder to the left operand.	  
+  
+Example:
+
+`
+    
+     $v = 12;
+     $v %= 5;
+     print "$v (expected 2)\n"; 
+    
+
+`
+
+</td></tr><tr >
+<td colspan="3" >
+</td></tr><tr >
+<td align="center" >&&=
+</td>
+<td >logical and
+</td>
+<td >It's a combination between the logical "&&" and the assignment operators.	  
+  
+Example:
+
+`
+    
+     $v = 1;
+     $v &&= 7 == 7;
+     print "$v (expected 1)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >||=
+</td>
+<td >logical or
+</td>
+<td >It's a combination between the logical "||" and the assignment operators.	  
+  
+Example:
+
+`
+    
+     $v = 0;
+     $v ||= 7 == 7;
+     print "$v (expected 1)\n";
+    
+
+`
+
+</td></tr><tr >
+<td colspan="3" >
+</td></tr><tr >
+<td align="center" ><<=
+</td>
+<td >bitwise shift left
+</td>
+<td >It's a bitwise left shift assign.   
+  
+Example:
+
+`
+    
+     $v = 25;
+     $v <<= 3;
+     print "$v (expected 200)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >>>=
+</td>
+<td >bitwise shift right
+</td>
+<td >It's a bitwise right shift assign.	  
+  
+Example:
+
+`
+    
+     $v = 32;
+     $v >>= 3;
+     print "$v (expected 4)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >&=
+</td>
+<td >bitwise and
+</td>
+<td >It's a bitwise AND assign.	  
+  
+Example:
+
+`
+    
+     $v = 32;
+     $v &= 16;
+     print "$v (expected 0)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >|=
+</td>
+<td >bitwise or
+</td>
+<td >It's a bitwise OR assign.	  
+  
+Example:
+
+`
+    
+     $v = 32;
+     $v |= 16;
+     print "$v (expected 48)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >^=
+</td>
+<td >bitwise exclusive or
+</td>
+<td >It's a bitwise XOR assign.	  
+  
+Example:
+
+`
+    
+     $v = 3;
+     $v ^= 9;
+     print "$v (expected 10)\n";
+    
+
+`
+
+</td></tr></table>  
+  
+<table align="left" border="0" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" ><tbody ><tr >
+<td bgcolor="#CCCCFF" >2. STRING PERL OPERATORS
+</td></tr></table>  
+  
+<table align="left" border="0" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" ><tbody ><tr >
+<td >
+</td>
+<td bgcolor="#CC99FF" >2.1.STRING RELATIONAL PERL OPERATORS
+</td></tr></table>  
+  
+The string relational Perl operators compare two strings and determine the validity of a relationship.  
+  
+<table width="540" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" border="1" ><tbody ><tr >
+<td bgcolor="#993399" align="center" >Symbol
+</td>
+<td bgcolor="#993399" align="center" >Name
+</td>
+<td bgcolor="#993399" align="center" >Definition
+</td></tr><tr >
+<td width="47" align="center" >lt
+</td>
+<td width="100" >less than
+</td>
+<td width="371" >It returns true if the left operand is stringwise less then the right one.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = ("abc", "abz");
+     if($v1 lt $v2){
+       print ("$v1 is less than $v2\n");
+     }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >le
+</td>
+<td >less than or equal to
+</td>
+<td >It returns true if the left operand is stringwise less then or equal to the right one.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = ("abc", "abc");
+     if($v1 le $v2){
+       print("$v1 is less than or equal to $v2");
+       print "\n";
+     }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >gt
+</td>
+<td >greater than
+</td>
+<td >It returns true if the left operand is stringwise greater then the right one.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = ("abc", "abz");
+     if($v2 gt $v1){
+       print ("$v2 is greater than $v1\n");
+     }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >ge
+</td>
+<td >greater than or equal to
+</td>
+<td >It returns true if the left operand is stringwise greater then or equal to the right one.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = ("abc", "abc");
+     if($v1 ge $v2){
+       print("$v1 is greater than or equal to $v2");
+       print "\n";
+     }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >eq
+</td>
+<td >equality
+</td>
+<td >It returns true if the left operand is stringwise equal to the right one.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = ("abc", "abc");
+     if($v1 eq $v2){
+       print ("$v1 is equal to $v2\n");
+    }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >ne
+</td>
+<td >not equal to
+</td>
+<td >It returns true if the left operand is stringwise not equal to the right one.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = ("abc", "ab1");
+     if($v1 ne $v2){
+       print ("$v1 is not equal to $v2\n");
+     }
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >cmp
+</td>
+<td >comparison
+</td>
+<td >It returns -1, 0, or 1 if the left operand is stringwise less than, equal to or greater than the right one.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = ("am", "ak");
+     $v = $v1 cmp $v2;
+     print ("$v(expected 1)\n");
+    
+
+`
+
+</td></tr></table>  
+<table align="left" border="0" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" ><tbody ><tr >
+<td >
+</td>
+<td bgcolor="#CC99FF" >2.2. STRING LOGICAL PERL OPERATORS
+</td></tr></table>  
+  
+The string logical Perl operators are generally derived from boolean algebra and they are mainly used to control program flow, finding them as part of an if, a while or some other control statement. See in the table below the logical string Perl operators.  
+  
+<table width="540" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" border="1" ><tbody ><tr >
+<td bgcolor="#993399" align="center" >Symbol
+</td>
+<td bgcolor="#993399" align="center" >Name
+</td>
+<td bgcolor="#993399" align="center" >Definition
+</td></tr><tr >
+<td width="47" align="center" height="143" >!
+</td>
+<td width="100" >not
+</td>
+<td width="371" >It returns true if the operand is a null string or an undefined value and false otherwise.	  
+  
+Example:
+
+`
+    
+     $v1 = !'some string here';  
+     $v2 = !'';
+    
+
+`
+
+The $v1 variable will return false and the $v2 variable will return true.
+</td></tr><tr >
+<td align="center" >not
+</td>
+<td >not
+</td>
+<td >The same meaning as above, but it is a lower-precedence version.
+</td></tr><tr >
+<td align="center" >&&
+</td>
+<td >and
+</td>
+<td >This operator is used to determine if both operands are true.   
+  
+Example:
+
+`
+    
+     ($v1, $v2) = ('abc', 'abzu');
+     $v = $v1 == 'abc' && $v2 == 'abzu';
+     print "$v (expected 1)";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >and
+</td>
+<td >and
+</td>
+<td >Same as above.
+</td></tr><tr >
+<td align="center" >||
+</td>
+<td >or
+</td>
+<td >This operator is used to determine if either of the operands is true.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = ('hello', 'good');
+     $v = $v1 == 'hello' || $v2 == 'hello'; 
+     print "$v (expected 1)";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >or
+</td>
+<td >or
+</td>
+<td >Same as above.
+</td></tr><tr >
+<td align="center" >xor
+</td>
+<td >exclusive or
+</td>
+<td >It returns true if either but not both of the operands is true.	  
+  
+Example:
+
+`
+    
+     ($v1, $v2) = ('hello', 'good');
+     $v = $v1 == 'hello' xor $v2 == 'world';
+     print "$v (expected 1)";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" height="167" >?
+</td>
+<td >conditional operator
+</td>
+<td >This is a ternary operator and it works like an if ... then ... else clause from the C language. If the left operand is true, it will return the central operand, otherwise the right operand.	  
+  
+Example:
+
+`
+    
+     $v = ("abc" eq "abd") ? "It's equal.\n" : 
+           "It's not equal. (expected)\n";  
+     print $v;
+    
+
+`
+
+</td></tr></table>  
+  
+<table align="left" border="0" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" ><tbody ><tr >
+<td >
+</td>
+<td bgcolor="#CC99FF" >2.3. OTHER STRING PERL OPERATORS
+</td></tr></table>  
+  
+See in the table below other string Perl operators:   
+
+
+<table width="540" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" border="1" ><tbody ><tr >
+<td bgcolor="#993399" align="center" >Symbol
+</td>
+<td bgcolor="#993399" align="center" >Name
+</td>
+<td bgcolor="#993399" align="center" >Definition
+</td></tr><tr >
+<td align="center" >,
+</td>
+<td >comma
+</td>
+<td >In a scalar context, the comma operator evaluates each element from left to right and returns the value of the rightmost element. In a list context, the comma operator separates the elements of a literal list.	  
+  
+Example:
+
+`
+    
+     # scalar context
+     $colors = ('blue', 'red', 'yellow');  
+     print "$colors (expected yellow)\n";
+     # list context
+     @colors = ('blue', 'red', 'yellow'); 
+     print "@colors[1] (expected red)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >=>
+</td>
+<td >comma
+</td>
+<td >This operator is a special type of comma, for example ('dog', 'cat') is similar to (dog => 'cat'). Or it can be used to separate key/value pairs in a hash structure: %petColors = (dog => 'brown', cat => 'white');	  
+  
+
+</td></tr><tr >
+<td align="center" >-
+</td>
+<td >negation
+</td>
+<td >If the string operand begins with a plus or minus sign, the string negation operator returns a string with the opposite sign.	  
+  
+Example:
+
+`
+    
+     $v = "-abcd";
+     print (-$v, "(expected +abcd)\n"); 
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >.
+</td>
+<td >concatenation
+</td>
+<td >This operator joins two or more strings like in the example below.	  
+  
+Example:
+
+`
+    
+     $v = "Hello" . " World" . "!"; 
+     print $v, " (expected Hello World!)\n"; 
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >..
+</td>
+<td >range operator
+</td>
+<td >The range operator, in a list context, produces the range of values from the left value through the right value in increments of 1.	  
+  
+Example:
+
+`
+    
+     @v = ('ab' .. 'ae'); 
+     print @v, " (expected abacadae)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >x
+</td>
+<td >repetition
+</td>
+<td >The repetition operator returns the first operand (which is a string) repeated by the number of times specified by the second operand (which is an integer).	  
+  
+Example:
+
+`
+    
+     @v = 'ab' x 3;
+     print @v, " (expected ababab)\n"; 
+    
+
+`
+
+</td></tr></table>  
+<table align="left" border="0" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" ><tbody ><tr >
+<td >
+</td>
+<td bgcolor="#CC99FF" >2.4. STRING ASSIGNMENT PERL OPERATORS
+</td></tr></table>  
+  
+String assignment Perl operators perform some type of string operation and then assign the value to the existing variable.  
+  
+<table width="540" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" border="1" ><tbody ><tr >
+<td bgcolor="#993399" align="center" >Symbol
+</td>
+<td bgcolor="#993399" align="center" >Name
+</td>
+<td bgcolor="#993399" align="center" >Definition
+</td></tr><tr >
+<td width="47" align="center" >=
+</td>
+<td width="100" >assignment
+</td>
+<td width="371" >This is the ordinary assignment operator.	  
+  
+Example:
+
+`
+    
+     $v = 'Hello World!';
+     print $v, " (expected Hello World!)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >&&=
+</td>
+<td >logical and
+</td>
+<td >It's a combination between the logical "&&" and the assignment operators.	  
+  
+Example:
+
+`
+    
+     $v = 1;
+     $v &&= 'abc' eq 'abc';
+     print $v, " (expected 1)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >||=
+</td>
+<td >logical or
+</td>
+<td >It's a combination between the logical "||" and the assignment operators.	  
+  
+Example:
+
+`
+    
+     $v = 0;
+     $v ||= 'abc' eq 'abc'; 
+     print $v, " (expected 1)\n"; 
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >.=
+</td>
+<td >concatenation
+</td>
+<td >It's a combination between the concatenation "." and the assignment operators.	  
+  
+Example:
+
+`
+    
+     $v = "Hello ";
+     $v .= 'World!'; 
+     print $v, " (expected Hello World!)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >x=
+</td>
+<td >repetition
+</td>
+<td >It's a repetition assignment operator.	  
+  
+Example:
+
+`
+    
+     $v = "true ";
+     $v x= 2;
+     print $v, " (expected true true )\n"; 
+    
+
+`
+
+</td></tr></table>  
+<table align="left" border="0" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" ><tbody ><tr >
+<td bgcolor="#CCCCFF" >3. SPECIAL PERL OPERATORS
+</td></tr></table>  
+  
+See in the table below the special Perl operators:   
+  
+<table width="540" style="color: rgb(0, 0, 0); font-family: Verdana, Arial, Helvetica, sans-serif; font-size: small; line-height: 16px;" border="1" ><tbody ><tr >
+<td bgcolor="#993399" align="center" >Symbol
+</td>
+<td bgcolor="#993399" align="center" >Name
+</td>
+<td bgcolor="#993399" align="center" >Definition
+</td></tr><tr >
+<td width="47" align="center" >\
+</td>
+<td width="100" >reference
+</td>
+<td width="371" >We call reference the scalar value that contains a memory address. In order to reference a variable, we use the operator. Look at the below snippet code to see how to use it.   
+  
+Example:
+
+`
+    
+     $v="Hello World!";
+     $ref_v=\$v;
+     print $$ref_v, " (expected Hello World!)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >->
+</td>
+<td >dereference
+</td>
+<td >The dereference operator was used for the first time in the Perl 5 language. This operator let us to access and manipulate the elements of an array, hash, object of a class data structure. If you use the reference operator to reference a scalar variable, before you use it you must dereference the reference variable.  
+  
+Example:
+
+`
+    
+     @v = ('black', 'white', 'blue', 'orange');
+     $vRef = \@v; # the reference variable 
+     print $v[1], " (expected white)\n"; 
+     $vRef->[1] = 'red'; # dereference before use 
+     print $v[1], " (expected red)\n"; 
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >=~
+</td>
+<td >pattern binding
+</td>
+<td >This binary operator binds a string expression to a pattern match. The string which is intend to bind is put on the left meanwhile the operator itself is put on the right. We use the pattern binding operator in the case we have a string which is not stored in the $_ variable and we need to perform some matches or substitutions of that string.	  
+  
+Example:
+
+`
+    
+     $v = "black and white";
+     if($v =~ m/white/) {
+       print "Yes (expected)\n"; 
+     }
+     $v =~ s/black and white/red/;
+     print $v, " (expected red)\n";
+    
+
+`
+
+</td></tr><tr >
+<td align="center" >!~
+</td>
+<td >pattern binding (not)
+</td>
+<td >This operator is similar the operator above, but the return value is negated logically.	  
+  
+Example:
+
+`
+    
+     $v = "black and white";
+     if($v =! m/yellow/) {
+       print "Yes (expected)\n";
+     }
+    
+
+`
+
+</td></tr></table>  
+  
+If you want to download the perl script with all the above examples included, please click here
+
+  
+
+
+[http://www.misc-perl-info.com/perl-operators.html](http://www.misc-perl-info.com/perl-operators.html)
+
+  
+
+
+  
+
+
+  
+
+
+![[zt] perl 操作符 - xiao le - me](http://img1.ph.126.net/z5wkfsdExAWjsHUaHmEw8A==/6598148387564345452.jpg)
+
+  
+
+
+qr// 操作符（正则表达式操作符）的用法：
+
+  
+
+    
+    <ol><li>    <span>$rex</span> = <span>qr/my.STRING/is</span><span>;</span></li><li>    <a href="http://perldoc.perl.org/functions/print.html" rel="nofollow">print</a> <span>$rex</span><span>;</span>                 <span># prints (?si-xm:my.STRING)</span></li><li>    <span>s/$rex/foo/</span><span>;</span></li></ol>
+
+  
+
+    
+    <ol><li>    <span style="background-color: rgb(204, 153, 255);">$re</span> = <span>qr/$pattern/</span><span>;</span></li><li>    <span>$string</span> =~ <span>/foo<span style="background-color: rgb(204, 153, 255);">${re}</span>bar/</span><span>;</span>	<span># can be interpolated in other</span><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;"> patterns</span></li><li>    <span>$string</span> =~ <span>$re</span><span>;</span>		<span># or <u>used standalone</u></span></li><li>    <span>$string</span> =~ <span>/$re/</span><span>;</span>		<span># or <u>this way</u></span></li></ol>
+
+  
+
+
+  
+
+
+File test operators
+
+![[zt] perl 操作符 - xiao le - me](http://img0.ph.126.net/uOsRmvTSa0b_A0sWbzDoxQ==/6608619036794467038.jpg)
+
+-f  :  非directory 和 device
+
+-T :  非二进制文件

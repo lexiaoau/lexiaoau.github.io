@@ -1,0 +1,87 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:57+00:00
+layout: post
+link: http://localhost/blog/?p=421
+slug: map
+title: map
+wordpress_id: 421
+categories:
+- C++
+---
+
+
+
+  1. map 是 STL 中一种 <key , value> 形式的 container。
+
+
+  2. 要使用 map， 必须 “#include <map>“。
+
+
+  3. 使用 map 声明对象时， 必须分别指定 key 和 value 的类型。例如， map<string, int> word_count；
+
+
+  4. 用作 key 的 type，必须支持“小于”操作符，
+
+
+  5. map container 中的类型
+
+
+
+
+      * 
+
+
+map<K, V>::key_type —— 键的类型
+
+
+
+      * 
+
+
+map<K, V>::mapped_type ——值的类型
+
+
+
+      * 
+
+
+map<K, V>::value_type —— 一个pair类型，例如 pair< const string, int >。 注意，key是 const的。
+
+
+
+  6. 
+
+
+因为 map 的类型特殊性，所以 对 map的 iterator 解引用将会得到 pair< const KEY, VALUE > 类型。 
+
+
+
+  7. 
+
+
+在 map 中，如果使用 word_count["Anna"] 这样的表达式，将得到 Key_type（本例子中为 int ）的相当于的值。如果 该 key 不存在，则对它 赋值，会插入一个这样的 <key, value>
+
+
+
+  8. 
+
+
+对 map 中元素的查找，可以使用 count 或者 find
+
+
+
+
+
+      * 
+
+
+count —— 等于 1， 如果找到key； 否则，等于 0
+
+
+
+      * 
+
+
+find —— 找到，返回 指向该element的 iterator； 否则，返回 end（）

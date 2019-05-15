@@ -1,0 +1,90 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:35:52+00:00
+layout: post
+link: http://localhost/blog/?p=356
+slug: grep-%e4%bd%bf%e7%94%a8
+title: grep 使用
+wordpress_id: 356
+categories:
+- linux命令
+---
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+grep** -v **pattern files ：显示**不包含匹配文本**的所有行， 
+
+grep** -i **pattern files ：**不区分大小写**地搜索。默认情况区分大小写，
+
+grep**  -l **pattern files ：只列出**匹配的文件名**，
+
+grep**  -L/-l** pattern files ：列出**不匹配的文件名**，
+
+grep** -n** pattern files ： 显示匹配行及**行号**,在显示出内容的每行前面会显示行数 ，
+
+grep**  -w** pattern files ：**只匹配整个单词**，而不是字符串的一部分（如匹配‘magic’，而不是‘magical’），
+
+grep**  -C** number pattern files ：匹配的**上下文**分别显示[number]行，
+
+grep pattern1 | pattern2 files ：显示匹配 **pattern1 或 pattern2** 的行，
+
+grep pattern1 files | grep pattern2 ：显示**既匹配 pattern1 又匹配 pattern2** 的行。
+
+  
+
+
+  
+
+
+**匹配模式**
+
+  
+
+
+\< 和 \> 分别标注单词的开始与结尾。  
+例如：  
+grep man * 会匹配 ‘Batman’、‘manic’、‘man’等，  
+grep '\<man' * 匹配‘manic’和‘man’，但不是‘Batman’，  
+grep '\<man\>' 只匹配‘man’，而不是‘Batman’或‘manic’等其他的字符串。  
+'^'：指匹配的字符串在行首，  
+'$'：指匹配的字符串在行尾，
+
+  
+
+
+^  锚定行的开始如：'^grep'匹配所有以grep开头的行。
+
+$ 锚定行的结束 如：'grep$'匹配所有以grep结尾的行。
+
+.   匹配一个非换行符的字符 如：'gr.p'匹配gr后接一个任意字符，然后是p。
+
+*   匹配零个或多个先前字符 如：'*grep'匹配所有一个或多个空格后紧跟grep的行。 .*一起用代表任意字符。
+
+[]   匹配一个指定范围内的字符，如'[Gg]rep'匹配Grep和grep。
+
+[^]  匹配一个不在指定范围内的字符，如：'[^A-FH-Z]rep'匹配不包含A-F和H-Z字母开头，紧跟rep的行。
+
+\(..\) 标记匹配字符，如'\(love\)'，love被标记为1。
+
+\<   锚定单词的开始，如:'\<  style="padding: 0px; margin: 0px auto; "  >
+
+\>   锚定单词的结束，如'grep\>'匹配包含以grep结尾的单词的行。
+
+x\{m\} 重复字符x，m次，如：'0\{5\}'匹配包含5个o的行。
+
+x\{m,\} 重复字符x,至少m次，如：'o\{5,\}'匹配至少有5个o的行。
+
+x\{m,n\} 重复字符x，至少m次，不多于n次，如：'o\{5,10\}'匹配5--10个o的行。
+
+\w   匹配

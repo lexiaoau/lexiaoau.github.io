@@ -1,0 +1,24 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:34:37+00:00
+layout: post
+link: http://localhost/blog/?p=317
+slug: numpy-%e7%ac%94%e8%ae%b0
+title: numpy 笔记
+wordpress_id: 317
+categories:
+- python
+---
+
+  1. 每个数组都有：  shape ( 表示维度大小），  dtype （表示数据类型）
+  2. astype 函数：  可以显式转换  dtype  （page 87 ）
+  3. 数组可以直接应用  赋值、数学运算等符号。
+  4. 数组可以进行“切片”，得到的是一个 shallow copy
+  5. 布尔型索引：  可以通过某个条件判断，筛选符号条件的元素，可以使用字符串比较、数值比较。可以使用条件位组合。
+  6. 花式索引：  用于获取指定顺序的数组。
+  7. where 函数：  对数组每个元素进行条件判断，true和false 就分别赋予不同值（可以赋回原有值，即不变）。
+  8. 数组操作：	排序，唯一值，测试成员资格，查公共元素，并集，集合差，集合异或（page 107）
+
+  
+

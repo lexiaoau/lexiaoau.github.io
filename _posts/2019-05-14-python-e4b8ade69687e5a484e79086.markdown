@@ -1,0 +1,24 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:34:39+00:00
+layout: post
+link: http://localhost/blog/?p=321
+slug: python-%e4%b8%ad%e6%96%87%e5%a4%84%e7%90%86
+title: Python 中文处理
+wordpress_id: 321
+categories:
+- python
+---
+
+<span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体; background-color: rgb(204, 153, 255);">import codecs</span>
+    
+    <p><br></p><p><font color="#993366">### 打开中文文件（以utf8 编码保存的文件）</font></p><p>		with codecs.open(indexInputFile, encoding='utf-8') as file_handle:<br>			for line in file_handle:</p><p>				uline = unicode(line)<br>				uline = uline.strip()</p><p>				spline = re.split(r'\s+', uline)</p><p><span style="white-space:pre;">				</span>ascii = indexNumStr.<span style="background-color: rgb(204, 153, 255);">encode('ascii','ignore')</span>  <font color="#ff6600">### 将 unicode 转换回 ascii 字符串  </font></p><p><span style="white-space:pre;">			</span>if <span style="background-color: rgb(204, 153, 255);">re.search</span>(InduStr, uline1):    <font color="#ff6600">### 对 Unicode 字符串进行正则表达式查找</font> </p><p><span style="white-space:pre;">				</span>spline1 = <span style="background-color: rgb(204, 153, 255);">re.split</span>(r'\s+', uline1, 2)</p><p><br></p><p><br></p><p><br></p><p><br></p>
+
+line
+    
+    <br>
+    
+    <p style="line-height: 28px;"><span style="color: rgb(153, 51, 102); line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">### 打开中文文件（以 ansi 编码保存的文件）</span>		</p><p>import re</p><p>buy_flag  = '\xd6\xa4\xc8\xaf\xc2\xf2\xc8\xeb'</p><p>with open(file_name, 'rt') as file_handle:<br>	line = file_handle.readline()</p><p><span style="white-space:pre;">	</span>while( line ):</p><p>		if line.find(<span style="line-height: 28px;">buy_flag</span>) != -1:<br>			line = re.sub(r'<span style="background-color: rgb(255, 0, 255);">([^\x00-\x7F])</span> <span style="background-color: rgb(0, 255, 0);">([^\x00-\x7F])</span>', r'<span style="background-color: rgb(255, 0, 255);">\1</span><span style="background-color: rgb(0, 255, 0);">\2</span>', line, count=2)	</p><p>		# 删除名称中的空格    ‘三 力 士’</p><p style="line-height: 28px;"><br></p><p style="line-height: 28px;"><br style="line-height: 28px;"></p><p style="line-height: 28px;"><br style="line-height: 28px;"></p><p style="line-height: 28px;"><br style="line-height: 28px;"></p>
+    
+    <h1><a href="http://www.cnblogs.com/wendoudou/p/python%e6%8e%a7%e5%88%b6%e5%8f%b0%e4%b8%ad%e6%96%87%e4%b9%b1%e7%a0%81.html" id="cb_post_title_url" rel="nofollow">python 控制台输出中文乱码问题</a></h1><div><p><strong>乱码原因：</strong></p><br><p>　　源码文件的编码格式为utf-8，但是window的本地默认编码是gbk，所以在控制台直接打印utf-8的字符串当然是乱码了！</p><br><p><strong>解决方法：</strong></p><br><p>　　1,print mystr.decode('utf-8').encode('gbk')</p><br><p>　　2,比较通用的方法：</p><br><div><br><div><div id="highlighter_632904"><table cellpadding="0" cellspacing="0" border="0"><tbody><tr><td><div>1    </div><div>2</div><div>3</div></td><td><div><div><code>import</code> <code>sys</code></div><div><code>type</code> <code>=</code> <code>sys.getfilesystemencoding()</code></div><div><code>print</code> <code>mystr.decode(</code><code>'utf-8'</code><code>).encode(</code><code>type</code><code>)</code></div></div></td></tr></table></div></div></div></div>

@@ -1,0 +1,76 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:34:57+00:00
+layout: post
+link: http://localhost/blog/?p=331
+slug: shell%e8%84%9a%e6%9c%ac%e8%b0%83%e8%af%95%e6%8a%80%e5%b7%a7
+title: Shell脚本调试技巧
+wordpress_id: 331
+categories:
+- 职场经验
+---
+
+最快的调试方法是把脚本中的一些变量、函数输出等等全部写到磁盘文件以分析。
+
+
+下面是一些语言的写入文件的方法。
+
+
+
+
+
+**Shell 语言
+**
+
+
+
+
+echo $2 >> /vobs/w_oam_neswmgr/packages/la.txt
+		
+
+puttext -l 8 "$EXIT_MSG2"
+
+
+
+
+
+**AWK 语言
+**
+
+
+
+
+if ( test_path == map_path ) {
+
+
+
+			printf "%s---%s---%s---%s---%s---\n",  equals , test_path  , map_path  ,  test_source , map_source >> "/usr/la.txt"
+		
+
+   if ( test_source != map_source ) {
+
+
+           exit 1;
+
+
+   }
+
+
+   located=1;
+
+
+
+
+
+**TCL 语言
+**
+
+
+
+
+catch {exec echo after >> /export/home/ tclres.txt }
+
+
+catch {exec ls -l  $BINDIR/$IP.ascii.back >> /export/home/tclres.txt }
+	

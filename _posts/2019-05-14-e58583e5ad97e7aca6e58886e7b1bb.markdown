@@ -1,0 +1,1832 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:16+00:00
+layout: post
+link: http://localhost/blog/?p=381
+slug: '%e5%85%83%e5%ad%97%e7%ac%a6%e5%88%86%e7%b1%bb'
+title: 元字符分类
+wordpress_id: 381
+categories:
+- 正则表达式
+---
+
+正则表达式分类元字符
+
+   
+
+   
+
+### 1.  基本元字符
+
+   
+
+   <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;   mso-yfti-tbllook:480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:   .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext;" border="1" >   <tbody ><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+元字符
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+描述
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+备注
+
+   
+</td>    
+<td width="292" style="width:219.2pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+例子
+
+   
+</td>    
+<td width="86" style="width:64.3pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:1;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+**. **
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+匹配除 "\n" 之外的任何单个字符。要匹配包括 '\n' 在内的任何字符，请使用象 '[.\n]' 的模式。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+可连续多个使用，见例2
+
+   
+</td>    
+<td width="292" style="width:219.2pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    sale. 匹配单个任意字符
+
+   
+
+[2]    sale….. 匹配多个任意字符
+
+   
+</td>    
+<td width="86" style="width:64.3pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:2;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+**|    **
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+逻辑或操作符
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="292" style="width:219.2pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="86" style="width:64.3pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:3;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[ ]
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+字符集合。匹配所包含的任意一个字符。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+集合里面可以用的元字符有”-“
+
+   
+
+要避免右边界字符小于左字符的情况。
+
+   
+
+在集合里面，”.”, “+”    将被看做字符本身，而不是特殊字符，当然也可以转义使用。
+
+   
+</td>    
+<td width="292" style="width:219.2pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    [0-9]
+
+   
+
+[2]    [A-Z]
+
+   
+
+[3]    [0-9A-Z]
+
+   
+
+[1]    
+
+   
+</td>    
+<td width="86" style="width:64.3pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:4;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[^ ] 
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+字符集合求非。匹配未包含的任意字符。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+本符号只有出现在[] 里面并且是紧跟左方括号[ 时，才表示求非。
+
+   
+</td>    
+<td width="292" style="width:219.2pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="86" style="width:64.3pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:5;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+-
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+字符范围。匹配指定范围内的任意字符。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="292" style="width:219.2pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="86" style="width:64.3pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:6;mso-yfti-lastrow:yes;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+\
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+对下一个字符转义
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+永远出现在一个具有特殊含义的字符序列之前。
+
+   
+</td>    
+<td width="292" style="width:219.2pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="86" style="width:64.3pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>  </table>    
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+### 2.  次数元字符
+
+   
+
+   <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;   mso-yfti-tbllook:480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:   .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext;" border="1" >   <tbody ><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+元字符
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+描述
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+备注
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+例子
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:1;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+*** **
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+匹配前面的子表达式零次或多次。等价于 {0,}
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+如果是在字符集合后面使用，则加号必须放在“[”后面。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    [0-9]*
+
+   
+
+[2]    [A-Z]*
+
+   
+
+[3]    [0-9A-Z]*
+
+   
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:2;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+*******？**** **
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+*的懒惰版本。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+懒惰型与贪婪型的区别：贪婪型尽可能地从文本开头匹配到文本末。懒惰型则是匹配尽可能少的文本。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+对于文本 <b>AK</b> <b>hi</b> ，
+
+   
+
+贪婪型（<b>.*</b>）会匹配到第二个</b>，而懒惰型（<b>.*?</b>）则匹配到第一个。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:3;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
++
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+匹配前面的子表达式一次或多次。等价于 {1,}
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+如果是在字符集合后面使用，则加号必须放在“[”后面。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    [0-9]+
+
+   
+
+[2]    [A-Z]+
+
+   
+
+[3]    [0-9A-Z]+
+
+   
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:4;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+**+****？**
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
++的懒惰版本。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:5;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+？
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+匹配前面的子表达式零次或一次。等价于 {0,1}
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    https?
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:6;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+{n}
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+匹配确定的 n 次。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    \d{6}
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:7;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+{n,m}
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+其中n <= m。最少匹配 n 次且最多匹配 m 次。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    \d{2,4}
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:8;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+{n,}
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+至少匹配n 次。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    \d{2, }
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:9;mso-yfti-lastrow:yes;" >    
+<td width="91" style="width:68.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+{n,}？
+
+   
+</td>    
+<td width="287" style="width:215.05pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+{n,} 的懒惰版本。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>  </table>    
+
+   
+
+   
+
+   
+
+   
+
+### 3.  位置元字符
+
+   
+
+   <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;   mso-yfti-tbllook:480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:   .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext;" border="1" >   <tbody ><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+元字符
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+描述
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+备注
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+例子
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:1;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+^ ****
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+匹配输入字符串的开始位置。如果设置了 RegExp 对象的 Multiline 属性，^ 也匹配 '\n' 或 '\r' 之后的位置。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:2;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+$
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+匹配输入字符串的结束位置。如果设置了RegExp 对象的 Multiline 属性，$ 也匹配 '\n' 或 '\r' 之前的位置。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:3;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+\b
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+匹配一个单词边界，也就是指单词和空格间的位置。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+匹配的是
+
+   
+
+[/w] [^/w] 之间的位置。
+
+   
+
+\w 对应的是字母、数字、下划线。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    \bcat\b
+
+   
+
+可以匹配到一个前后为空格的“cat”单词。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:4;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+\B
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+匹配非单词边界。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+与 /b 相反。
+
+   
+
+应该是等价于    [/w][/w] 之间或者 [^/w]    [^/w] 之间的位置。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    \B-\B
+
+   
+
+可以匹配到“nine-digit”中的连字符。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:5;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+？m
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+分行匹配模式，使得 $ 和 ^ 能匹配换行符（\n）前后的位置。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+必须出现在整个模式的最前面。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    (?m)^\s*//.*$
+
+   
+
+将匹配行首为空白字符后面跟着// 的一行。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:6;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:7;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:8;mso-yfti-lastrow:yes;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>  </table>    
+
+   
+
+   
+
+### 4.  匹配数字、字母、空白字符
+
+   <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;   mso-yfti-tbllook:480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:   .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext;" border="1" >   <tbody ><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+元字符
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+描述
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+备注
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+例子
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:1;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+\d
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+匹配一个数字字符。等价于 [0-9]。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:2;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+\D 
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+匹配一个非数字字符。等价于 [^0-9]。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:3;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+\s 
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:4;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+\S 
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+匹配任何非空白字符。等价于 [^\f\n\r\t\v]。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:5;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+\w
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+匹配包括下划线的任何单词字符。等价于'[A-Za-z0-9_]'。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:6;mso-yfti-lastrow:yes;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+\W
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+匹配任何非单词字符。等价于 '[^A-Za-z0-9_]'。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>  </table>    
+
+   
+
+   
+
+   
+
+### 5.  子表达式
+
+   
+
+   <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;   mso-yfti-tbllook:480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:   .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext;" border="1" >   <tbody ><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+元字符
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+描述
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+备注
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+例子
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:1;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+(    )
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+是一个更大的表达式的一部分。另一个作用是把子表达式当作一个元素使用。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+子表达式允许嵌套。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    (&nbsp;){2, }
+
+   
+
+匹配2个以上的连续的“&nbsp;”
+
+   
+
+[2]    (19|20)\d{2}
+
+   
+
+以19或者20开头的年份。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:2;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:3;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:4;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:5;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:6;mso-yfti-lastrow:yes;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>  </table>    
+
+   
+
+   
+
+   
+
+### 6.  回溯引用
+
+   
+
+回溯引用概念 --- 在模式的后半部分引用在前半部分中定义的子表达式。
+
+   
+
+   
+
+   <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;   mso-yfti-tbllook:480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:   .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext;" border="1" >   <tbody ><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+元字符
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+描述
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+备注
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+例子
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:1;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+\数字
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+数字表示匹配前半部分模式中的第几个子表达式。 \1 匹配第一个，\2 匹配第二个，如此类推。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+只匹配子表达式。
+
+   
+
+很多正则表达式实现中，\0    匹配整个正则表达式。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    <[hH]([1-6])>.*?</ [hH]\1>
+
+   
+
+在html语言中寻找配对的标题记号。其中，\1 表示之前匹配到的在 1~6 中的一个数字。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:2;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:3;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:4;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:5;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:6;mso-yfti-lastrow:yes;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>  </table>    
+
+   
+
+   
+
+   
+
+   
+
+   
+
+### 7.  前后查找
+
+   
+
+向前查找概念 --- 指定一个必须匹配但不在结果中返回的模式。
+
+   
+
+   <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;   mso-yfti-tbllook:480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:   .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext;" border="1" >   <tbody ><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+元字符
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+描述
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+备注
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+例子
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:1;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+？=
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+向前查找操作符。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    .+(?=:)
+
+   
+
+作用：匹配网址里面的协议部分，但是不包括分号。例如，
+
+   
+
+[http://www.163.com/](http://www.163.com/)
+
+   
+
+[https://www.163.com/](https://www.163.com/)
+
+   
+
+ftp://ftp.163.com
+
+   
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:2;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+?<=
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+向后查找操作符。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+有些正则表达式的实现不支持向后查找。
+
+   
+
+向后查找不能使用    + * 等不确定数量的元字符。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    (?<=\$)[0-9.]+
+
+   
+
+作用：把以美元符号开头的金额找出来，但是不包括美元符号。例如，
+
+   
+
+$5.32
+
+   
+
+$899.00
+
+   
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:3;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+？！
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+负向前查找操作符。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:4;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+?<!
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+负向后查找操作符。查找与模式不匹配的文本。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[1]    \b(?<!\$)\d+\b
+
+   
+
+不以美元符号开头的数字。
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:5;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:6;mso-yfti-lastrow:yes;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>  </table>    
+
+   
+
+   
+
+### 8.  特殊字符元字符
+
+   
+
+   <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;   mso-yfti-tbllook:480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:   .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext;" border="1" >   <tbody ><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+元字符
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+描述
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+备注
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+例子
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border:solid windowtext 1.0pt;    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:1;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+[\b] ****
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+退格字符。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:2;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+\cx
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+匹配由 x 指明的控制字符。例如， \cM 匹配一个 Control-M 或回车符。x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 'c' 字符。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:3;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+\f
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+匹配一个换页符。等价于 \x0c 和 \cL。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:4;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+\n
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+匹配一个换行符。等价于 \x0a 和 \cJ。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:5;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+\r 
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+匹配一个回车符。等价于 \x0d 和 \cM。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:6;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+\t 
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+匹配一个制表符。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:7;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+\v
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+匹配一个垂直制表符。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:8;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+\xn
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+匹配 n，其中 n 为十六进制转义值。十六进制转义值必须为确定的两个数字长。例如，'\x41' 匹配 "A"。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>   <tr style="mso-yfti-irow:9;mso-yfti-lastrow:yes;" >    
+<td width="103" style="width:77.4pt;border:solid windowtext 1.0pt;border-top:    none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;    padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+\0n
+
+   
+</td>    
+<td width="348" style="width:261.0pt;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" >    
+
+匹配 n，其中 n 为八进制转义值。
+
+   
+</td>    
+<td width="116" style="width:86.8pt;border-top:none;border-left:    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>    
+<td width="189" style="width:5.0cm;border-top:none;border-left:none;    border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;" valign="top" >    
+
+   
+</td>   </tr>  </table>    
+
+   
+
+   

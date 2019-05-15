@@ -1,0 +1,65 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:43+00:00
+layout: post
+link: http://localhost/blog/?p=407
+slug: sed-%e5%91%bd%e4%bb%a4
+title: sed 命令
+wordpress_id: 407
+categories:
+- linux命令
+---
+
+  1. sed 如何进行文件处理
+    1. 第一步，从input 文件读入一行；
+    2. 第二步，复制这一行；
+    3. 第三步，执行指定的操作；
+    4. 继续处理下一行，直到文件结束。
+  2. sed 是如何处理每一行的
+    1. 检查是否在 该行 内搜索到 指定的pattern ；
+    2. 如果有match，执行这个 pattern 相应的 action；
+    3. 当 这个 pattern 的对应 action 执行完后，搜索下一个 pattern ；
+    4. 当所有的 pattern 都处理完后，处理下一行。
+  3. sed 的 几种 文本处理命令：
+    1. 打印
+      1. 格式： sed '/_pattern_/p' **文件 （p 代表 print 处理）**
+      2. 注意事项：
+        1. 因为 sed 默认模式 是打印 文件每一行，所以，如果只要打印 match pattern 的那些行，应该使用“-n”选项。例如， sed -n '/_pattern_/p' 文件
+    2. 删除行
+      1. 格式： sed '/_pattern_/d' **文件 （d 代表 delete 处理）**
+      2. 注意事项：
+        1. sed 只是改变输出的内容，如果真是要在原文件中删除，可以先备份，然后把 sed 输出 重定向到原文件。
+    3. 文本替换
+      1. 格式： sed 's/_pattern1_/_pattern2_/g' **文件 （s 代表 substitue 处理, 如果发现 match pattern1，则把它用 pattern2 替换掉。g 选项是代表全局替换-global，使用这个选项时，替换该行中所有match，否则，只替换第一个）。**
+  4. 在 sed 中要引用被 match 到的 string 的话，可以用操作符“&”。例如， sed 's/ *[0-9][0-9]*\.[0-9][0-9]$/\$&/' fruit_prices.txt
+  5. 要对一行文字进行多次 sed 处理的话，可以在每个处理前用“-e” 选项。例如，sed -e 's/Paech/Peach/' -e 's/ *[0-9][0-9]*\.[0-9][0-9]$/\$&/' fruit_prices.txt
+  6. 实例：
+    1. 只替换第3到第6行的文本
+      1. `sed` `"3,6s/my/your/g"` `pets.txt`
+    2. 只替换每一行的第二个s：
+      1. `sed` `'s/s/S/2'` `my.txt`
+    3. 只替换第一行的第3个以后的s：
+      1. `sed` `'s/s/S/3g'` `my.txt`
+    4. 一次替换多个模式
+      1. `sed` `'1,3s/my/your/g; 3,$s/This/That/g'` `my.txt`
+    5. 可以使用&来当做被匹配的变量，然后可以在基本左右加点东西（左右分别加 [,  ]）。
+      1. `sed` `'s/my/[&]/g'` `my.txt`
+    6. 使用圆括号匹配的示例：sed中使用的是\1,\2…
+      1. `sed` `'s/This is my \([^,]*\),.*is \(.*\)/\1:\2/g'` `my.txt`
+    7. 对连续的2行进行替换（N命令）
+      1. `sed` `'N;s/\n/,/'` `pets.txt`
+    8. 只替换第3到第6行的文本
+      1. `sed` `"3,6s/my/your/g"` `pets.txt`
+    9. 只替换第3到第6行的文本
+      1. `sed` `"3,6s/my/your/g"` `pets.txt`
+    10. 只替换第3到第6行的文本
+      1. `sed` `"3,6s/my/your/g"` `pets.txt`
+    11. 只替换第3到第6行的文本
+      1. `sed` `"3,6s/my/your/g"` `pets.txt`
+    12. 只替换第3到第6行的文本
+      1. `sed` `"3,6s/my/your/g"` `pets.txt`
+    13. sed -n '20,30p' 7roswell_Aug4_lastminute_prstat.txt
+      1. 输出文件的 第 20~ 30行。
+    14. s
+      1. 

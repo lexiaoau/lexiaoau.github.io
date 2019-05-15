@@ -1,0 +1,14 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:37:06+00:00
+layout: post
+link: http://localhost/blog/?p=430
+slug: '%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3%e7%ac%94%e8%ae%b0'
+title: 问题解决笔记
+wordpress_id: 430
+categories:
+- 工作方法论
+---
+
+1、问题解决可以是根本性地解决问题，也可能只是解决问题的表象，或者绕过问题。

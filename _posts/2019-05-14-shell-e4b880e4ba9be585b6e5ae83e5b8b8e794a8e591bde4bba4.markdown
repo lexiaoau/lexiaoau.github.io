@@ -1,0 +1,37 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:40+00:00
+layout: post
+link: http://localhost/blog/?p=405
+slug: shell-%e4%b8%80%e4%ba%9b%e5%85%b6%e5%ae%83%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4
+title: shell 一些其它常用命令
+wordpress_id: 405
+categories:
+- linux命令
+---
+
+  1. eval 命令
+    1. 作用：让 shell 先对命令行中的变量求值，然后才执行命令。
+    2. 例如，“OUTPUT="> out.file"；echo hello $OUTPUT；”不能把输入重定向到文件中，只有加上“eval ”在echo前面，才能在执行 echo 时先把 $OUTPUT 替换成想要的值。
+  2. xargs 命令
+    1. 格式： 其它命令 | xargs 【 xargs 选项 】 【 目标命令 】
+    2. 作用： xargs 命令会把 其它命令的 output 通过管道作为 input 放到 目标命令 后。  换言之，新的命令，会以【 目标命令 】为开头，然后把 pipe 传过来的output 全部放在【 目标命令 】之后，这就是“新的命令”的内容。
+    3. 例子： ls | xargs -n 2 echo ===
+      1. 解释：  “-n 2" 表示”新的命令“每次只接受2个管道传过来的参数。例如，管道传过来20个文件名，但是每次”新的命令“只包含2个文件名，分10次处理完所有20个文件名。
+    4. 例子：  ls *.batch | grep DBA | xargs -t -I {} cp {} ~/temp/ 
+  3. expr 命令
+    1. 该命令主要用于整数算术运算。注意，算术结果中所有 小数 部分会被删除掉。而且，在 算术符号 和 数字 前后要有空格分隔，否则会出错。
+    2. 乘法：（符号是 \* ，\ 的作用是 escape *） 例子： expr 3 \*  5
+    3. 改变整数变量的值： （例子） CNT=?expr $CNT + 1? （作用是把变量 CNT 的值 加 1）
+    4. 计算一个变量中包含多少个字符： （例子） expr $ABC : '.*' 该例子计算 变量 ABC 中包含多少字符。
+    5. 返回在指定位置上的子字符串： （例子） expr abcdef : '..\(..\)..' （因为小括号所指定的范围是 第三至第四个字符，所以返回的结果是 “cd ”。
+  4. bc 命令
+    1. 作用：
+      1. 进行数学运算
+      2. 给 shell 变量赋值
+      3. 改变小数精度
+      4. 改变 进位制
+    2. 给 shell 变量赋值
+      1. 例子： AVERAGE=?echo "scale=4; $PRICE/$UNITS" | bc?
+      2. 说明， echo 的作用是把 一些命令选项 传给 bc 命令，在该例子中， echo 首先设置 精度 为 4， 然后让 bc 计算 变量 $PRICE 除以 $UNITS 的值； `` 的作用是把 bc 命令的结果替换成数值，然后最终赋值给 变量 AVERAGE。

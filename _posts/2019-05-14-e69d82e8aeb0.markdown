@@ -1,0 +1,242 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:03+00:00
+layout: post
+link: http://localhost/blog/?p=368
+slug: '%e6%9d%82%e8%ae%b0'
+title: 杂记
+wordpress_id: 368
+categories:
+- linux命令
+---
+
+ 
+
+**col 命令过滤控制字符**
+
+ 
+
+例子： man cp | col -b > cp.txt
+
+ 
+
+ 
+
+**打印命令结果中指定的列：**
+
+ 
+
+例子： ls -l | awk '{print $9, $5}'
+
+ 
+
+  
+**改变终端窗口 I/O 设置：**
+
+ 
+
+ 
+  * stty -- 显示当前 I/O 设置   
+  * stty erase \^h -- 使用backspace 作为删除键   
+  * stty sane -- 恢复默认选项
+ 
+
+添加用户到新的组：
+
+ 
+
+方法1： 修改 /etc/group，在新的组后面添加用户： 【组名】：权限：用户1，用户2
+
+ 
+
+方法2： 命令 usermod -a -G [group] [user]
+
+  
+
+
+**ls 命令：**
+
+ls -lut  :  按照最后访问时间排序显示文件信息
+
+-u  :  使用最后访问时间排序
+
+-c :  time of last modification
+
+-t  Sorts by time stamp (latest first)
+
+**tail 命令：**
+
+tail -f  ....  :  查看文件实时最后几行的内容 （  -f 表示 follow ）
+
+  
+
+
+**在 csh 中判断非tcsh并且进入tcsh（.cshrc 文件）**
+
+set curId = `echo $$`
+
+set st = `ps | grep $curId | awk '{ print $4 }'`
+
+if ("$st" != "tcsh") then
+
+exec /usr/bin/tcsh
+
+endif
+
+  
+
+
+**在 csh 中使用 alias 来处理某个参数**
+
+38>alias lstr 'ls -l \!:3'
+
+39>lstr bssm_master.log mangrep.txt memo.txt turboif.exp
+
+			-rw-rw-r--  1 owner gen  1330 Nov 15  2012 memo.txt
+
+<blockquote>  
+
+> 
+> 
+            </blockquote>
+
+
+              <table border="1" align="center" width="400" vspace="9" cellpadding="4" cellspacing="0" >
+                <tbody ><tr > 
+                  
+<td width="20%" valign="top" height="16" > 
+                    
+
+符號 
+                  
+
+</td>
+                  
+<td width="80%" valign="top" height="16" > 
+                    
+
+說明 
+                  
+
+</td>
+                </tr>
+                <tr > 
+                  
+<td width="20%" valign="top" height="16" > 
+                    
+
+!* 
+                  
+
+</td>
+                  
+<td width="80%" valign="top" height="16" >代表指令行的第一個到最後一個引數
+</td>
+                </tr>
+                <tr > 
+                  
+<td width="20%" valign="top" height="16" > 
+                    
+
+!^ 
+                  
+
+</td>
+                  
+<td width="80%" valign="top" height="16" >代表指令行的第一個引數
+</td>
+                </tr>
+                <tr > 
+                  
+<td width="20%" valign="top" height="16" > 
+                    
+
+!:n 
+                  
+
+</td>
+                  
+<td width="80%" valign="top" height="16" >代表指令行的第 
+                    n 個引數
+</td>
+                </tr>
+              </table>
+            
+
+
+            
+            
+
+<blockquote>
+              
+> 
+>   
+
+> 
+> </blockquote>
+
+	C SHELL 参考
+
+[http://linux.vbird.org/linux_basic/0320bash/csh/index-cshell.html](http://linux.vbird.org/linux_basic/0320bash/csh/index-cshell.html)
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+

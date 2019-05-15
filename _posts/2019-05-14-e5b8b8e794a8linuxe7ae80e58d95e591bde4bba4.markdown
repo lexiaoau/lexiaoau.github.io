@@ -1,0 +1,37 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:05+00:00
+layout: post
+link: http://localhost/blog/?p=370
+slug: '%e5%b8%b8%e7%94%a8linux%e7%ae%80%e5%8d%95%e5%91%bd%e4%bb%a4'
+title: 常用linux简单命令
+wordpress_id: 370
+categories:
+- 默认分类
+---
+
+过滤控制字符 -- col
+
+ 
+
+ 
+  1. 过滤说明文件里面的控制字符（如RLF,HRLF）
+   
+    1. 例子： man find | col -b > find.txt
+ 
+
+显示文件中每行的指定内容 -- cut
+
+ 
+
+ 
+  1. 指定输出范围
+   
+    1. 例子： cut -b1-72 textfile 输出textfile每行的前 72 个 byte
+ 
+    2. 例子： cut -c1-72 textfile 输出textfile每行的前 72 个 character
+ 
+    3. 例子： cut -c1,2,4-72 textfile 输出textfile每行的前 72 个 character,除了第3个之外
+ 
+    4. 例子： cut -d':' -f 1 /etc/passwd 把/etc/passwd文件中的第一个域打印出来。“-d':' “ 表明域分隔符为单引号，默认符号为空格。“-f 1”

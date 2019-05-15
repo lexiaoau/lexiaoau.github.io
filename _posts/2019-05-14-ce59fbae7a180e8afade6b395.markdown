@@ -1,0 +1,271 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:14+00:00
+layout: post
+link: http://localhost/blog/?p=380
+slug: c%e5%9f%ba%e7%a1%80%e8%af%ad%e6%b3%95
+title: C++基础语法
+wordpress_id: 380
+categories:
+- C++
+---
+
+
+
+
+
+
+
+
+
+  1.   
+变量
+
+
+    1. 如果未初始化，基本类型的变量，对于全局变量值为零；对于函数内部变量值为 uninitialized 。
+
+
+    2. （Tip）使用 uninitialized 的变量会导致运行时错误，而不是编译错误。
+
+
+    3. 对于类变量，如果没有初始化，要看该类是否提供了default构造函数。如果有，就默认调用。
+
+
+    4. 声明 & 定义
+
+
+      1. _定义 是 给变量分配（内存）空间，并可以赋初始值_
+
+
+      2. **定义 只可以 出现一次**。
+
+
+      3. 声明 是 指定变量的类型及名字；但是，有时候即使是这样，如果分配了内存空间给变量，那么该语句也是“定义”。
+
+
+      4. 定义 必然是 声明；但是 声明 不可能是 定义。
+      5. 如果有某个全局变量（类型为某个struct）是global的，这并不代表struct内部的成员也是global的；需要单独另外声明。
+
+
+    5. extern 变量
+
+
+      1. 
+
+
+在 extern语句中，如果给变量赋值，则该语句是对该变量的“定义”； 否则，只是“声明”。
+
+
+
+      2. 在 extern语句中，只有当它处于_全局空间_时，才可以“定义”变量。
+
+
+    6. const
+
+
+      1. const 变量必须初始化（赋初值），因为之后不可以更改。
+
+
+      2. const 变量一般只用于自身文件中；如果要在其它文件中引用，则在定义 const时必须加“extern”。（Tip：其它全局变量默认是“extern ”）
+
+
+      3. 如果是用“const expression” 赋值的，应该定义在header 文件中；如果是赋予直接数值的，应该定义在 source 文件中并且在头文件中用 extern 声明。
+
+
+      4. const 可以放在 类型 前面，也可以放在后面。（如果对基本类型，其效果是一样的；但是对于指针类型，是有区别的）
+
+
+  2. Reference（引用）
+
+
+    1. 每个引用必须被初始化（绑定于某个实体变量，这种绑定以后不可以变更）。
+
+
+    2. 只有 const reference 可以绑定于 const 变量
+
+
+    3. non-const 的引用，只可以绑定于同类型的变量；const的引用，可以绑定于不同类型的object
+
+
+  3. Enum
+
+
+    1. Enum中的每个元素都代表一个const值，所以它们都可以用作const常量
+
+
+    2. Enum中元素的值可以是重复的，但之后不可以更改。
+
+
+  4. 数组
+
+
+    1. 没有关于“引用”的数组
+
+
+    2. 数组的 dimensions 必须是常量值（>= 1 )。即使是 const 常量，但是如果它的值要在 run-time 时才能决定，那么也不能作为 dimensions。
+
+
+    3. 如果没有为数组元素提供初始值，则按“无初始值的变量”规则初始化。如果只为数组前面一部分元素提供初始值，则剩下的元素也按无初值规则办。
+
+
+    4. 不可以用一个数组去初始化另外一个数组；也不可以用一个数组 assign 给另外一个数组。
+
+
+  5. 多维数组
+
+
+    1. C++ 中实际上没有多维，只有“数组的数组”
+
+
+    2. 例如 int ia[3][4], 可以看做是一个有 3 个元素的数组，然后每个元素是有 4 个元素的数组。
+  6. 函数返回值
+    1. 返回基本类型变量（primitive variable)
+      1. 直接返回函数局部变量是没问题的。
+      2. 如果返回的是 局部变量 的pointer 或者 reference ， 则会有问题，
+    2. 返回 object
+      1. 这是合法的，只是会有side-effect（需要创建一个临时object），为了减少side-effect，应该return构造函数，例如 return Date(); 这样可以把临时占用的内存消耗降为 0。
+
+
+* 指针
+
+
+
+
+  1. 指针的 4 种状态
+
+
+    1. 指向一个 object的地址；
+
+
+    2. 不指向任何地址（值为 0 ）
+
+
+    3. 未初始化（只声明，未赋值）
+
+
+    4. point one past the end of an object(指向一个object，例如数组，之后的位置；但是，不是指向最后一个元素，而是最后一个元素之后的地址；这样的状态是合法的，但是这时不能dereference )
+
+
+  2. 指针的 4 种可能值
+
+
+    1. A constant expression with value 0。
+
+
+    2. An address of an object of an appropriate type
+
+
+    3. The address one past the end of another object
+
+
+    4. Another valid pointer of the same type
+
+
+  3. void * 的允许操作：
+
+
+    1. compare it to another pointer
+
+
+    2. pass or return it from a function
+
+
+    3. assign it to another void* pointer
+
+
+    4. 但是，We cannot use the pointer to operate on the object it addresses.
+
+
+  4. const pointer（pointer to a const object)
+
+
+    1. non-const pointer 不能指向 const object， non-const void pointer 也不能指向 const object
+
+
+    2. const （viod） pointer 可以指向const object（或者 non-const object），但是不能通过pointer来改变 object的值
+
+
+      1. 特殊情况：如果 const （viod） pointer 指向了 non-const object，那个该object 的值可能会改变（非通过const pointer）；那么，多次通过 const pointer 获得的值可能不一样。
+
+
+  5. const pointer（pointer itself const)
+
+
+    1. 这种pointer如果指向 const object，那么就不可以通过指针修改对象值；反正则可以。
+  6. Ref 和 pointer 的区别
+    1. Ref 不能为空，指针可以为空。Ref 声明时就必须指向某个 object。在使用时， Ref 不需要检查是否为空，而指针必须要做检查。
+    2. 指针可以重新指向另外一个object， 而 Ref 则一直指向初始化的object。
+    3. 在重载某些运算符时，应该 return Ref。
+
+
+* 操作符及运算
+
+
+
+
+  1. 复合运算符（如 +=, -=, |= )
+
+
+    1. 在复合运算中， operand 只被操作一次；而在对应的非复合运算中，operand被操作 2 次。这在某些情况下会有性能的区别。
+
+
+      1. 例子： a += b; (a 只被操作一次） a = a + b; （a 被操作 2次）
+
+
+  2. “++”和 “——”操作符
+
+
+    1. 置前时，例如 ++i ，则先增值（或减值），然后返回结果；
+
+
+    2. 置后时，例如 i++ ，则对operand的value制作一个copy，然后对operand增值（或减值），但是返回的是copy object（注意：返回值是没有变化的原始值）。
+* using
+
+  1. using 命令用于引用 某个库 里面的函数，
+    1. Example:  using std::cout;
+  2. 但是，在头文件中，不要使用 using， 因为这会造成 include 头文件的 其他文件 引入不需要的 using 。
+
+
+* sizeof 运算符
+
+
+
+
+
+  1. 
+
+
+sizeof char or an expression of type char is guaranteed to be 1
+
+
+
+  2. sizeof a reference type returns the size of the memory necessary to contain an object of the referenced type
+
+
+  3. sizeof a pointer returns the size needed hold a pointer; to obtain the size of the object to which the pointer points, the pointer must be dereferenced
+
+
+  4. 
+
+
+sizeof an array is equivalent to taking the sizeof the element type times the number of elements in the array
+
+
+
+* 
+
+
+  
+
+
+**函数参数传递**
+
+  1. 默认的的传递方式
+    1. pass-by-value。当object 作为参数传递时，函数用该object的 copy constructor 生成一个copy；而在函数返回时，也是返回同样方法生成的copy。这是默认方式。
+    2. 这种方式适用于：build-in type， STL里面的 iterator 和 function object.
+    3. 如果一个derived class object 被传递给一个需要 base class object 参数的函数，那么函数会调用 base class 的 copy constructor 去生成 copy，即derived object 中不属于基类的数据就会丢失，出现“slicing”问题。
+  2. 推荐使用 “pass by reference-to-const”
+    1. 不需要生成多余的 object，避免内存分配。
+    2. 加const可以确保被传递的 object 不会被修改。
+    3. 可以避免 slicing 问题。

@@ -1,0 +1,71 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:35:54+00:00
+layout: post
+link: http://localhost/blog/?p=358
+slug: linux-c-%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b
+title: Linux C 网络编程
+wordpress_id: 358
+categories:
+- 默认分类
+---
+
+ 
+
+ 
+  1. 常用数据结构     
+    1. hostent     
+      1. <p> struct <strong><u>hostent</u></strong> {<br>  const char *h_name; /* official name of host, e.g. <a href="http://www.163.com">www.163.com</a> */<br>  char **h_aliases; /* alias list */<br>  short h_addrtype; /* host address type */<br>  short h_length; /* length of address */<br>  char **h_addr_list; /* list of addresses from name server */<br> #define h_addr h_addr_list[0] /* address, for backward compatiblity */<br>};</p>
+    
+     
+
+ 
+    2. in_addr     
+      1. <p>/* Internet address. */<br>struct in_addr<br>{<br>  in_addr_t s_addr;<br>}; </p><p> </p><p>typedef uint32_t in_addr_t;</p>
+    
+     
+
+ 
+    3. sockaddr_in 
+   
+      1. <p>/* Structure describing an Internet (IP) socket address. */<br>#define __SOCK_SIZE__ 16  /* sizeof(struct sockaddr) */<br>struct sockaddr_in<br>{<br>   sa_family_t  sin_family; /* Address family  */<br>   in_port_t  sin_port; /* Port number   */<br>   struct in_addr sin_addr; /* Internet address  */</p><p>   /* Pad to size of `struct sockaddr'. */<br>   unsigned char  __pad[__SOCK_SIZE__ - sizeof(short int)<br>     - sizeof(unsigned short int) - sizeof(struct in_addr)];<br>}; </p>
+    
+    <br>
+
+a
+ 
+    4. protoent --- 网络协议
+   
+      1. <p> struct protoent</p><p>{</p><p> char *proto_name;</p><p> char **proto_alias;</p><p> int proto_num;</p><p>}</p>
+    
+    <br>
+
+ 
+    5.  
+  2. 常用函数     
+    1. 将网络地址转换成“.”点隔的字符串格式： char *inet_ntoa (struct in_addr);   
+    2. 用域名取得主机的 IP 地址： struct hostent* gethostbyname( const char *domain_name );     
+      1. <p> struct in_addr in ;<br> struct sockaddr_in addr_in;</p><p> </p><p>if( (host = gethostbyname( hostname2 ) ) != NULL )</p><p>{</p><p> memcpy(&addr_in.sin_addr.s_addr, host->h_addr, 4);</p><p> in.s_addr = addr_in.sin_addr.s_addr;</p><p> printf("IP:\t\t\t\t\t%s \n", inet_ntoa(in) ); </p>
+    
+    <br>
+
+d
+ 
+    3. 用 IP 地址取得主机的域名： struct hostent* gethostbyaddr(addr,sizeof(addr),AF_INET)
+   
+      1. <p> struct hostent *host;<br>   char addr[]="202.108.249.216";<br>   struct in_addr in;<br>   struct sockaddr_in addr_in;<br>      <br>   if((host=gethostbyaddr(addr,sizeof(addr),AF_INET))!=(struct hostent *)NULL)<br>   {<br>       memcpy(&addr_in.sin_addr.s_addr,host->h_addr,4);<br>       in.s_addr=addr_in.sin_addr.s_addr;<br>       printf("Domain name: %s \n",host->h_name);<br>       printf("IP length:    %d\n",host->h_length);<br>       printf("Type:    %d\n",host->h_addrtype);<br>       printf("IP          : %s \n",inet_ntoa(in));<br>    }</p>
+    
+    <br>
+
+ 
+    4. d   
+    5. d   
+    6. d   
+    7. d   
+    8. d   
+    9. d   
+    10. d
+ 
+
+*

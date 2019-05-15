@@ -1,0 +1,109 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:54+00:00
+layout: post
+link: http://localhost/blog/?p=418
+slug: '%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%ef%bc%88oop%ef%bc%89'
+title: 面向对象（OOP）
+wordpress_id: 418
+categories:
+- design rules
+---
+
+
+
+  1. 目的
+
+
+
+    1. 弹性。代码易于修改，增加功能。易于开发。
+
+
+    2. 可维护性。代码易于理解。
+
+
+  2. 基本概念
+
+
+
+    1. Class, Object, Messaging, Data, Behaviour
+
+
+    2. 继承。
+
+
+    3. 封装。
+
+
+    4. Abstraction
+
+
+    5. Polymorphism 
+
+
+  3. Design Pattern 的原则
+
+
+
+    1. “开－闭”原则。"Software entities should be open for extension,but closed for modification"。
+
+
+    2. “里氏代换原则”。如果调用的是父类的话，那么换成子类也完全可以运行。
+
+
+    3. “合成复用原则”。就是说要少用继承，多用合成关系来实现。面向对象是要把波动限制在尽量小的范围。在Java中，应尽量针对Interface编程，而非实现类。这样，更换子类不会影响调用它方法的代码。要让各个类尽可能少的跟别人联系，"不要与陌生人说话"。
+
+
+
+      * 分辨程序中“会变”和“不变”的方面（aspects）；把“会变”的东西封装起来
+
+
+      * 把“具体的、非通用的”implementation 代码 封装到 “通用的”接口（interface）中，从而使client端是“面向接口”，而不是“面向实现”。从而decouple 了client代码和具体实现的代码。
+
+
+      * 少用 inheritance，多用composition（strategy pattern）
+
+
+    4. 
+
+
+依赖倒转原则。抽象不应该依赖与细节，细节应当依赖与抽象。要针对接口编程，而不是针对实现编程。
+
+
+
+    5. 
+
+
+接口隔离原则。定制服务的例子，每一个接口应该是一种角色，不多不少，不干不该干的事，该干的事都要干。
+
+
+
+    6. 
+
+
+迪米特法则。最少知识原则。不要和陌生人说话。
+
+
+
+
+      * 原则核心：只和“最接近的朋友”交谈
+
+
+      * 原则要求：对某个object的任何函数实现中， 只能调用以下函数：
+
+
+
+        * 该object自身的函数；
+
+
+        * 作为函数参数传递进来的object；
+
+
+        * 由该函数创建、实例化的object；
+
+
+        * 该object的 任何components
+
+
+      * 原则要求不可以：（不可以）调用属于“由其它函数调用返回的object”的函数（not to call methods on objects that were returned from calling other methods)

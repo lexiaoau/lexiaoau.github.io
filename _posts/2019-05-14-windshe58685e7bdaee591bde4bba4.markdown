@@ -1,0 +1,362 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:07+00:00
+layout: post
+link: http://localhost/blog/?p=372
+slug: windsh%e5%86%85%e7%bd%ae%e5%91%bd%e4%bb%a4
+title: WindSh内置命令
+wordpress_id: 372
+categories:
+- 杂而无多
+---
+
+ 
+
+**[http://sunjiangbo.blog.163.com/blog/static/6542043020095283633160/](http://sunjiangbo.blog.163.com/blog/static/6542043020095283633160/)**
+
+ 
+
+**[http://www.ccoder.net/C-yuyantigao/qianrushi-system/1019_8.html](http://www.ccoder.net/C-yuyantigao/qianrushi-system/1019_8.html)**
+
+ 
+
+****
+
+ 
+
+**3.1.4**** _WindSh_****内置命令**
+
+ 
+
+** 3.1.4.1 **** ****任务管理**
+
+ 
+
+** ****sp( ) **用缺省参数创建一个任务（priority=100 返回值为任务ID，或错误）(taskSpawn)
+
+ 
+
+**sps( ) ** 创建一个任务，并挂起它
+
+ 
+
+**tr( ) ** 恢复一个挂起的任务（与taskResume相同）
+
+ 
+
+**ts( ) ** 挂起一个任务 （与taskSuspend相同）
+
+ 
+
+**td( ) ** 删除一个任务 （与taskDelete相同）
+
+ 
+
+**period( )** 创建一个周期调用函数的任务
+
+ 
+
+**repeat( )** 创建一个重复调用函数的任务
+
+ 
+
+**taskIdDefault( ) **设置并报告当前缺省的任务ID。
+
+ 
+
+**3.1.4****.2 ****任务状态信息**
+
+ 
+
+**i( ) **显示系统信息，包括当前任务明、状态等（重复查询目标机，有时可能显示不一致）
+
+ 
+
+**iStrict( **) 类似于i( )，但只查询目标机一次
+
+ 
+
+**ti( ) ** 显示任务的TCB信息 
+
+ 
+
+**w( ) ** 显示所有挂起任务的详细信息。.
+
+ 
+
+**tw( ) ** 显示某挂起任务的详细信息。
+
+ 
+
+**checkState( ) **显示一个任务的使用堆栈的总结，没有定义任务时显示所有
+
+ 
+
+**tt( ) ** 显示堆栈记录
+
+ 
+
+**taskIdFigure( ) **报告任务的ID,以及名称
+
+ 
+
+**3.1.4****.3 ****系统信息**
+
+ 
+
+**devs( )** 列出目标机系统上的所有设备
+
+ 
+
+**lkup( )** List symbols from symbol table
+
+ 
+
+**lkAddr(** ) List symbols whose values are near a specified value
+
+ 
+
+**d( ) ** 显示目标机内存
+
+ 
+
+**l( ) ** Disassemble and display a specific nuber of instructions
+
+ 
+
+**printError( )** 给出最近的错误值
+
+ 
+
+**version()** 显示VxWorks版本
+
+ 
+
+**cd( ) ** 改变宿主机工作目录（不影响目标机）
+
+ 
+
+**ls( ) ** 列出宿主机工作目录下的文件
+
+ 
+
+**pwd( ) ** 显示宿主机当前工作目录
+
+ 
+
+**help( )** 显示Shell命令的帮助
+
+ 
+
+**h( ) ** 显示最近输入的20个命令
+
+ 
+
+**shellHistory( )** 设置或显示Shell命令
+
+ 
+
+**shellPromptSet( )**改变C解释器Shell 提示
+
+ 
+
+**printLogo( ) ** 显示Tornado Shell 登陆
+
+ 
+
+**3.1.4****.4 ****系统修改和调试**
+
+ 
+
+** ****ld( ) ** 加载一个对象模块到目标机，并动态连接到run-time
+
+ 
+
+**unld( ) ** 从目标机内存中删除动态连接的对象模块
+
+ 
+
+**m( ) ** Modify memory in Width(byte,short,long)starting at adr.
+
+ 
+
+**MRegs( ) ** 为特定的任务改变寄存器的值
+
+ 
+
+**b( ) ** 设置或修改断点
+
+ 
+
+**bh( ) ** 设置硬件断点
+
+ 
+
+**s( ) ** 单步跟踪到下一条指令
+
+ 
+
+**so( ) ** 单步跟踪,但跳过子程序
+
+ 
+
+**c( )  ** 从断点处继续
+
+ 
+
+**cret( ) ** 继续执行，直到当前的子程序返回
+
+ 
+
+**bdall( )** 删除所有断点
+
+ 
+
+**bd( ) ** 删除一个断点
+
+ 
+
+**reboot( **) 重新启动targe server
+
+ 
+
+**bootChange( )**改变boot参数保存值
+
+ 
+
+**sysSuspend( )**如果目标机代理支持，进入系统模式
+
+ 
+
+ 
+
+**sysResume( )** 如果目标机代理支持，从系统模式返回到任务模式
+
+ 
+
+**agentModeShow( )** 显示代理模式（系统模式 或 任务模式）
+
+ 
+
+**sysStatusShow( **)显示系统上下文（suspend 或 running 系统模式下使用）
+
+ 
+
+**quit( ) or exit( )**
+
+ 
+
+**3.1.4****.5 ****对象命令( WindSh Commands for Object Display )**
+
+ 
+
+** ****show( ) **在shell窗口打印特定对象的信息
+
+ 
+
+**browse( ) **在Tornado browser 显示特定的对象
+
+ 
+
+**classShow( )** Show information about a class of VxWorks kernel objects.List available classes
+
+ 
+
+**taskShow( ) **显示任务TCB信息
+
+ 
+
+**taskCreateHookShow**( ) 显示任务创建例程列表
+
+ 
+
+**taskDeleteHookShow**( ) 显示任务删除例程列表
+
+ 
+
+**taskRegsSho**w( ) 显示任务寄存器的内容
+
+ 
+
+**taskSwitchHookShow**( ) 显示任务切换例程列表
+
+ 
+
+**taskWaitShow**( ) 显示阻塞任务信息
+
+ 
+
+**semShow( ) ** 显示信号量的信息
+
+ 
+
+**semPxShow**( ) 显示POSIX信号量的信息
+
+ 
+
+**wdShow( ) ** 显示看门狗的信息
+
+ 
+
+**msgQShow(** ) 显示消息队列的信息
+
+ 
+
+**mqPxShow(** ) 显示POSIX消息队列的信息
+
+ 
+
+**iosDrvShow**( ) 显示系统驱动程序的信息
+
+ 
+
+**iosDevShow**( ) 显示系统设备的信息
+
+ 
+
+**iosFdShow(** ) 显示系统命名descriptor的信息
+
+ 
+
+**memPartShow**( ) 显示分区块及统计信息
+
+ 
+
+**memShow( **) 显示系统分区上空闲和已分配空间的总数等等
+
+ 
+
+**smMemShow**( ) Display the amount of free space and statistics on 
+
+ 
+
+memory-block allocation for the shared-memory system partition
+
+ 
+
+**smMemPartShow**( ) Display the amount of free space and statistics on 
+
+ 
+
+memory-block allocation for a specified shared-memory partition
+
+ 
+
+**moduleShow**( ) Show the current status for all the loaded modules
+
+ 
+
+**moduleIdFigure**( ) Report a loaded module's module ID, given its name
+
+ 
+
+**intVecShow**( ) Display the interrupt vector table. This routine displays(nt下不可用)
+
+ 
+
+** **
+
+ 
+
+** **

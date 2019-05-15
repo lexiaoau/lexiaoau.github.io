@@ -1,0 +1,527 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:34:40+00:00
+layout: post
+link: http://localhost/blog/?p=322
+slug: python-%e6%9d%82%e9%a1%b9
+title: python 杂项
+wordpress_id: 322
+categories:
+- python
+---
+
+如何import  
+
+
+  
+
+
+Usually, when you import something from a module, you either use
+
+import somemodule
+
+or
+
+from somemodule import somefunction
+
+or
+
+from somemodule import somefunction, anotherfunction, yetanotherfunction
+
+or
+
+from somemodule import *
+
+or 如果分别从不同module引入同名函数的时候
+
+from module1 import open as open1
+
+from module2 import open as open2
+
+  
+
+
+  
+
+
+赋值
+
+  1. 按顺序赋值
+    1. 例子：
+      1.       2. x, y, z = 1, 2, 3
+      3. x, y = y, x
+      4. values = 1, 2, 3
+      5. x, y, z = values
+      6. key, value = scoundrel.popitem()
+    2. 如果 = 右边是一个 sequence，= 左边的变量可以依次对应地获得 sequence里面的值。
+    3. 注意，= 两边的数量必须相等，否则会有exception。
+    4.   
+
+
+  
+
+
+  
+
+
+使用 outlook 发送电子邮件
+    
+    <p>import win32com.client as win32</p><p><br></p><p>outlook = win32.Dispatch('outlook.application')</p><p>	if len(warnStr) > 1:<br>			mail = outlook.CreateItem(0)<br>			mail.To = 'xxx@qq.com'<br>			mail.Subject = 'Update '<br>			mail.body = warnStr<br>			mail.send<br>			</p>
+
+  
+
+
+  
+
+
+  
+
+
+获取两个时间点的时间差值
+
+  
+
+
+  1.   
+
+  2.   
+
+    
+    <p>import datetime as dt</p><p><br></p><p>	allStartTime = dt.datetime.now()</p><p>	allEndTime = dt.datetime.now()<br><br>	tDelta = allEndTime - allStartTime<br><br>	print 'Time used in seconds:\t\t\t' + str(tDelta.total_seconds())</p>
+    
+    <p><font size="4">import time<br>startTime = time.time()<br>print ('The script took {0} second !'.format(time.time() - startTime))</font></p><p><font size="4"><br></font></p><p><font size="4"><br></font></p>
+    
+    <p>datetime.datetime.now()</p><p>datetime.datetime.now().strftime("%H:%M")</p>
+
+  
+
+
+  
+
+
+  
+
+
+使用 自定义的类
+
+  
+
+
+  1. 新建一个类：
+    1.   
+
+    
+    <p style="line-height: 28px;">class StDetailApi:<br style="line-height: 28px;"><br style="line-height: 28px;">    def __init__(self):<br style="line-height: 28px;">        self.run_times_limit = 20</p><p style="line-height: 28px;"><br style="line-height: 28px;"></p><p style="line-height: 28px;">    def getAllStList(self):</p><p style="line-height: 28px;"><br style="line-height: 28px;"></p><p style="line-height: 28px;"><br style="line-height: 28px;"></p>
+
+2. 在使用侧 进行导入
+    
+    <p style="line-height: 28px;">from <font color="#ff00ff" style="line-height: 28px;">stDetailApi </font>import *        ### 注意：  导入的是py文件名，而不是类名</p><p style="line-height: 28px;"><br style="line-height: 28px;"></p><p style="line-height: 28px;">sc=StDetailApi()</p>
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+按字典中的value的值进行反向排序
+
+  
+
+
+ratio_sorted = sorted( zip( calcResultDict.values() , calcResultDict.keys() ) , reverse=True)
+
+  
+
+
+  
+
+
+  
+
+
+数据结构文件化
+
+  1.   
+
+  2.   
+
+    
+    <p>####  保存数据结构到文件	</p><p>import pickle</p><p><br></p><p><span style="white-space:pre;">	</span>afile = open(dataFile, 'wb')<br>	pickle.dump(s_ratio_sorted, afile)<br>	afile.close()</p><p><br></p><p>#######  从文件读取数据结构</p><p>import pickle</p><p><br></p><p>	file2 = open(dataFile, 'rb')<br>	new_d = pickle.load(file2)<br>	file2.close()</p>
+
+  
+
+
+获取命令行输入值
+
+  
+
+
+  1.   
+
+  2.   
+
+    
+    <p>		print u'输入行业序号值'<br>		thisInput = input()       ### 注意： 用户输入值会被保存为 int 类型。</p>
+
+  
+
+
+  
+
+
+处理异常
+    
+    <p>						try:<br>							thisPe = float(thisPe)<br>						except:<br>							thisPe = float(-1)</p>
+    
+    <h2>
+    
+    <font size="3"><span>try</span><span>:</span><span><br>   </span><span>You</span><span> </span><span>do</span><span> your operations here</span><span>;</span><span><br>   </span><span>......................</span><span><br></span><span>except</span><span>:</span><span><br>   </span><span>If</span><span> there </span><span>is</span><span> any exception</span><span>,</span><span> </span><span>then</span><span> execute </span><span>this</span><span> block</span><span>.</span><span><br>   </span><span>......................</span><span><br></span><span>else</span><span>:</span><span><br>   </span><span>If</span><span> there </span><span>is</span><span> </span><span>no</span><span> exception </span><span>then</span><span> execute </span><span>this</span><span> block</span><span>.</span></font><span></span>
+
+http://www.tutorialspoint.com/python/python_exceptions.htm
+
+  
+
+
+文件读写
+
+  
+
+
+  1.   
+
+  2. 普通文件
+    
+    <p style="line-height: 28px;">	with open(stCodeSourceFile, 'rt') as file_handle:</p>            line = file_handle.readline()<br>            while( line ):                <br><span style="white-space:pre;">		</span>。。。。。。。<br>                line = file_handle.readline()        
+    
+    判断文件是否存在<br>import os<br>os.path.exists(dataFile)
+    
+    <br>
+
+  
+
+
+phantom
+
+  
+
+
+  1.   
+
+  2.   
+
+    
+    <p style="line-height: 28px;">from selenium import webdriver<br><br>driver = webdriver.PhantomJS(executable_path="C:/myfiles/greensw/phantomjs-2.1.1-windows/bin/phantomjs.exe")<br>driver.get(url)<br><br>unicodetext = driver.page_source<br><br>driver.find_element_by_id('dt_1').text</p><p style="line-height: 28px;">		</p>
+
+  
+
+
+  
+
+
+日期和时间
+
+  
+
+
+  
+
+
+  
+
+
+获取命令行输入值
+
+  
+
+
+  1.   
+
+  2.   
+
+    
+    <p style="font-size: x-large; line-height: 28px;">import datetime</p><p style="line-height: 28px;"><font size="5">datetime.datetime.now()</font></p><p style="font-size: x-large; line-height: 28px;">		print u'输入行业序号值'<br style="line-height: 28px;">		thisInput = input()       ### 注意： 用户输入值会被保存为 int 类型。</p>
+
+  
+
+
+  
+
+
+如何使用thread  
+
+
+  
+
+    
+    <p><br></p><p>import threading</p><p><br></p><p>threadLock = threading.Lock()</p><p>threads = []</p><p>t = threading.Thread(target=getInfoThread,args=(str(i),) )</p><p>t.setDaemon(True)<br>t.start()<br>threads.append(t)<br><br>for t in threads:<br>    t.join() </p>
+    
+    <p>def getInfoThread(stCode):</p><p>    threadLock.acquire()</p><p>。。。</p><p><span style="white-space:pre;">	</span>threadLock.release() </p>
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+如何import  
+
+
+  
+
+
+Usually, when you import something from a module, you either use
+
+import somemodule
+
+or
+
+from somemodule import somefunction
+
+or
+
+from somemodule import somefunction, anotherfunction, yetanotherfunction
+
+or
+
+from somemodule import *
+
+or 如果分别从不同module引入同名函数的时候
+
+from module1 import open as open1
+
+from module2 import open as open2
+
+  
+
+
+如何import
+
+  
+
+
+Usually, when you import something from a module, you either use
+
+import somemodule
+
+or
+
+from somemodule import somefunction
+
+or
+
+from somemodule import somefunction, anotherfunction, yetanotherfunction
+
+or
+
+from somemodule import *
+
+or 如果分别从不同module引入同名函数的时候
+
+from module1 import open as open1
+
+from module2 import open as open2
+
+  
+
+
+  
+
+
+如何import  
+
+
+  
+
+
+Usually, when you import something from a module, you either use
+
+import somemodule
+
+or
+
+from somemodule import somefunction
+
+or
+
+from somemodule import somefunction, anotherfunction, yetanotherfunction
+
+or
+
+from somemodule import *
+
+or 如果分别从不同module引入同名函数的时候
+
+from module1 import open as open1
+
+from module2 import open as open2
+
+  
+
+
+如何import  
+
+
+  
+
+
+Usually, when you import something from a module, you either use
+
+import somemodule
+
+or
+
+from somemodule import somefunction
+
+or
+
+from somemodule import somefunction, anotherfunction, yetanotherfunction
+
+or
+
+from somemodule import *
+
+or 如果分别从不同module引入同名函数的时候
+
+from module1 import open as open1
+
+from module2 import open as open2
+
+  
+
+
+  
+
+
+如何import  
+
+
+  
+
+
+Usually, when you import something from a module, you either use
+
+import somemodule
+
+or
+
+from somemodule import somefunction
+
+or
+
+from somemodule import somefunction, anotherfunction, yetanotherfunction
+
+or
+
+from somemodule import *
+
+or 如果分别从不同module引入同名函数的时候
+
+from module1 import open as open1
+
+from module2 import open as open2
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+

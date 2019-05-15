@@ -1,0 +1,35 @@
+---
+author: lexiao
+comments: true
+date: 2019-01-25 14:30:00+00:00
+layout: post
+link: http://localhost/blog/?p=451
+slug: css-%e5%ad%a6%e4%b9%a0
+title: css 学习
+wordpress_id: 451
+categories:
+- css
+- 前端
+---
+
+  
+  
+
+
+## CSS3 选择器
+
+  
+
+
+[http://www.w3school.com.cn/cssref/css_selectors.ASP](http://www.w3school.com.cn/cssref/css_selectors.ASP)
+
+  
+
+
+  
+
+
+[![](http://localhost/blog/wp-content/uploads/2019/01/25E5-25BE-25AE-25E4-25BF-25A1-25E5-259B-25BE-25E7-2589-2587_20190126012810.png)](http://localhost/blog/wp-content/uploads/2019/01/25E5-25BE-25AE-25E4-25BF-25A1-25E5-259B-25BE-25E7-2589-2587_20190126012810.png)
+
+  
+

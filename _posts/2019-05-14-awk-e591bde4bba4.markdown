@@ -1,0 +1,278 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:41+00:00
+layout: post
+link: http://localhost/blog/?p=406
+slug: awk-%e5%91%bd%e4%bb%a4
+title: awk 命令
+wordpress_id: 406
+categories:
+- linux命令
+---
+
+awk reference:
+
+[http://www.grymoire.com/Unix/Awk.html](http://www.grymoire.com/Unix/Awk.html)
+
+  
+
+
+  1. awk 命令 的处理模式与 sed 类似（可以看sed的那篇blog），不过awk 还把 一行中，每一个由分隔符隔开的 string 当作一个 field 处理。所有这些 filed 的用数字变量表示，$1, $2, $3.... 等等分别表示一行中第一个、第二个、第三个字符串。。。还有， $0 表示整行。
+  2. awk 的命令格式： awk '/pattern1/ { actions } /pattern2/ { actions }' files
+    1. 例如， awk '  
+/ *\$[1-9][0-9]*\.[0-9][0-9] */ { print $1,$2,$3,"*"; }  
+/ *\$0\.[0-9][0-9] */ { print ; }  
+' fruit_prices.txt
+  3. 在print 命令中，如果要在 各个field 之间打印空格，可以用“，”，如上例。如果要对输出内容格式化，可以用 C 的 printf 命令，用法一样。
+  4. 域分隔符（field seperator) 指定：
+    1. awk -F ':' '{print $1}'  file  或者
+    2. awk  -F:  '{print $1}'  file  具体使用1还是2 取决于 awk的版本
+  5. awk 中的 比较判断
+    1. 可以进行 算术比较 和 文本匹配比较。
+    2. 可以用 “&&” 和 “||” 进行复合比较。
+    3. awk '  
+( $2 ~ /^\$[1-9][0-9]*\.[0-9][0-9]$/) _&&_ ($3 < 75)   
+{  
+printf "%s\t%s\t%s\n",$0,"*","REORDER" ;  
+}  
+$3 > 75 { print $0 ; }  
+' fruit_prices.txt ;
+    4. 判断操作符[![awk 命令 - xiao le - me](http://img.blog.163.com/photo/C1EMDt5dcsjBgsFb1usgdA==/5419800676563911810.jpg)](http://img.blog.163.com/photo/C1EMDt5dcsjBgsFb1usgdA==/5419800676563911810.jpg)
+  6. next 语句
+    1. 该语句告诉 awk 停止继续处理该行文本，而开始处理 下一行 文本。
+    2. 例子， awk '  
+$3 <= 75 { printf "%s\t%s\n",$0,"REORDER" ; next ; }  
+$3 > 75 { print $0 ; }  
+' fruit_prices.txt ;
+  7. BEGIN 和 END 语句块
+    1. 类似于 SQL，是一些初始化语句、和 清理语句 块。
+    2. 格式：awk '  
+BEGIN { actions }  
+/pattern/ { actions }  
+/pattern/ { actions }  
+END { actions }  
+' files
+  8. awk 内置变量
+    1. 某些内置变量的值不能改变
+    2. 变量列表：
+    3.   
+
+
+    4. 
+<table cellpadding="4" border="5" cellspacing="1" >
+<tbody >
+<tr >
+
+<td bgcolor="#ffffff" >$0
+</td>
+
+<td bgcolor="#ffffff" >当前记录（这个变量中存放着整个行的内容）
+</td>
+</tr>
+<tr >
+
+<td bgcolor="#ffffff" >$1~$n
+</td>
+
+<td bgcolor="#ffffff" >当前记录的第n个字段，字段间由FS分隔
+</td>
+</tr>
+<tr >
+
+<td bgcolor="#ffffff" >FS
+</td>
+
+<td bgcolor="#ffffff" >输入字段分隔符 默认是空格或Tab
+</td>
+</tr>
+<tr >
+
+<td bgcolor="#ffffff" >NF
+</td>
+
+<td bgcolor="#ffffff" >当前记录中的字段个数，就是有多少列
+</td>
+</tr>
+<tr >
+
+<td bgcolor="#ffffff" >NR
+</td>
+
+<td bgcolor="#ffffff" >已经读出的记录数，就是行号，从1开始，如果有多个文件话，这个值也是不断累加中。
+</td>
+</tr>
+<tr >
+
+<td bgcolor="#ffffff" >FNR
+</td>
+
+<td bgcolor="#ffffff" >当前记录数，与NR不同的是，这个值会是各个文件自己的行号
+</td>
+</tr>
+<tr >
+
+<td bgcolor="#ffffff" >RS
+</td>
+
+<td bgcolor="#ffffff" >输入的记录分隔符， 默认为换行符
+</td>
+</tr>
+<tr >
+
+<td bgcolor="#ffffff" >OFS
+</td>
+
+<td bgcolor="#ffffff" >输出字段分隔符， 默认也是空格
+</td>
+</tr>
+<tr >
+
+<td bgcolor="#ffffff" >ORS
+</td>
+
+<td bgcolor="#ffffff" >输出的记录分隔符，默认为换行符
+</td>
+</tr>
+<tr >
+
+<td bgcolor="#ffffff" >FILENAME
+</td>
+
+<td bgcolor="#ffffff" >当前输入文件的名字
+</td>
+</tr>
+
+</table>
+
+
+# 	FS="/";		# FS - The Input Field Separator Variable
+
+# 				# OFS - The Output Field Separator Variable
+
+# 				# NF - The Number of Fields Variable
+
+# 				# NR - The Number of Records Variable, or the line number.
+
+# 				# FNR - The Number of Records Variable of each file.
+
+# 				# RS - The Record Separator Variable
+
+# 				# ORS - The Output Record Separator Variable
+
+# 				# FILENAME - The Current Filename Variable
+
+    5. 怎么
+
+  9. 多维数组用法：  # Multi-dimensional Arrays:  a[1 "," 2] = y;
+  10. 可以指定处理的起始和终止条件：
+    1.     2. # /start/,/stop/ {print}
+    3. #			(NR==1),/stop/ {print}
+* 在 awk 中使用shell 变量
+* [awk 内置函数详细介绍（实例）](http://www.cnblogs.com/chengmo/archive/2010/10/08/1845913.html)
+* [The GNU Awk User’s Guide](https://www.gnu.org/software/gawk/manual/html_node/index.html#SEC_Contents)
+* 处理多个文件时：
+
+  1. 可以通过 FNR，和 NR 来判断。例如 file1 有 5行， file2 有10行；  那么  NR 取值是 1... 15， 而 FNR 取值是 1..5 跟着  1....10.
+  2. 一个合并文件的例子：
+    1. awk 'FNR==NR{a[$1]=$0;next}{ print $0, a[$1]}' Aug5-cemsbin.txt July25-cemsbin.txt > awk_merge.txt
+* 实例：
+
+  1. awk '{ if( FNR % 30 == 1 ) {print $0} }' filesrc > file.txt
+    1. 从源文件中每隔30行打印1行。
+  2. awk -F: '{printf "%-8s %-8s %-8s %-18s %-22s %-15s\n",$1,$2,$3,$4,$5,$6}' /etc/passwd
+    1. 指定每列输出长度，类似 C 语言。
+  3. `awk` `'$3==0 && $6=="LISTEN" '` `netstat``.txt`
+    1. `条件判断，分别根据值、文本判断，只打印符合条件的行。`
+  4. `awk` `'$3==0 && $6=="LISTEN" || NR==1 {printf "%-20s %-20s %s\n",$4,$5,$6}'` `netstat``.txt`
+    1. `多条件判断， NR是第一行。`
+  5. `awk` `-F: ``'{print $1,$3,$6}'` `OFS=``"\t"` `/etc/passwd`
+    1. `使用 OFS 指定输出分隔符。`
+  6. `awk` `'$6 ~ /WAIT/ || NR==1 {print NR,$4,$5,$6}'` `OFS=``"\t"` `netstat``.txt`
+  7. ``awk` `'$6 ~ /FIN|TIME/ || NR==1 {print NR,$4,$5,$6}'` `OFS=``"\t"` `netstat``.txt``
+  8. ```awk` `'$6 !~ /WAIT/ || NR==1 {print NR,$4,$5,$6}'` `OFS=``"\t"` `netstat``.txt```
+  9. ```
+
+`awk` `'!/WAIT/'` `netstat``.txt`
+
+```
+    1. `正则表达式匹配。`
+  10. 拆分文件： 
+    1. `awk` `'NR!=1{print > $6}'` `netstat``.txt`
+      1. `把第6个域相同值的行全部放到一个新文件里面，新文件名是每个`第6个域值（文本）。
+    2. `
+
+`awk` `'NR!=1{print $4,$5 > $6}'` `netstat``.txt`
+
+`
+    3. `
+
+`awk` `'NR!=1{``if``($6 ~ ``/TIME``|ESTABLISHED/) print > ``"1.txt"``;`
+
+`else` `if``($6 ~ ``/LISTEN/``) print > ``"2.txt"``;`
+
+`else` `print > ``"3.txt"` `}' ``netstat``.txt`
+
+`
+
+  11. 计算所有的C文件，CPP文件和H文件的文件大小总和。
+    1. `ls` `-l *.cpp *.c *.h | ``awk` `'{sum+=$5} END {print sum}'`
+  12. 统计各个connection状态的用法：注意其中的数组的用法。
+    1. `awk` `'NR!=1{a[$6]++;} END {for (i in a) print i ", " a[i];}'` `netstat``.txt`
+  13. 根据用户名统计进程总大小：
+    1. **ps -elf | awk 'NR!=1{a[$3]+=$10;} END { for(i in a) print i ", " a[i]"KB";}'**
+  14. **
+
+`从file文件中找出长度大于80的行`
+
+awk 'length>80 {print FNR, $0}'文件名
+
+**
+  15. `  
+`
+
+  16. ``
+ 
+
+<blockquote>a
+> 
+> </blockquote>
+
+  
+
+
+  
+
+
+### print line after every 30 lines
+
+awk '{ if( FNR % 30 == 1 ) {print $0} }' filesrc > file.txt
+
+  
+
+
+### print MEM sum of 'bsmcliapp|bsmciapp' processes
+
+egrep 'bsmcliapp|bsmciapp' 13knox_1b_prstat_Jun30_last_minute.txt | sed -r 's/([0-9]+)M/\1/g' | awk '{sum+=$4} END {print sum}'
+
+### print all listed user name
+
+awk '{a[$2]=0;} END {for(i in a) print i;}' new.txt  | sort
+
+awk '{print $2}' new.txt | sort -u
+
+### print MEM sum of alll 0000M processes
+
+awk '{if(FNR > 2 && FNR < 358 && $4 ~ /[0-9]+M/ && NF==10 ) {print $0}}' src.txt  | sed -r 's/([0-9]+)M/\1/g' | awk '{sum+=$4} END {print sum}'
+
+# calculate MO count
+
+awk -F, '{printf "%-30s %-8s\n", $1, $2}' result_grepAllActionNoScript.txt | sort -k 2nr
+
+# print fields in pair
+
+cat list.txt | gawk '{for(i=1;i<=(NF/2);++i) printf " %s %s ", $i, $(NF/2+i);  }'
+
+# count based on action and mo name, two-dimension array
+
+grep "action -noconfirm" jf_secure_201408.7.roswCEMS1b_AUG.log  | awk '{ array[$3,$5]+=1 } END { for (comb in array) {split(comb,sep,SUBSEP); print array[sep[1],sep[2]], sep[1], sep[2];} }'  | sort -k1nr > 7rosw1b_mo_action_count.txt

@@ -1,0 +1,51 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:44+00:00
+layout: post
+link: http://localhost/blog/?p=409
+slug: input%e5%a4%84%e7%90%86
+title: input处理
+wordpress_id: 409
+categories:
+- shell script
+---
+
+
+
+  1. 从文件获得 input
+
+
+
+    1. 使用“<” 操作符。
+
+
+    2. 使用 read 命令循环读入文件每一行
+
+
+
+      1. while read LINE  
+do  
+: # manipulate file here  
+done < file
+
+
+  2. 从用户获得 input
+
+
+
+    1. 使用 read 命令
+
+
+
+      1. 格式： > read 变量名
+
+
+      2. 从用户输入中获得一个值，并赋值给指定变量
+
+
+      3. 例子： read YN  
+: ${YN:=yes}
+
+
+      4. 

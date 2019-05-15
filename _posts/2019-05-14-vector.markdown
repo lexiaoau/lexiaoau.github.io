@@ -1,0 +1,134 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:37:02+00:00
+layout: post
+link: http://localhost/blog/?p=426
+slug: vector
+title: vector
+wordpress_id: 426
+categories:
+- C++
+---
+
+
+
+  1. 是一个 STL （template)。 需要 “#include <vector>” 才能使用。
+
+
+  2. 如何声明 与某个类绑定的 vector
+
+
+
+    1. vector<int> vec_a;
+
+
+    2. vector<Sales_item> vec_b; 
+
+
+  3. vector 元素的初始化
+
+
+
+    1. 如果没有明确初始化每个元素的值，则系统会自动执行初始化。
+
+
+    2. 如果 值类型为 内置类型，如int，则初始化为 0.
+
+
+    3. 如果 值类型 有 构造函数，则使用 默认构造函数。
+
+
+  4. vector 的构造函数 
+<table cellpadding="0" border="1" style="BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BORDER-COLLAPSE: collapse; mso-border-alt: solid windowtext .5pt; mso-yfti-tbllook: 480; mso-padding-alt: 0cm 5.4pt 0cm 5.4pt; mso-border-insideh: .5pt solid windowtext; mso-border-insidev: .5pt solid windowtext" cellspacing="0" >
+<tbody >
+<tr style="mso-yfti-irow: 0; mso-yfti-firstrow: yes" >
+
+<td width="343" style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 1pt solid; WIDTH: 257.4pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1pt solid; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt" valign="top" >
+
+
+
+
+
+vector();
+
+</td>
+
+<td width="225" style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: #ece9d8; WIDTH: 168.7pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1pt solid; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt" valign="top" >
+
+
+空白构造函数
+
+</td></tr>
+<tr style="mso-yfti-irow: 1" >
+
+<td width="343" style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: #ece9d8; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 1pt solid; WIDTH: 257.4pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1pt solid; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" valign="top" >
+
+
+
+
+
+vector( const vector& c );
+
+</td>
+
+<td width="225" style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: #ece9d8; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: #ece9d8; WIDTH: 168.7pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1pt solid; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" valign="top" >
+
+
+用另一个vector来构造该vector
+
+</td></tr>
+<tr style="mso-yfti-irow: 2" >
+
+<td width="343" style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: #ece9d8; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 1pt solid; WIDTH: 257.4pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1pt solid; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" valign="top" >
+
+
+
+
+
+vector( **size_type** num, const [TYPE](http://www.cppreference.com/containers.html)& val = [TYPE](http://www.cppreference.com/containers.html)() );
+
+</td>
+
+<td width="225" style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: #ece9d8; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: #ece9d8; WIDTH: 168.7pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1pt solid; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" valign="top" >
+
+
+包含 num 个值为 val 的元素
+
+</td></tr>
+<tr style="mso-yfti-irow: 3; mso-yfti-lastrow: yes" >
+
+<td width="343" style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: #ece9d8; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: windowtext 1pt solid; WIDTH: 257.4pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1pt solid; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" valign="top" >
+
+
+vector( [input_iterator](http://www.cppreference.com/iterators.html) start, [input_iterator](http://www.cppreference.com/iterators.html) end );
+
+</td>
+
+<td width="225" style="BORDER-RIGHT: windowtext 1pt solid; PADDING-RIGHT: 5.4pt; BORDER-TOP: #ece9d8; PADDING-LEFT: 5.4pt; PADDING-BOTTOM: 0cm; BORDER-LEFT: #ece9d8; WIDTH: 168.7pt; PADDING-TOP: 0cm; BORDER-BOTTOM: windowtext 1pt solid; BACKGROUND-COLOR: transparent; mso-border-alt: solid windowtext .5pt; mso-border-left-alt: solid windowtext .5pt; mso-border-top-alt: solid windowtext .5pt" valign="top" >
+
+
+构造包含 从start至end 那么多元素的 vector
+
+</td></tr></tbody></table>
+
+
+  5. vector常用函数
+
+
+
+    1. front, back
+
+
+    2. begin, end
+
+
+    3. push_back, pop_back;
+
+
+    4. at
+
+
+    5. insert (所有具体使用参见 [http://www.cppreference.com/cppvector/all.html](http://www.cppreference.com/cppvector/all.html)）
+
+

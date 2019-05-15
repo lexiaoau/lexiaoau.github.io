@@ -1,0 +1,39 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:49+00:00
+layout: post
+link: http://localhost/blog/?p=413
+slug: if-else
+title: If...else
+wordpress_id: 413
+categories:
+- shell script
+---
+
+if [ ]
+
+
+
+
+then  
+.......
+
+
+
+
+elif [ ... ] 
+
+
+
+
+then  
+.......  
+else  
+....
+
+
+
+
+fi  
+

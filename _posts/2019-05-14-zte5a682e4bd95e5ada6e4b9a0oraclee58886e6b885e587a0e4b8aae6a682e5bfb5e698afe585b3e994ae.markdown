@@ -1,0 +1,63 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:22+00:00
+layout: post
+link: http://localhost/blog/?p=385
+slug: zt%e5%a6%82%e4%bd%95%e5%ad%a6%e4%b9%a0oracle%e5%88%86%e6%b8%85%e5%87%a0%e4%b8%aa%e6%a6%82%e5%bf%b5%e6%98%af%e5%85%b3%e9%94%ae
+title: '[zt]如何学习Oracle?分清几个概念是关键'
+wordpress_id: 385
+categories:
+- 默认分类
+---
+
+如何学习Oracle?分清几个概念是关键  
+
+
+
+
+
+
+
+
+　　经常有一些Oracle的初学者问到以下几个问题，这里集中解答一下，希望对大家有帮助。
+
+
+
+
+　　1、如果有一定的数据库基础，知道SQL是怎么回事，即使写不出来简单的SQL，但可以看动它们，你就可以跳到2。否则请先看一下数据库基础和SQL语言，不需要很深，更不需要去记忆那些复杂的SQL命令，这些可以 留在以后边应用边学习、记忆。
+
+
+
+
+　　2、要想学好ORACLE，首先要学习ORACLE的体系结构，现在你不需要深入理解它们，但要分清几个关键的概念：
+
+
+
+
+　　instance & database, memory structure , process & those files ,such as data file, control file, init parameter file etc．以及database , tablespace , data file和tablespace, segmnet, extent & block它们之间的关系。
+
+
+
+
+　　当然还要分清undo tablespace & redo log file等，对于很多初学者来说，能够对这些概念有个较为清晰的认识并不是一件容易的事，而这些并非Oracle的全部。
+
+
+
+
+　　3、有关ORACLE的一些基本概念，下面要学习的是一些简单的的实际操作，就是如何去管理ORACLE数据库，当然不是管理全部的ORACLE。在此过程中你将对SQL和ORACLE体系结构有个更深入的了解。
+
+
+
+
+　　4、到了这一步你基本上算是初步掌握了ORACLE，下面将要根据你的方向来具体学习其它的ORACLE知识了。如果你是开发人员，则需要更多地去学习PL/SQL以及DEVELOPER，而这将是一门新的课程。如果你是一名DBA，请继续。
+
+
+
+
+　　5、现在你可以根据自己的实际情况，进行有选择的学习，也就是说下面的内容没有特别顺序要求。可以选择深入学习ORACLE的管理、备份与恢复、性能调整、网络等。当然在学习这些知识的过程中，如果有实际的工作更好，这样你可以在实际中成长，学会TROUBLE SHOOTING。
+
+
+
+
+　　6、当然在学习的过程中，你可以在网站或论坛中与他人进行交流，可以看别人的一些经验文章，也可以自己写一些心得体会。技术进步的本身就是经验的积累和提炼过程。

@@ -1,0 +1,29 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:35:04+00:00
+layout: post
+link: http://localhost/blog/?p=337
+slug: unix-sort-%e5%91%bd%e4%bb%a4%e7%9a%84-k-%e9%80%89%e9%a1%b9
+title: unix sort 命令的 k 选项
+wordpress_id: 337
+categories:
+- linux命令
+---
+
+用法：
+
+  1. 根据多个列的值进行排序
+    1. 用法：按照优先级别依次指定多个列
+    2. 例子：  sort  -k 3 -k2n -k4nr  file.txt
+      1. 解释：  “n” 表示按数值排序，  “r” 表示是逆序排序
+      2. 还有其他选项：  “f” 表示忽略大小写排序
+  2. 可以按照某个域的第n个字符进行排序
+    1. 用法：使用  【[ FStart [ .CStart ] ] [ Modifier ] [ , [ FEnd [ .CEnd ] ][ Modifier ] ]】格式
+    2. 例子：  sort  -k 3.3 -k2n -k4nr  file.txt
+      1. 解释：  3.3 表示按第3个域的第3个字符排序，基数为1.
+  3. 与 u 选项联合使用的例子（排除重复行）
+    1. sort -n -k 2 -u facebook.txt
+      1. 解释：按第2列的数值排序，如果第2 列数值相等的行，则按照第1列的值保留一个，其余相等的行会被去掉。
+    2. sort -n -k 2 -k 3 -u facebook.txt
+      1. 解释：只有所有k 选项指定的列（本例中是第2列和第3列）的值都相同的行，才会被认为是重复的行。

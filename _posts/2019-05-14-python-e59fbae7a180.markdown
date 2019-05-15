@@ -1,0 +1,62 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:34:39+00:00
+layout: post
+link: http://localhost/blog/?p=320
+slug: python-%e5%9f%ba%e7%a1%80
+title: Python 基础
+wordpress_id: 320
+categories:
+- python
+---
+
+  
+
+
+  
+
+
+  
+
+
+使用 if...else
+    
+    <span>if</span><span> expression1</span><span>:</span><span><br>   statement</span><span>(</span><span>s</span><span>)</span><span><br></span><span>elif</span><span> expression2</span><span>:</span><span><br>   statement</span><span>(</span><span>s</span><span>)</span><span><br></span><span>elif</span><span> expression3</span><span>:</span><span><br>   statement</span><span>(</span><span>s</span><span>)</span><span><br></span><span>else</span><span>:</span><span><br>   statement</span><span>(</span><span>s</span><span>)</span>
+
+  
+
+
+  
+
+
+使用 for
+    
+    <li style="line-height: 28px;"><span style="line-height: 28px;">for</span> i <span style="line-height: 28px;">in</span> <span style="line-height: 28px;">range</span><span style="line-height: 28px;">(</span><span style="line-height: 28px;">1</span><span style="line-height: 28px;">,</span> <span style="line-height: 28px;">5</span><span style="line-height: 28px;">):</span></li><li style="line-height: 28px;">    <span style="line-height: 28px;">print</span><span style="line-height: 28px;">(</span>i<span style="line-height: 28px;">)</span></li><li style="line-height: 28px;"><span style="line-height: 28px;">else</span><span style="line-height: 28px;">:</span></li><li style="line-height: 28px;">    <span style="line-height: 28px;">print</span><span style="line-height: 28px;">(</span><span style="line-height: 28px;">'for循环结束'</span><span style="line-height: 28px;">)</span></li>
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+

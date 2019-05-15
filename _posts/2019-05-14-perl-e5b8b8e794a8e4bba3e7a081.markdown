@@ -1,0 +1,704 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:35:03+00:00
+layout: post
+link: http://localhost/blog/?p=336
+slug: perl-%e5%b8%b8%e7%94%a8%e4%bb%a3%e7%a0%81
+title: perl 常用代码
+wordpress_id: 336
+categories:
+- perl
+---
+
+  
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+遍历目录下所有文件，并且处理文件的每一行：
+
+  
+
+    
+    <p>$input_dir = 'C:\myfiles\mycode\perl\testdir\src_dir';<span style="white-space:pre;">	</span># 要用单括号</p><p><font style="background-color: rgb(204, 153, 255);">opendir</font> DH, $input_dir;</p><p><span style="background-color: rgb(204, 153, 255);">foreach</span> my $file (<span style="background-color: rgb(204, 153, 255);">readdir</span> DH)<br>{</p><p><span style="white-space:pre;">	</span><span style="background-color: rgb(204, 153, 255);">next if</span> $file eq "." or $file eq "..";<span style="white-space:pre;">	</span># 跳过当前目录和父目录</p><p><span style="white-space:pre;">	</span>my $fileFullPath = $input_dir.'\\'.$file;  # 获得完整文件路径</p><p><span style="white-space:pre;">	</span># unlink $<span style="line-height: 28px;">fileFullPath</span>;<span style="white-space:pre;">		</span># 删除某个文件</p><p><span style="white-space:pre;">	</span><span style="background-color: rgb(204, 153, 255);">open</span>(INPUT_FH, "$fileFullPath");</p><p><span style="white-space:pre;">	</span><span style="background-color: rgb(204, 153, 255);">while</span> (<span style="background-color: rgb(204, 153, 255);"><INPUT_FH></span>)</p><p><span style="white-space:pre;">	</span>{</p><p><span style="white-space:pre;">		</span>$one_input_line =  <span style="background-color: rgb(204, 153, 255);">$_</span>;</p><p><span style="white-space:pre;">		</span>chomp($one_input_line);</p><p><span style="white-space:pre;">	</span>}</p><p>}</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+
+  
+
+
+  
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+对  hash 使用引用（reference）：
+
+  
+
+    
+    <p style="line-height: 28px;">my %insum_result_hash;<br style="line-height: 28px;">my $insum_ref_hash = <span style="background-color: rgb(204, 153, 255);">\%</span>insum_result_hash;<span style="white-space:pre;">	</span># 创建reference</p><p style="line-height: 28px;">run_func($one_input_line, <span style="background-color: rgb(204, 153, 255);">$insum_ref_hash</span>);<span style="white-space:pre;">	</span># 作为函数参数传递</p><p style="line-height: 28px;">sub run_insum_all_filter_func<br style="line-height: 28px;">{</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>my $line = shift @_ ; #</p>	my $ref = <span style="background-color: rgb(204, 153, 255);">shift @_</span> ;<span style="white-space:pre;">	</span># 取得参数中的 reference
+    
+    <span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;"><span style="white-space:pre;">		</span>if( exists <span style="background-color: rgb(204, 153, 255);">${ $ref}{ $desc } </span>    )<span style="white-space:pre;">	</span># 当作正常hash 使用</span>
+    
+    <p><span style="white-space:pre;">	</span>my @tmp_arr = <span style="background-color: rgb(204, 153, 255);">@{ ${ $ref}{ $desc } }</span>;<span style="white-space:pre;">	</span># 获取hash 中存放的array</p>
+    
+    <span style="white-space:pre;">	</span>push( <span style="background-color: rgb(204, 153, 255);">@{ ${ $ref}{$desc} }</span>, $cur_datetime.' '.$line."\n");<span style="white-space:pre;">	</span># 往<span style="line-height: 28px;">hash 中存放的array添加新元素</span>
+    
+    <br>
+    
+    <br>
+    
+    # 对hash 按照 value 来排序
+    
+    <span style="background-color: rgb(204, 153, 255);">foreach </span>my $suffix (sort { $sizeHash{<span style="background-color: rgb(204, 153, 255);">$a</span>} <=> $sizeHash{<span style="background-color: rgb(204, 153, 255);">$b</span>} or <span style="background-color: rgb(204, 153, 255);">$a cmp $b</span> } <span style="background-color: rgb(204, 153, 255);">keys </span>%sizeHash) {<br>	printf "%-8s %s\n", $suffix, $sizeHash{$suffix};<br>}<br>
+
+  
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+字符串常用操作：
+
+  
+
+    
+    <br>
+    
+    <br>
+    
+    <p style="line-height: 28px;"><span style="background-color: rgb(204, 153, 255);">length</span>($current_head_timestamp)<span style="line-height: 28px;">	</span># 字符串长度</p><p>@tmp_list = <span style="background-color: rgb(204, 153, 255);">split</span>(/ / , $one_input_line);<span style="white-space:pre;">	</span># 分割字符串</p><p>$lastTime = <span style="background-color: rgb(204, 153, 255);">(split(/ / , $lastElem))[1]</span>;<span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">	</span><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;"># 分割字符串, 并且马上获取其中某个域。</span></p><p><font face="Hiragino Sans GB W3, Hiragino Sans GB, Arial, Helvetica, simsun, 宋体">if ( <span style="background-color: rgb(204, 153, 255);">grep( /^$moType$/, @targetMoTypes )</span> )    # 判断一个array中是否包含某个字符串</font></p><p><span style="white-space:pre;">		</span>$elem <span style="background-color: rgb(204, 153, 255);">=~ /^# \"</span><span style="background-color: rgb(255, 255, 153);">(.*)</span><span style="background-color: rgb(204, 153, 255);">\"/</span>;    # 截取字符串中符合正则表达式的某个子字符串<br>		push(@targetMoPaths, <span style="background-color: rgb(204, 153, 255);">$1</span>);</p><p><br></p><p style="line-height: 28px;"><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">}</span></p><p style="line-height: 28px;"><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;"><br></span></p><p><font face="Hiragino Sans GB W3, Hiragino Sans GB, Arial, Helvetica, simsun, 宋体"># get substr of trimming last part  获取文件路径中的文件名、后缀<br>$str = "/vobs/bssm/rtdir/bsm/lib/libsun5bsmv2smogpstmg_mt.so.1.0";<br>my $rind = <span style="background-color: rgb(204, 153, 255);">rindex</span>($str, "/");</font></p><p><font face="Hiragino Sans GB W3, Hiragino Sans GB, Arial, Helvetica, simsun, 宋体">$sstr = <span style="background-color: rgb(204, 153, 255);">substr </span>$str,0,<span style="background-color: rgb(204, 153, 255);">rindex</span>($str, "/");<span style="white-space:pre;">		</span># 这样可以获得  </font><span style="font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体; line-height: 28px;">/vobs/bssm/rtdir/bsm/lib</span></p><p><span style="font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体; line-height: 28px;"><br></span></p><p><font face="Hiragino Sans GB W3, Hiragino Sans GB, Arial, Helvetica, simsun, 宋体">my $lastPart = <span style="background-color: rgb(204, 153, 255);">substr </span>$str, $rind+1 , (<span style="background-color: rgb(204, 153, 255);">length</span>($str)-$rind);<span style="white-space:pre;">	</span></font><span style="font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体; line-height: 28px;"># 这样可以获得  </span><span style="font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体; line-height: 28px;">libsun5bsmv2smogpstmg_mt.so.1.0</span></p><p><span style="font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体; line-height: 28px;"><br></span></p><p><font face="Hiragino Sans GB W3, Hiragino Sans GB, Arial, Helvetica, simsun, 宋体">$rind = <span style="background-color: rgb(204, 153, 255);">rindex</span>($lastPart, ".");<br>my $suffix = <span style="background-color: rgb(204, 153, 255);">substr </span>$lastPart, $rind+1 , (<span style="background-color: rgb(204, 153, 255);">length</span>($str)-$rind);<span style="white-space:pre;">		</span></font><span style="font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体; line-height: 28px;"># 这样可以获得后缀   “0”     </span></p><p><font face="Hiragino Sans GB W3, Hiragino Sans GB, Arial, Helvetica, simsun, 宋体"><br></font></p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+正则表达式操作：
+
+  
+
+    
+    <p style="line-height: 28px;"><span style="background-color: rgb(204, 153, 255);">next if</span>($one_input_line  <span style="background-color: rgb(204, 153, 255);">=~</span>    /bsmsssd/);<span style="line-height: 28px;">	</span># 匹配match</p><p>next if( ($one_input_line <span style="background-color: rgb(204, 153, 255);">!~</span> /java/ ) <span style="background-color: rgb(204, 153, 255);">&&</span> ($one_input_line <span style="background-color: rgb(204, 153, 255);">!~</span> /mysql/ ) );<span style="white-space:pre;">	</span># 匹配多个非match</p><p><br></p><p># 删除字符串开头、结尾的空白字符</p><p><span style="white-space:pre;">	</span>$line <span style="background-color: rgb(204, 153, 255);">=~ s/</span><span style="background-color: rgb(255, 255, 0);">^</span><span style="background-color: rgb(255, 255, 153);">\s+|\s+$</span><span style="background-color: rgb(204, 153, 255);">//g</span>;<span style="white-space:pre;">	</span>#开头标记是 ^，结尾是$。\s+ 是多个连续的空白字符。</p><p><br></p><p># 匹配以每天名字开头的字符串</p><p>	my $line = <span style="background-color: rgb(204, 153, 255);">shift</span>;<br>	$pattern = <span style="background-color: rgb(204, 153, 255);">qr/</span><span style="background-color: rgb(255, 255, 153);">[^</span>Mon\s|^Tue\s|^Wed\s|^Thu\s|^Fri\s|^Sat\s|^Sun\s<span style="background-color: rgb(255, 255, 153);">]</span><span style="background-color: rgb(204, 153, 255);">/</span>;<span style="white-space:pre;">	</span># 使用 qr操作符表明现在声明的是正则表达式。<br>	return ( $line <span style="background-color: rgb(204, 153, 255);">=~</span> $pattern );</p><p style="line-height: 28px;"><br></p><p style="line-height: 28px;"><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">}</span></p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+获得当前函数名字：
+
+  
+
+    
+    	my $this_subs_name = (<span style="background-color: rgb(204, 153, 255);">caller</span>(0))[3];<span style="white-space:pre;">	</span># 这个是包含package在函数名之前的<br>	my $func_name = (<span style="background-color: rgb(204, 153, 255);">split</span>(/::/ , $this_subs_name))[<span style="background-color: rgb(204, 153, 255);">-1</span>];<br><p style="line-height: 28px;">}</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+在函数中保存静态局部变量：
+
+  
+
+    
+    <p style="line-height: 28px;">sub handler_insum_cemsbin_all_record<br>{</p><p>	my $cems_secret_value = 0;<br>	<span style="background-color: rgb(204, 153, 255);">sub gimme_another {<br>		return ++$cems_secret_value;<br>	}</span><br>	warn $cems_secret_value,"\n";<span style="white-space:pre;">	</span># 每调用外层函数一次，该变量值都会递增+1.</p><p style="line-height: 28px;">}</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+
+  
+
+
+  
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+启动shell命令：
+
+  
+
+    
+    <p style="line-height: 28px;">chdir $bsm_log_dir || die "Enter bsm log dir $bsm_log_dir failed\n";<span style="line-height: 28px;">	</span># 改变当前工作目录</p><p style="line-height: 28px;"><br></p><p style="line-height: 28px;"><br></p><p>my $nine = '$9';</p><p>my $cmd = "ls -lrt *sss* | tail | awk '{print $nine}' | awk -F_  '{print $one}' | sort -u ";<span style="white-space:pre;">		</span># 构造包括 awk 的命令，其中awk的参数因为与perl的变量替换符号冲突，所以要用$nine代替。</p><p>my @resultArray = <span style="background-color: rgb(204, 153, 255);">qx(</span>$cmd<span style="background-color: rgb(204, 153, 255);">)</span>;</p><p><br></p><p>		$save_log_cmd = "logview -f $line > $f_sss_log &";<br>		<span style="background-color: rgb(204, 153, 255);">system</span>($save_log_cmd);   # 让该命令在后台运行</p><p><br></p><p><br></p><p style="line-height: 28px;"><br></p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+删除 list 中重复的项
+
+  
+
+    
+    <p> my %hash   = <span style="background-color: rgb(204, 153, 255);">map </span>{ <span style="background-color: rgb(204, 153, 255);">$_</span>, 1 } @src_file_list;   # 构造一个hash，其中每个元素的key是$_  , value是 1 。</p><p><span style="white-space:pre;">						</span># 巧妙的地方在于，如果要重复的项，那么写入后面的项的时候就会覆盖前面的项， 那么在后面取 keys 的时候就得到了去重复的列表。<br> @src_file_list = <span style="background-color: rgb(204, 153, 255);">keys </span>%hash;</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+文件操作：
+
+  
+
+    
+    <br>
+    
+    <p># 处理  symbolic link  文件</p><p><span style="background-color: rgb(204, 153, 255);">use Cwd 'abs_path';</span></p><p>my $res = <span style="background-color: rgb(204, 153, 255);">readlink</span>($link_filePath);<span style="white-space:pre;">		</span># 获得link指向的路径</p><br><p>my $realpath = <span style="background-color: rgb(204, 153, 255);">abs_path</span>($<span style="line-height: 28px;">link_filePath</span>);<span style="white-space:pre;">	</span># <span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">获得link指向的文件的绝对路径</span></p><p><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;"><br></span></p><p><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;"><br></span></p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+按照hash中value的值对key进行排序：
+
+  
+
+    
+    <p style="line-height: 28px;">@name = </p><p style="line-height: 28px;">  @name[ sort { $uid[$a] <=> $uid[$b] } 0 .. $#name ];</p><p style="line-height: 28px;"><br></p><p style="line-height: 28px;"># @name , @uid 是有关联性质的两个 array 。</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+遍历目录下所有文件，并且处理文件的每一行：
+
+  
+
+    
+    <p style="line-height: 28px;">$input_dir = 'C:\myfiles\mycode\perl\testdir\src_dir';<span style="line-height: 28px;">	</span># 要用单括号</p><p style="line-height: 28px;"><font style="line-height: 28px; background-color: rgb(204, 153, 255);">opendir</font> DH, $input_dir;</p><p style="line-height: 28px;"><span style="line-height: 28px; background-color: rgb(204, 153, 255);">foreach</span> my $file (<span style="line-height: 28px; background-color: rgb(204, 153, 255);">readdir</span> DH)<br style="line-height: 28px;">{</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">next if</span> $file eq "." or $file eq "..";<span style="line-height: 28px;">	</span># 跳过当前目录和父目录</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>my $fileFullPath = $input_dir.'\\'.$file;  # 获得完整文件路径</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">open</span>(INPUT_FH, "$fileFullPath");</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">while</span> (<span style="line-height: 28px; background-color: rgb(204, 153, 255);"><INPUT_FH></span>)</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>{</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>$one_input_line =  <span style="line-height: 28px; background-color: rgb(204, 153, 255);">$_</span>;</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>chomp($one_input_line);</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>}</p><p style="line-height: 28px;">}</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+遍历目录下所有文件，并且处理文件的每一行：
+
+  
+
+    
+    <p style="line-height: 28px;">$input_dir = 'C:\myfiles\mycode\perl\testdir\src_dir';<span style="line-height: 28px;">	</span># 要用单括号</p><p style="line-height: 28px;"><font style="line-height: 28px; background-color: rgb(204, 153, 255);">opendir</font> DH, $input_dir;</p><p style="line-height: 28px;"><span style="line-height: 28px; background-color: rgb(204, 153, 255);">foreach</span> my $file (<span style="line-height: 28px; background-color: rgb(204, 153, 255);">readdir</span> DH)<br style="line-height: 28px;">{</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">next if</span> $file eq "." or $file eq "..";<span style="line-height: 28px;">	</span># 跳过当前目录和父目录</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>my $fileFullPath = $input_dir.'\\'.$file;  # 获得完整文件路径</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">open</span>(INPUT_FH, "$fileFullPath");</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">while</span> (<span style="line-height: 28px; background-color: rgb(204, 153, 255);"><INPUT_FH></span>)</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>{</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>$one_input_line =  <span style="line-height: 28px; background-color: rgb(204, 153, 255);">$_</span>;</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>chomp($one_input_line);</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>}</p><p style="line-height: 28px;">}</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+遍历目录下所有文件，并且处理文件的每一行：
+
+  
+
+    
+    <p style="line-height: 28px;">$input_dir = 'C:\myfiles\mycode\perl\testdir\src_dir';<span style="line-height: 28px;">	</span># 要用单括号</p><p style="line-height: 28px;"><font style="line-height: 28px; background-color: rgb(204, 153, 255);">opendir</font> DH, $input_dir;</p><p style="line-height: 28px;"><span style="line-height: 28px; background-color: rgb(204, 153, 255);">foreach</span> my $file (<span style="line-height: 28px; background-color: rgb(204, 153, 255);">readdir</span> DH)<br style="line-height: 28px;">{</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">next if</span> $file eq "." or $file eq "..";<span style="line-height: 28px;">	</span># 跳过当前目录和父目录</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>my $fileFullPath = $input_dir.'\\'.$file;  # 获得完整文件路径</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">open</span>(INPUT_FH, "$fileFullPath");</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">while</span> (<span style="line-height: 28px; background-color: rgb(204, 153, 255);"><INPUT_FH></span>)</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>{</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>$one_input_line =  <span style="line-height: 28px; background-color: rgb(204, 153, 255);">$_</span>;</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>chomp($one_input_line);</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>}</p><p style="line-height: 28px;">}</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+遍历目录下所有文件，并且处理文件的每一行：
+
+  
+
+    
+    <p style="line-height: 28px;">$input_dir = 'C:\myfiles\mycode\perl\testdir\src_dir';<span style="line-height: 28px;">	</span># 要用单括号</p><p style="line-height: 28px;"><font style="line-height: 28px; background-color: rgb(204, 153, 255);">opendir</font> DH, $input_dir;</p><p style="line-height: 28px;"><span style="line-height: 28px; background-color: rgb(204, 153, 255);">foreach</span> my $file (<span style="line-height: 28px; background-color: rgb(204, 153, 255);">readdir</span> DH)<br style="line-height: 28px;">{</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">next if</span> $file eq "." or $file eq "..";<span style="line-height: 28px;">	</span># 跳过当前目录和父目录</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>my $fileFullPath = $input_dir.'\\'.$file;  # 获得完整文件路径</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">open</span>(INPUT_FH, "$fileFullPath");</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">while</span> (<span style="line-height: 28px; background-color: rgb(204, 153, 255);"><INPUT_FH></span>)</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>{</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>$one_input_line =  <span style="line-height: 28px; background-color: rgb(204, 153, 255);">$_</span>;</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>chomp($one_input_line);</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>}</p><p style="line-height: 28px;">}</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+遍历目录下所有文件，并且处理文件的每一行：
+
+  
+
+    
+    <p style="line-height: 28px;">$input_dir = 'C:\myfiles\mycode\perl\testdir\src_dir';<span style="line-height: 28px;">	</span># 要用单括号</p><p style="line-height: 28px;"><font style="line-height: 28px; background-color: rgb(204, 153, 255);">opendir</font> DH, $input_dir;</p><p style="line-height: 28px;"><span style="line-height: 28px; background-color: rgb(204, 153, 255);">foreach</span> my $file (<span style="line-height: 28px; background-color: rgb(204, 153, 255);">readdir</span> DH)<br style="line-height: 28px;">{</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">next if</span> $file eq "." or $file eq "..";<span style="line-height: 28px;">	</span># 跳过当前目录和父目录</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>my $fileFullPath = $input_dir.'\\'.$file;  # 获得完整文件路径</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">open</span>(INPUT_FH, "$fileFullPath");</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">while</span> (<span style="line-height: 28px; background-color: rgb(204, 153, 255);"><INPUT_FH></span>)</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>{</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>$one_input_line =  <span style="line-height: 28px; background-color: rgb(204, 153, 255);">$_</span>;</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>chomp($one_input_line);</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>}</p><p style="line-height: 28px;">}</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+遍历目录下所有文件，并且处理文件的每一行：
+
+  
+
+    
+    <p style="line-height: 28px;">$input_dir = 'C:\myfiles\mycode\perl\testdir\src_dir';<span style="line-height: 28px;">	</span># 要用单括号</p><p style="line-height: 28px;"><font style="line-height: 28px; background-color: rgb(204, 153, 255);">opendir</font> DH, $input_dir;</p><p style="line-height: 28px;"><span style="line-height: 28px; background-color: rgb(204, 153, 255);">foreach</span> my $file (<span style="line-height: 28px; background-color: rgb(204, 153, 255);">readdir</span> DH)<br style="line-height: 28px;">{</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">next if</span> $file eq "." or $file eq "..";<span style="line-height: 28px;">	</span># 跳过当前目录和父目录</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>my $fileFullPath = $input_dir.'\\'.$file;  # 获得完整文件路径</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">open</span>(INPUT_FH, "$fileFullPath");</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">while</span> (<span style="line-height: 28px; background-color: rgb(204, 153, 255);"><INPUT_FH></span>)</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>{</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>$one_input_line =  <span style="line-height: 28px; background-color: rgb(204, 153, 255);">$_</span>;</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>chomp($one_input_line);</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>}</p><p style="line-height: 28px;">}</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+遍历目录下所有文件，并且处理文件的每一行：
+
+  
+
+    
+    <p style="line-height: 28px;">$input_dir = 'C:\myfiles\mycode\perl\testdir\src_dir';<span style="line-height: 28px;">	</span># 要用单括号</p><p style="line-height: 28px;"><font style="line-height: 28px; background-color: rgb(204, 153, 255);">opendir</font> DH, $input_dir;</p><p style="line-height: 28px;"><span style="line-height: 28px; background-color: rgb(204, 153, 255);">foreach</span> my $file (<span style="line-height: 28px; background-color: rgb(204, 153, 255);">readdir</span> DH)<br style="line-height: 28px;">{</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">next if</span> $file eq "." or $file eq "..";<span style="line-height: 28px;">	</span># 跳过当前目录和父目录</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>my $fileFullPath = $input_dir.'\\'.$file;  # 获得完整文件路径</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">open</span>(INPUT_FH, "$fileFullPath");</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">while</span> (<span style="line-height: 28px; background-color: rgb(204, 153, 255);"><INPUT_FH></span>)</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>{</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>$one_input_line =  <span style="line-height: 28px; background-color: rgb(204, 153, 255);">$_</span>;</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>chomp($one_input_line);</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>}</p><p style="line-height: 28px;">}</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+遍历目录下所有文件，并且处理文件的每一行：
+
+  
+
+    
+    <p style="line-height: 28px;">$input_dir = 'C:\myfiles\mycode\perl\testdir\src_dir';<span style="line-height: 28px;">	</span># 要用单括号</p><p style="line-height: 28px;"><font style="line-height: 28px; background-color: rgb(204, 153, 255);">opendir</font> DH, $input_dir;</p><p style="line-height: 28px;"><span style="line-height: 28px; background-color: rgb(204, 153, 255);">foreach</span> my $file (<span style="line-height: 28px; background-color: rgb(204, 153, 255);">readdir</span> DH)<br style="line-height: 28px;">{</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">next if</span> $file eq "." or $file eq "..";<span style="line-height: 28px;">	</span># 跳过当前目录和父目录</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>my $fileFullPath = $input_dir.'\\'.$file;  # 获得完整文件路径</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">open</span>(INPUT_FH, "$fileFullPath");</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">while</span> (<span style="line-height: 28px; background-color: rgb(204, 153, 255);"><INPUT_FH></span>)</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>{</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>$one_input_line =  <span style="line-height: 28px; background-color: rgb(204, 153, 255);">$_</span>;</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>chomp($one_input_line);</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>}</p><p style="line-height: 28px;">}</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+遍历目录下所有文件，并且处理文件的每一行：
+
+  
+
+    
+    <p style="line-height: 28px;">$input_dir = 'C:\myfiles\mycode\perl\testdir\src_dir';<span style="line-height: 28px;">	</span># 要用单括号</p><p style="line-height: 28px;"><font style="line-height: 28px; background-color: rgb(204, 153, 255);">opendir</font> DH, $input_dir;</p><p style="line-height: 28px;"><span style="line-height: 28px; background-color: rgb(204, 153, 255);">foreach</span> my $file (<span style="line-height: 28px; background-color: rgb(204, 153, 255);">readdir</span> DH)<br style="line-height: 28px;">{</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">next if</span> $file eq "." or $file eq "..";<span style="line-height: 28px;">	</span># 跳过当前目录和父目录</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>my $fileFullPath = $input_dir.'\\'.$file;  # 获得完整文件路径</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">open</span>(INPUT_FH, "$fileFullPath");</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">while</span> (<span style="line-height: 28px; background-color: rgb(204, 153, 255);"><INPUT_FH></span>)</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>{</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>$one_input_line =  <span style="line-height: 28px; background-color: rgb(204, 153, 255);">$_</span>;</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>chomp($one_input_line);</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>}</p><p style="line-height: 28px;">}</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+遍历目录下所有文件，并且处理文件的每一行：
+
+  
+
+    
+    <p style="line-height: 28px;">$input_dir = 'C:\myfiles\mycode\perl\testdir\src_dir';<span style="line-height: 28px;">	</span># 要用单括号</p><p style="line-height: 28px;"><font style="line-height: 28px; background-color: rgb(204, 153, 255);">opendir</font> DH, $input_dir;</p><p style="line-height: 28px;"><span style="line-height: 28px; background-color: rgb(204, 153, 255);">foreach</span> my $file (<span style="line-height: 28px; background-color: rgb(204, 153, 255);">readdir</span> DH)<br style="line-height: 28px;">{</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">next if</span> $file eq "." or $file eq "..";<span style="line-height: 28px;">	</span># 跳过当前目录和父目录</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>my $fileFullPath = $input_dir.'\\'.$file;  # 获得完整文件路径</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">open</span>(INPUT_FH, "$fileFullPath");</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span><span style="line-height: 28px; background-color: rgb(204, 153, 255);">while</span> (<span style="line-height: 28px; background-color: rgb(204, 153, 255);"><INPUT_FH></span>)</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>{</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>$one_input_line =  <span style="line-height: 28px; background-color: rgb(204, 153, 255);">$_</span>;</p><p style="line-height: 28px;"><span style="line-height: 28px;">		</span>chomp($one_input_line);</p><p style="line-height: 28px;"><span style="line-height: 28px;">	</span>}</p><p style="line-height: 28px;">}</p>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+### perl 自写代码
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+把一个文件夹下面的非链接（non-symbolic link）文件复制到另外一个目录中。
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+#!/usr/bin/perl
+
+  
+$my_dir = "";  
+$my_dir = $ARGV[0];  
+#$my_dir = "/cc/bts/dom6850/home/dbado/dbasc/home/base/module/domcli";
+
+$cp_dir = "";  
+$cp_dir = $ARGV[1];  
+#$cp_dir = "/home/eyizhuo/elexiao/domcli/";
+
+sub listfile{
+
+my $dir = shift @_;
+
+opendir DH, $dir;
+
+foreach my $file (readdir DH){
+
+next if $file eq "." or $file eq "..";   
+  
+#next if(-l $file );  
+  
+next if ( $file =~ /[0-9a-zA-Z]+\.o/ ); #ignore object file  
+  
+my $justFileName = $file;   
+#my $cur_cp_dir = $cp_dir;  
+$file = "$dir/$file";  
+  
+next if(-l $file ); # ignore link only when absolute path
+
+if(-d $file) #dir  
+{  
+my $temp_dir = $cp_dir;  
+$cp_dir .= ($justFileName."/"); # current copy-to dir name  
+  
+# if this dir not exist, create it  
+if( ! -d $cp_dir )  
+{  
+mkdir $cp_dir, 0755 or warn "Can not make dir $!";   
+}  
+  
+&listfile($file);  
+$cp_dir = $temp_dir;  
+}  
+elsif (-f $file ) #normal file  
+{  
+$cmd = "cp $file "."$cp_dir";  
+system($cmd);  
+}   
+  
+} # for each
+
+return 1;
+
+}
+
+&listfile($my_dir);
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+
+  
+
+
+访问数据库（DBI, ODBC)
+
+前提条件：要在控制面板中加入一个 ODBC 源。
+
+  
+
+
+  
+
+
+use DBI;
+
+  
+
+
+$username = "";
+
+$pwd = "";
+
+my $dbh = DBI->connect("DBI:ODBC:simpleName", $username, $pwd) or  # simpleName 是在 obdb中加入的源的名字
+
+die("Couldn't make connection to database:$DBI::errstr");
+
+#注意:这里的Employee是你刚才填数据源时填入的名字
+
+my $sth = $dbh->prepare(q{SELECT * FROM Names}) or  # names 是数据库中表的名字
+
+die("Cannot prepare statement:", $dbh->errstr(),"\n");
+
+my $rc = $sth->execute() or
+
+die("Cannot execute statement:", $sth->errstr(), "\n");
+
+my @array;
+
+while (@array = $sth->fetchrow_array()) {
+
+write();
+
+}
+
+warn($DBI::errstr) if $DBI::err;
+
+$dbh->disconnect();
+
+$sth->finish();
+
+format STDOUT =
+
+@<<<<<<@<<<<<<<<<@<<<<<<<<<<@<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<@<<<<<<<<<@<<<<<<<<<<<<<<
+
+$array[0],$array[1],$array[2],$array[3],$array[4], $array[5]
+
+  
+
+
+  
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+访问一个目录下所有文件，并把符合条件的行文本，经过处理，写到新的文件中。
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+  
+
+
+#my $dir = 'C:\myfiles\mycode\perl\testdir\src_dir';
+
+my $dir = 'C:\work\2014\ebsc-OAM\projects\tr-csp-mem-leak\site-log\5-StLo-3';
+
+  
+
+
+my $log_file_path = 'C:\myfiles\mycode\perl\testdir\debuglog';
+
+  
+
+
+my $fileOutputPath = 'C:\myfiles\mycode\perl\testdir\output_process';
+
+my $fileOutputPath2 = 'C:\myfiles\mycode\perl\testdir\output_summary';
+
+  
+
+
+unlink $fileOutputPath;
+
+unlink $fileOutputPath2;
+
+  
+
+
+opendir DH, $dir;					#!!!  打开一个目录的handle
+
+  
+
+
+foreach my $file (readdir DH)		#!!!  遍历目录
+
+{
+
+	print ($file,"\n");
+
+	next if $file eq "." or $file eq "..";				
+
+	next if($file  !~  /prstat/);	
+
+  
+
+
+	my $fileFullPath = $dir.'\\'.$file;			#!!!  构造全路径
+
+	&handleEachFile($fileFullPath);
+
+}
+
+  
+
+
+sub handleEachFile()
+
+{
+
+	$fileFullPath = $_[0];
+
+	chomp($fileFullPath);
+
+  
+
+
+	open(DEBUG_FH, ">>$log_file_path");
+
+	open(INPUT_FH, "$fileFullPath");
+
+	open(OUTPUT_FH, ">>$fileOutputPath");
+
+	open(OUTPUT_FH2, ">>$fileOutputPath2");
+
+  
+
+
+	my $STATE_START = 0;
+
+	my $STATE_IN_SUM = 1;
+
+	my $STATE_END = 2;
+
+	my $current_state = $STATE_END;
+
+	
+
+	my $cur_timestamp = "";
+
+  
+
+
+	my @write_target_list_process;
+
+	my @write_target_list_overall;
+
+	my $target_time = "15:00:00";
+
+	while (<INPUT_FH>)
+
+	{
+
+		$one_input_line =  $_;
+
+		chomp($one_input_line);
+
+		if( ($current_state == $STATE_START) && ( $one_input_line =~ /NPROC/) )
+
+		{
+
+			$current_state = $STATE_IN_SUM;
+
+			next;
+
+		}
+
+		if( ($current_state == $STATE_IN_SUM) && ( $one_input_line =~ /Total:/) )
+
+		{
+
+			$current_state = $STATE_END;
+
+			next;
+
+		}
+
+		if($current_state == $STATE_END)
+
+		{
+
+			next if($one_input_line  !~  /CDT 2014/);
+
+			next if($one_input_line  !~  /$target_time/);
+
+			@tmp_list = split(/ / , $one_input_line);	##!!!  分割行文本 Tue Apr 1 00:00:00 CDT 2014 
+
+			#debug
+
+			print DEBUG_FH ("found_one_timestamp_", @tmp_list, "\n") ;
+
+			if(length($one_input_line) < 27 )
+
+			{
+
+				print DEBUG_FH ("found_short_timestamp_", $one_input_line, "_\n") ;
+
+			}
+
+			$cur_timestamp = $tmp_list[1].'-'.$tmp_list[2].' '.$tmp_list[3];
+
+			$current_state = $STATE_START;
+
+		}
+
+		elsif ($current_state == $STATE_START)
+
+		{
+
+			next if($one_input_line  !~  /bsmsssd/);
+
+			
+
+			#debug
+
+			if(length($cur_timestamp) < 13 )
+
+			{
+
+				print DEBUG_FH ("found_short_cur_timestamp_", $fileFullPath, "_", $count, "_", $cur_timestamp, "_\n") ;
+
+			}
+
+			my $tmpline = $cur_timestamp.' '.$one_input_line."\n";
+
+			push(@write_target_list_process, $tmpline);			
+
+		}
+
+		elsif ($current_state == $STATE_IN_SUM)
+
+		{
+
+			next if($one_input_line  !~  /bsmbin/);
+
+			my $tmpline = $cur_timestamp.' '.$one_input_line."\n";
+
+			#$tmpline =~ s/M /  /g;			##!!!  文本替换 replace M after number
+
+			push(@write_target_list_overall, $tmpline);
+
+			print DEBUG_FH ("found_one_summary_", $tmpline, "_\n") ;
+
+		}
+
+	}
+
+	print OUTPUT_FH (@write_target_list_process);
+
+	print OUTPUT_FH2 (@write_target_list_overall);
+
+	close(DEBUG_FH);
+
+	close(OUTPUT_FH2);
+
+	close(INPUT_FH);
+
+	close(OUTPUT_FH);
+
+}
+
+  
+

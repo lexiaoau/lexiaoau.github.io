@@ -1,0 +1,184 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:26+00:00
+layout: post
+link: http://localhost/blog/?p=391
+slug: bit-%e8%bf%90%e7%ae%97%e7%9b%b8%e5%85%b3%e8%af%ad%e5%8f%a5%e3%80%90%e8%bd%ac%e8%bd%bd%e3%80%91
+title: bit 运算相关语句【转载】
+wordpress_id: 391
+categories:
+- C++
+---
+
+# Link: [http://www.somacon.com/p125.php](http://www.somacon.com/p125.php)
+
+ 
+
+# Binary Logic Bit Operations In C and C++
+
+ 
+
+## Programming Practice
+
+ <table border="5" >  <tbody >  <tr >  Common Synonyms for True and False</tr>  <tr >  
+<td >0
+</td>  
+<td >false
+</td>  
+<td >off
+</td>  
+<td >unset
+</td>  
+<td >zero
+</td></tr>  <tr >  
+<td >1
+</td>  
+<td >true
+</td>  
+<td >on
+</td>  
+<td >set
+</td>  
+<td >non-zero
+</td></tr></table>  
+
+......  
+
+
+ 
+
+## C Bitwise Operators
+
+ <table border="5" >  <tbody >  <tr >  &  
+<td >binary bitwise AND
+</td></tr>  <tr >  ^  
+<td >binary bitwise exclusive OR (XOR)
+</td></tr>  <tr >  |  
+<td >binary bitwise inclusive OR
+</td></tr>  <tr >  ~  
+<td >unary bitwise complement (NOT)
+</td></tr></table>  
+
+An _operand_ is the variable or value on which the operator acts.   
+_Bitwise_ operators perform the given operation on each bit in the operand.   
+_Binary_ means the operator operates on two operands and _unary_ means the operator operates on a single operand. 
+
+ 
+
+## Toggling a bit and leaving all other bits unchanged
+
+`x = x ^ mask;   
+(or shorthand x ^= mask;) `  
+
+_Bits that are set to 1 in the mask will be toggled in x.   
+_Bits that are set to 0 in the mask will be unchanged in x. 
+
+ 
+
+Toggling means that if the bit is 1, it is set to 0, and if the bit is 0, it is set to 1. 
+    
+    XOR truth table  0 ^ 0 = 0  1 ^ 0 = 1  0 ^ 1 = 1  1 ^ 1 = 0  
+
+ 
+
+## Setting a bit to zero and leaving all other bits unchanged
+
+`x = x & mask;   
+(or x &= mask;) `  
+
+Bits that are set to 1 in the mask will be unchanged in x.   
+_Bits that are set to 0 in the mask will be set to zero in x._
+    
+    AND truth table  0 & 0 = 0  1 & 0 = 0  0 & 1 = 0  1 & 1 = 1  
+
+ 
+
+## Setting a bit to one and leaving all other bits unchanged
+
+`x = x | mask;   
+(or x |= mask;) `  
+
+_Bits that are set to 1 in the mask will be set to one in x.   
+_Bits that are set to 0 in the mask will be unchanged in x. 
+    
+    OR truth table  0 | 0 = 0  1 | 0 = 1  0 | 1 = 1  1 | 1 = 1  
+
+ 
+
+## Common Flag Values
+
+ 
+
+I prefer to use the hexadecimal representation in my code. 
+
+ 
+
+ <table border="5" >  <tbody >  <tr >  Binary  
+(base2)  Hexadecimal  
+(base16)  Decimal  
+(base10)</tr>  <tr >  
+<td >0000 0000
+</td>  
+<td >0x00
+</td>  
+<td >0
+</td></tr>  <tr >  
+<td >0000 0001
+</td>  
+<td >0x01
+</td>  
+<td >1
+</td></tr>  <tr >  
+<td >0000 0010
+</td>  
+<td >0x02
+</td>  
+<td >2
+</td></tr>  <tr >  
+<td >0000 0100
+</td>  
+<td >0x04
+</td>  
+<td >4
+</td></tr>  <tr >  
+<td >0000 1000
+</td>  
+<td >0x08
+</td>  
+<td >8
+</td></tr>  <tr >  
+<td >0001 0000
+</td>  
+<td >0x10
+</td>  
+<td >16
+</td></tr>  <tr >  
+<td >0010 0000
+</td>  
+<td >0x20
+</td>  
+<td >32
+</td></tr>  <tr >  
+<td >0100 0000
+</td>  
+<td >0x40
+</td>  
+<td >64
+</td></tr>  <tr >  
+<td >1000 0000
+</td>  
+<td >0x80
+</td>  
+<td >128
+</td></tr></table>
+
+ 
+
+## Example Macros
+
+ 
+
+Imagine there are two flags in the program that are independent of each other. We might implement macros to manipulate them as shown in the code sample below. It would probably be wise to put the macros in a header file. 
+    
+    <code>// the flag definitions</code>  #define CAR_LOCKED    0x01  <code>// 0000 0001</code>  #define CAR_PARKED    0x02  <code>// 0000 0010</code>  #define CAR_RESET     0x00  <code>// 0000 0000</code>    <code>// macros to manipulate the flags</code>  #define RESET_CAR(x)     (x = CAR_RESET)    #define SET_LOCKED(x)    (x |= CAR_LOCKED)  #define SET_PARKED(x)    (x |= CAR_PARKED)    #define UNSET_LOCKED(x)  (x &= (~CAR_LOCKED))  #define UNSET_PARKED(x)  (x &= (~CAR_PARKED))    #define TOGGLE_LOCKED(x)  (x ^= CAR_LOCKED)  #define TOGGLE_PARKED(x)  (x ^= CAR_PARKED)    <code>// these evaluate to non-zero if the flag is set</code>  #define IS_LOCKED(x)      (x & CAR_LOCKED)  #define IS_PARKED(x)      (x & CAR_PARKED)    <code>// a short program that demonstrates how to use the macros</code>  int  main(void)  {   unsigned char fMercedes, fCivic;     RESET_CAR(fMercedes);   RESET_CAR(fCivic);     SET_LOCKED(fMercedes);     if( IS_LOCKED(fMercedes) != 0 )   {    UNSET_PARKED(fCivic);   }     TOGGLE_LOCKED(fMercedes);     return 0;  }  

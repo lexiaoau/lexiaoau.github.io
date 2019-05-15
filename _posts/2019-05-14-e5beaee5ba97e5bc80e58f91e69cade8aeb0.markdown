@@ -1,0 +1,39 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:34:37+00:00
+layout: post
+link: http://localhost/blog/?p=318
+slug: '%e5%be%ae%e5%ba%97%e5%bc%80%e5%8f%91%e6%9c%ad%e8%ae%b0'
+title: 微店开发札记
+wordpress_id: 318
+categories:
+- 杂而无多
+---
+
+第一步，先要动态获取 token （）
+    
+    https://api.vdian.com/token?grant_type=client_credential<br>&appkey=[]&secret=[]
+
+  1. 调用微店的各接口时都需使用access_token
+  2. 正常情况下access_token有效期为25小时，重复获取将导致上次获取的access_token在5分钟后失效
+  3. 由于获取access_token的api调用次数非常有限，建议开发者全局存储与更新access_token，避免频繁获取
+  4. 至少要为access_token字段保留512个字符空间
+  5. 返回的 token 是一个 json 格式的文件
+  6. [http://wiki.open.weidian.com/index.php?title=获取Token](http://wiki.open.weidian.com/index.php?title=获取Token)
+  7.   
+
+
+  
+
+
+  
+
+
+  
+
+    
+    <p>http://api.vdian.com/api?param={"page_num":1,"page_size":100,"orderby":1}&public={"method":"vdian.item.list.get","access_token":"[]","version":"1.0","format":"json"}</p>
+
+  
+

@@ -1,0 +1,169 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:50+00:00
+layout: post
+link: http://localhost/blog/?p=414
+slug: loops
+title: Loops
+wordpress_id: 414
+categories:
+- shell script
+---
+
+"For" loop
+
+
+
+
+
+
+
+* * *
+
+
+
+
+
+**for i in 1 2 3 4 5**  
+do  
+echo "Looping ... number $i"  
+done
+
+
+
+
+
+
+
+------------------------------
+
+
+
+
+  
+
+
+
+
+
+**for i in hello 1 * 2 goodbye **  
+do  
+echo "Looping ... i is set to $i"  
+done
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+"while" loop
+
+
+
+
+
+
+
+* * *
+
+
+
+
+
+INPUT_STRING=hello  
+**while [ "$INPUT_STRING" != "bye" ]**  
+do  
+echo "Please type something in (bye to quit)"  
+read INPUT_STRING  
+echo "You typed: $INPUT_STRING"  
+done
+
+
+
+
+
+
+
+
+
+
+"until" loop
+
+
+
+
+
+
+
+* * *
+
+
+
+
+
+until command  
+do  
+list  
+done
+
+
+
+
+  
+
+
+
+
+
+" select" loop
+
+
+
+
+
+
+
+* * *
+
+
+
+
+
+select COMPONENT in comp1 comp2 comp3 all none  
+do  
+case $COMPONENT in  
+comp1|comp2|comp3) echo $COMPONENT ;;  
+all) echo "all" comp1 comp2 comp3 ;;  
+none) break ;;  
+*) echo "ERROR: Invalid selection, $REPLY." ;;  
+esac  
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

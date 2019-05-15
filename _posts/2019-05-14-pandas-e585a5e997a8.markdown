@@ -1,0 +1,238 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:34:38+00:00
+layout: post
+link: http://localhost/blog/?p=319
+slug: pandas-%e5%85%a5%e9%97%a8
+title: pandas 入门
+wordpress_id: 319
+categories:
+- python
+---
+
+  1. Series
+    1. 创建
+      1. obj = Series([4, 7, -5, 3])
+
+      2. <span style="font-family: TheSansMonoCd-W5Regular; font-size: 7pt;">obj2 = Series([4, 7, -5, 3], index=['d', 'b', 'a', 'c'])<br style="line-height: normal; orphans: 2; text-align: -webkit-auto; white-space: normal; widows: 2;">
+    </span>
+
+    2. 取索引
+      1. ind = obj.index        （ind 类型是  'pandas.core.index.Int64Index' ）
+      2. vvv = ind[0]            （vvv 类型是  'numpy.int64' ， 可以通过 int（） 转换）
+    3. 取值（list）
+      1. val = obj.values        （val 类型是  'numpy.ndarray' ）
+      2. al = val.tolist()        （转为Python的list，其中每个值的类型是 long ）
+    4. 取单个值
+      1. obj['单个索引名称']
+    5. 其它操作：
+      1. 过滤：
+        1. obj2[obj2 > 0]
+
+      2. 加减乘除：
+        1. obj2 * 2
+
+      3. 判断是否包含：
+        1. 'b' in obj2                  （如果索引中存在 b，返回 True）
+
+  2. Dataframe
+    1. 创建
+      1. <span>da<wbr>ta</span> <span>=</span> <span>{</span><span>'state'</span><span>:</span> <span>[</span><span>'Ohio'</span><span>,</span> <span>'Ohio'</span><span>,</span> <span>'Ohio'</span><span>,</span> <span>'Nevada'</span><span>,</span> <span>'Nevada'</span><span>],</span>
+            <span>'year'</span><span>:</span> <span>[</span><span>2000</span><span>,</span> <span>2001</span><span>,</span> <span>2002</span><span>,</span> <span>2001</span><span>,</span> <span>2002</span><span>],</span>
+            <span>'pop'</span><span>:</span> <span>[</span><span>1.5</span><span>,</span> <span>1.7</span><span>,</span> <span>3.6</span><span>,</span> <span>2.4</span><span>,</span> <span>2.9</span><span>]}</span>
+    <span>frame</span> <span>=</span> <span>DataFrame</span><span>(</span><span>da<wbr>ta</span><span>)</span>
+
+      2. <p>	dict1 = { \<br>		'timestamp' : str(timestamp), \<br>		'guifei'   : float(itemList[16]) \<br>	}<br>	buyDataList.append(dict1)<br>### use 'list of dict' to construct dataframe<br>buyDf = pd.DataFrame(buyDataList, columns=['timestamp' 'qita'])</p>
+
+      3. <span>a</span>
+    
+    <p>      ## create df with list of tuple<br><br>da<wbr>ta1 = []<br>for item in resList:<br>    l1 = item.split(',')<br>    l1.insert(0,str('sz002466'))<br>    tu1 = tuple(l1)<br>    da<wbr>ta1.append(tu1)<br><br>df = pd.DataFrame(da<wbr>ta1, columns=eastTableColumns)</p>
+
+  
+
+      4. <span>a</span>
+    
+    <p>      ## create df with list of list<br><br><br>df4 = pd.DataFrame([list6], columns=eastTableColumns)</p>
+
+  
+
+      5. <span>a</span>
+    
+    <p>  ### existing df append list as Series<br><br>tt7 = pd.Series(list1, index=list)<br>tt7.name = ('sz002407', '2016-08-02')<br>df3 = df3.append(tt7)<br></p>
+
+  
+
+      6. <br>      #### create df by list of list and combine df<br>arrays = [np.array(['bar', 'bar', 'baz', 'baz', 'foo', 'foo', 'qux', 'qux']),<br>          np.array(['on<wbr>e', 'two', 'on<wbr>e', 'two', 'on<wbr>e', 'two', 'on<wbr>e', 'two'])]<br>df = pd.DataFrame(np.random.randn(8, 4), index=arrays)<br><br>narr = [np.array(['bar', 'baz', 'foo', 'qux']),<br>       np.array(['three', 'three', 'three', 'three'])]<br><br>l1 = [1,3,5,7]<br>l2 = [2,3,4,5]<br>l3 = [5,7,5,6]<br>l4 = [24,4,6,7]<br>alll = [l1,l2,l3,l4]<br>df1 = pd.DataFrame( alll , index=narr)<br><br>frames = [ df , df1 ]<br><p>res = pd.concat(frames)</p>
+
+  
+
+      7.   
+
+
+      8.   
+
+
+      9. <span><br></span>
+
+    2. 取索引
+      1. ind = obj.index        （ind 类型是  'pandas.core.index.Int64Index' ）
+      2. vvv = ind[0]            （vvv 类型是  'numpy.int64' ， 可以通过 int（） 转换）
+    3. 设置index
+      1. df1 = df.set_index(['code', 'date'])
+    4. 取单列（list）
+      1. t2 = df1['code']        （t2 类型是  Series ）
+      2. t3 = df1.code   
+      3. t4 = df1[['code', 'name']]    ###  取多个列
+    5. 取部分行
+      1. df[0:3]
+      2. data[data['three'] > 5]
+    6. 几种通过索引选取行列的方法：
+      1.   .loc
+        1. 基于行索引label选择部分行列
+        2. 例子：
+          1. <span>dfl</span><span>.</span><span>loc</span><span>[</span><span>'20130102'</span><span>:</span><span>'20130104'</span><span>]     </span><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">#### 选取 部分行</span><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;"> </span>
+
+          2. <span>df.loc[:,['A', 'B'] ]    #### 选取 A列和 B列的所有行</span>
+
+          3. <span>df.loc[<span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">'20130102'</span><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">:</span><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">'20130104'   </span></span><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">,['A', 'B'] ]    ### 行列都指定</span>
+
+      2.   .iloc  （slice的话是含前不含后）
+        1. 基于行索引数值选择部分行列
+        2. 例子：
+          1. <span>s1</span><span>.</span><span>iloc</span><span>[:</span><span>3</span><span>]       ### 取前3行</span>
+
+          2. <span>
+    
+    <span>s1</span><span>.</span><span>iloc</span><span>[</span><span>3</span><span>]        ### 取第 4 行</span>
+
+          3. <span>
+    
+    <span>df1</span><span>.</span><span>iloc</span><span>[</span><span>1</span><span>:</span><span>5</span><span>,</span> <span>2</span><span>:</span><span>4</span><span>]     #### 1:5  是行序号， 2:4是列序号</span>
+
+          4. <span>
+    
+    <br>
+
+      3.   .ix
+        1. 基于行索引label或者数值选择部分行列
+        2. 例子：
+          1. <span>df</span><span>.</span><span>ix</span><span>[[(</span><span>'bar'</span><span>,</span> <span>'two'</span><span>),</span> <span>(</span><span>'qux'</span><span>,</span> <span>'on<wbr>e'</span><span>)]]    ### 圆括号里面的是组合行索引，索引包含2个值</span>
+
+      4.   .布尔型索引
+        1. 基于条件判断选择部分行
+        2. 例子：
+          1. dfl[df.A > 0 ]
+          2. df[ df > 0 ]
+          3. df.code.isin(['002407'])
+          4. df.loc[df.code.isin(['002407'])]
+          5. <co>de  ><span>df</span><span>[(</span><span>df</span><span>.</span><span>on<wbr>e</span> <span>>=</span><span>1</span> <span>)</span> <span>&</span> <span>(</span><span>df</span><span>.</span><span>on<wbr>e</span> <span><</span> <span>3</span><span>)</span> <span>]          ###</span><span>#多个逻辑条件组合 </span>de>
+
+          6. <co>de  ><span>df1.loc[ df1.Per == '-' , 'Per' ] = 0</span>de>
+
+          7. <co>dfwithnostop = dfndaylow[ ~dfndaylow[1].isin( dfstop1.drop_duplicates().tolist()  )  ]             
+
+          8. <blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;"><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;"><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;"><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;"><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">###<span>#pandas 取反符号是 ~</span></blockquote></blockquote></blockquote></blockquote></blockquote>
+
+          9. <co>  
+
+      5.   .loc
+        1. 基于行索引选择部分行
+        2. 例子：
+          1. dfl
+    7. 访问多重index
+      1. 例子：
+      2.         1. arrays = [np.array(['bar', 'bar', 'baz', 'baz', 'foo', 'foo', 'qux', 'qux']),
+        2. np.array(['one', 'two', 'one', 'two', 'one', 'two', 'one', 'two'])]
+        3. df = pd.DataFrame(np.random.randn(8, 4), index=arrays)
+        4. df.ix[('aux','one'),0] = 3.5
+        5. df.ix[('aux','one'),(0, 1, 2, 3) ] = [3.5, 3.6, 3.7, 3.8]
+        6.   
+
+      3.   
+
+    8. 取单个值
+      1. obj['单个索引名称']
+      2. <p>	dfOne = selDf[start:end]<br><br># get first value<br>	co<wbr>de = dfOne['co<wbr>de'].get(0)<br>	tstamp = dfOne['timestamp'].get(0)<br>	price = float( dfOne['price'].get(0) )<br>	amount = abs( int( dfOne['amount'].get(0) ) )</p>
+
+  
+
+    9. 其它操作：
+      1. 修改列：
+        1. frame2['debt'] = 16.5         （如果原来没有'debt' 列，这个操作就增加了一列，默认值是16.5 ）
+
+        2. frame2['eastern'] = frame2.state == 'Ohio'        
+
+        3.             （创建新的列，每个的值为一个判断语句的返回值（<span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">frame2.state == 'Ohio'</span><span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">））  </span>
+
+        4. <span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">
+    
+    del frame2['eastern']        （<span style="background-color: rgb(255, 255, 153);">删除列</span>）
+
+      2. 修改单个值
+        1. 推荐使用   df.loc[row_index,col_indexer]  方式。
+        2. 这样可以减少/避免由于内存layout（不可预测）因素导致的view/copy 问题。
+      3. 转置（行列标题交换）：
+        1. vv = frame.T   （转置完的类型还是 <span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">Dataframe ）</span>
+
+      4. 选择头尾部分：
+        1. df.head(3)                  （如果索引中存在 b，返回 True）
+
+        2. df.tail(3)
+
+      5. 基本统计使用describe()函数：
+        1. df2 = df.describe()   （类型还是 <span style="font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体; line-height: 28px; white-space: pre;">Dataframe ）（</span><font face="Hiragino Sans GB W3, Hiragino Sans GB, Arial, Helvetica, simsun, 宋体">[u'count', u'mean', u'std', u'min', u'25%', u'50%', u'75%', u'max']</font><span style="font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体; line-height: 28px;">）</span>
+
+      6. 选择头尾部分：
+        1. df.head(3)                  （如果索引中存在 b，返回 True）
+
+        2. df.tail(3)
+
+      7. sort 函数：
+        1. 可以按多个列先后排序，每个列可以指定是升序还是降序
+          1. 例子： df.sort(['c1','c2'], ascending=[False,True])
+          2. dfNew = dfTable.sort_index(ascending=False)		### 按照 index 排序
+      8. groupby 函数：
+        1. sf
+      9. 求排序值
+        1.         2. frame['sum_order'] = frame['sum'].rank()
+        3. frame['sum_sq_order'] = frame['sum_sq'].rank()
+        4. frame['max_order'] = frame['max'].rank()
+        5. frame['mean_order'] = frame[['sum_order', 'sum_sq_order', 'max_order']].mean(axis=1)
+* 常见操作：
+
+  1. data < 5              ## 过滤
+  2. data[ data < 5 ] = 0      ## 替换
+  3. df[24] = df[24].str[:10]       ## 仅保留前10个字符
+  4.   
+
+  5.   
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+    
+    k<p>bdf = buy_df.copy()</p><p><br></p><p><font color="#c0c0c0">sdf = sdf.sort(['date','time'])</font></p><p><font color="#c0c0c0">sortedBdf = matchBuyDf.sort(['amount','price'], ascending=[False,True])</font></p><p>df2 = df.sort_values(by=[timestamp], ascending=[False] )</p><p><br></p><p><span style="background-color: rgb(255, 255, 153);"># 寻找满足条件的行的index（集合），然后使用  loc 函数匹配</span></p><p>t1 = bdf[ (bdf['date'] > lastSellDate) | ( (bdf['date'] == lastSellDate) & (bdf['time'] > lastSellTime) ) ].index</p><p>df.loc[t1, 'status'] = 2</p><p><span style="background-color: rgb(255, 255, 153);"># 如果是DF 中的单独一行，需要使用 “name”属性。</span></p><p><span style="line-height: 28px;">df.loc[sortedBdf.iloc[0].name,'status'] = 1</span></p><p>df = df[ (df['flag'] == sell_flag) | (df['flag'] == buy_flag) ]</p><p><br></p><p><span style="background-color: rgb(255, 255, 153);"># 选取 DF 中的某几列</span></p><p>df = df[list(df.columns[:7]) + list(df.columns[10:])]</p><p>df2[ [4 , 10, 14, 18, 22, 23 ] ]</p><p><br></p><p><span style="background-color: rgb(255, 255, 153);"># 遍历某个 DF，其中 <span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">sdf_row 是当前行的 series</span></span></p><p>for sell_df_index, sdf_row in sdf.iterrows():</p><p><span style="white-space:pre;">	</span>sdf_row['price']         # series 方式</p><p><br></p><p><span style="background-color: rgb(255, 255, 153);"># 使用该函数读取文件</span></p><p><span style="background-color: rgb(255, 255, 153);"># mycols 是一个自定义的列表，其中包括 co<wbr>de， amount</span></p><p><span style="background-color: rgb(255, 255, 153);"># 通过 <span style="line-height: 28px; font-family: 'Hiragino Sans GB W3', 'Hiragino Sans GB', Arial, Helvetica, simsun, 宋体;">dtype 参数指定数据类型</span></span></p><p>df  = pd.read_csv(pandasInputFile, sep=',', skiprows=5, index_col=False, </p><p><span style="white-space: pre;">	</span>names=mycols, dtype={'co<wbr>de':np.object, 'amount':np.int16} )</p><p>## 如上，<span>mycols可以是一个list，在dtype参数里面可以指定mycols中包含的列的数据类型</span></p><p>df2.to_csv('reffiles/stBasic.txt', sep='|', encoding='utf-8')</p><p><br></p><p><br></p><p><span style="background-color: rgb(255, 255, 153);"># df 中字符串的操作</span></p><p>df.loc[ df[1].str.startswith('6') , 1] = 'sh' + df[1].astype(str)</p><p>df2[[4,10]] = df2[[4,10]].applymap(lambda x : x.strip('%') ).apply( pd.to_numeric )  ### 去除字符串末尾的百分号，并且转换成数值类型</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
+
+  
+

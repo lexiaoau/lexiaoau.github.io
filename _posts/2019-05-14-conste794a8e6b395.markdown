@@ -1,0 +1,151 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:37:08+00:00
+layout: post
+link: http://localhost/blog/?p=433
+slug: const%e7%94%a8%e6%b3%95
+title: const用法
+wordpress_id: 433
+categories:
+- C++
+---
+
+
+
+  1. 修饰 类里面的变量 
+
+
+    * 变量内容不可以改变 
+
+
+      * const double *pdou = 0; //pointer 可以指向其它变量
+
+
+    * 变量地址不可以改变 
+
+
+      * double d = 3.14; double * const pdou = &d；//pointer 不可以指向其它变量，但是数据内容值可以被修改
+
+
+    * 上述两者的综合 
+
+
+      * const double * const pdou = &d;
+
+
+  2. const 与 STL iterator 的关系 
+
+
+    * const std::vector<int>::iterator iter = ... 
+
+
+      * 指针地址不可以改变
+
+
+    * const std::vector<int>::const_iterator iter = ... 
+
+
+      * 
+
+
+指针内容不可以改变，地址可以改变（大多数情况下应该用这个）
+
+
+
+  3. 
+
+
+const 修饰函数（返回值、参数、整个函数?/SPAN>
+
+
+
+
+    * 
+
+
+返回值
+
+
+
+
+      * 
+
+
+const Rational operator*( const Rational& lhs, const Rational& rhs );
+
+
+
+    * 
+
+
+参数
+
+
+
+
+      * 
+
+
+const Rational operator*( const Rational& lhs, const Rational& rhs );
+
+
+
+    * 
+
+
+整个函数
+
+
+
+
+      * 
+
+
+_格式_是在函数声明最末加 const
+
+
+
+      * 
+
+
+这表明该函数不会修改 其owner object，包括该object 的所有内部（class）data。
+
+
+
+      * 
+
+
+const成员函数可以被所有object（const/non-const）调用，non-const成员函数只能被non-const object调用。
+
+
+
+      * 
+
+
+const成员函数可以被overload non-const成员函数（编译器会根据owner object 是const 还是 非const 来决定调用那个函数）。
+
+
+
+  4. 
+
+
+const 与 指针
+
+
+
+
+    * 
+
+
+指向const 对象的 指针，必须也是 const 的。
+
+
+
+    * 
+
+
+声明为指向 const 对象的指针，也可以指向 non-const 对象，但是两种情况下都不可以通过指针修改对象的值。
+
+
+

@@ -1,0 +1,79 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:35:56+00:00
+layout: post
+link: http://localhost/blog/?p=360
+slug: perl-%e6%9d%82%e8%ae%b0
+title: perl 杂记
+wordpress_id: 360
+categories:
+- perl
+---
+
+ 
+
+ 
+  1. 如何获得系统命令output     
+    1. system()函数只可以执行系统命令，但是不可以获得output，因为是在一个子进程里面执行的。   
+    2. 可以使用 qx(STRING) 函数，例如     
+      1. [http://perldoc.perl.org/perlop.html#%60STRING%60](http://perldoc.perl.org/perlop.html#%60STRING%60)
+    
+    <p>  my $cmd = "ls -l $rev_link";</p><p>my $cmd_output = qx/$cmd/;<br>  chop($cmd_output);<br>  my $link_target = substr($cmd_output, ( rindex($cmd_output, "->") + 3)   );</p>
+    
+     
+
+ 
+    3. 以下例子是用来获得一些持续有output的命令：     
+      1. <p>#!/usr/bin/perl  </p><p>open (PINGTEST, "/bin/ping  -c 5 netadmintools.com |");  </p><p>$i=1;  </p><p>while (<PINGTEST>){  print "Line # ".$i." ".$_;  $i++;  }  print "All done!\n";  </p><p>close PINGTEST； </p>
+    
+    <br>
+
+ 
+  2. Module
+    1. 一个 Module 就是一个符合格式的、具备一定功能的 .pm 文件。而且该文件必须存放在能被程序搜索到的目录下面。类似于一个库。
+    2. 一个 Module 应该借用一个 Exporter module 来把自身的库函数输出出去。
+    3. 要使用这个 module，应该使用关键字“use”。使用时注意module 名字和子目录的对应关系。
+  3. 文件处理
+    1. 打开一个文件 ：[http://www.comp.leeds.ac.uk/Perl/filehandling.html](http://www.comp.leeds.ac.uk/Perl/filehandling.html)
+    2. File-handle 的读、写
+      1. 如果是 scalar 变量，可以将 File-handle 的值赋予一个字符串变量；如果是 list，可以将 File-handle 的值赋予一个 数组。例如 @lines = <FILE>;
+      2. 也可以用这样的循环遍历文件的每一行： “while ( $line = <file> ) "。但是最好用chomp（）函数处理一下line，以除去换行符。
+      3. 要写入文件，基本的方法是 ： “ print File-handle LIST ”
+      4.   
+
+    3.  
+
+ 
+
+  
+
+
+  
+
+
+### perl 和python 类型区别
+
+Perl 类型
+
+![perl 和python 类型区别 - xiao le - me](http://img2.ph.126.net/w2KU2vsH64WTH3HXZV10yw==/1488721151922845411.jpg)
+
+  
+
+
+Python 类型
+
+  
+
+
+![perl 和python 类型区别 - xiao le - me](http://img0.ph.126.net/MEYUFWSNn3U4BFO9jfO9Tg==/1795528876537563039.jpg)
+
+Python：
+
+String  ——  ‘ ’ ， “ ”
+
+List  ——  [ ]
+
+Dict  ——  {  :  }
+
+Tuple  ——  (  )

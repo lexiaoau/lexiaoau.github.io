@@ -1,0 +1,63 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:45+00:00
+layout: post
+link: http://localhost/blog/?p=410
+slug: getopts-%e5%a4%84%e7%90%86%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%8f%82%e6%95%b0
+title: getopts 处理命令行参数
+wordpress_id: 410
+categories:
+- shell script
+---
+
+
+
+  1. 格式
+
+
+
+    1. 例子
+
+
+    2. VERBOSE=false  
+while getopts f:o:v OPTION ;  
+do  
+case "$OPTION" in  
+f) INFILE="$OPTARG" ;;  
+o) OUTFILE="$OPTARG" ;;  
+v) VERBOSE=true ;;  
+\?) echo "$USAGE" ;  
+exit 1  
+;;  
+esac  
+done
+
+
+  2. 解释
+
+
+
+    1. f:o:v 是 命令行选项，分别对应 -f , -o, -v
+
+
+    2. OPTION 是一个local变量名。
+
+
+    3. OPTARG 是一个 shell 变量，代表选项后面的参数。例如，-f input_file ，则 “input_file ” 就是 OPTARG。
+
+
+    4. 执行过程：
+
+
+
+      1. getopts 函数搜索命令行参数，寻找以“-”开头的选项字符，
+
+
+      2. 如果找到一个，则检查是否匹配 f:o:v 列表里面的其中一个
+
+
+      3. 如果匹配，就把这一个选项赋值给 _OPTION_（local变量），如果不匹配，则把“？”赋值给 OPTION
+
+
+      4. 对之后的选项循环执行 1-3 步，在处理完后，返回 值1。退出循环。

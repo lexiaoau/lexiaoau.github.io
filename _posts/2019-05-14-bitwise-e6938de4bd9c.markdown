@@ -1,0 +1,56 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:26+00:00
+layout: post
+link: http://localhost/blog/?p=390
+slug: bitwise-%e6%93%8d%e4%bd%9c
+title: bitwise 操作
+wordpress_id: 390
+categories:
+- pure-c
+---
+
+# 操作符
+
+<table border="5" > <tbody > <tr > &
+<td >binary bitwise AND
+</td></tr> <tr > ^
+<td >binary bitwise exclusive OR (XOR)
+</td></tr> <tr > |
+<td >binary bitwise inclusive OR
+</td></tr> <tr > ~
+<td >unary bitwise complement (NOT)
+</td></tr></table>
+
+# 十六进制 或 八进制 赋值
+
+int octal_value = 0227 // 八进制赋值 是在 数值前加 “0”
+
+int hex_value = 0xFF0 // 十六进制赋值 是在 数值前加 “0x”
+
+# Shift 运算
+
+  1. 操作符  
+    1. “<<” 和 “>>”
+  2. 移位规则  
+    1. 左移位时，在 低位 补 0.
+    2. 右移位时，最高位 的值 取决于 变量类型  
+      1. unsigend: 补0
+      2. signed:  
+        1. 正数： 补0
+        2. 负数: 补1
+
+# 使用 “printf” 打印的技巧
+
+  1. 打印 八进制或者十六进制 输出  
+    1. ####   
+int value = 255;  
+printf("The decimal value %d in octal is **%#o**\n", value, value);// The decimal value 255 in octal is **0377**  
+printf("The decimal value %d in hexadecimal is **%#x**\n", value, value);// The decimal value 255 in hex is **0xff **  
+printf("The decimal value %d in hexadecimal is **%#X**\n", value, value);// The decimal value 255 in hex is **0xFF**  
+
+    
+        
+
+  2. 

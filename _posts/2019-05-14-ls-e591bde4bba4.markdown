@@ -1,0 +1,28 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:35:06+00:00
+layout: post
+link: http://localhost/blog/?p=339
+slug: ls-%e5%91%bd%e4%bb%a4
+title: ls 命令
+wordpress_id: 339
+categories:
+- linux命令
+---
+
+ls -lut  :  按照最后访问时间排序显示文件信息
+
+-u  :  使用最后访问时间排序
+
+-c :  time of last modification
+
+-t  Sorts by time stamp (latest first)
+
+	-1  数字1，单列显示结果。
+
+	-m  单行显示，以逗号分隔，类似于csv格式。
+
+**打印命令结果中指定的列：**
+
+例子： ls -l | awk '{print $9, $5}'

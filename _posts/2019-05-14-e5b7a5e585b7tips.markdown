@@ -1,0 +1,81 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:35:00+00:00
+layout: post
+link: http://localhost/blog/?p=333
+slug: '%e5%b7%a5%e5%85%b7tips'
+title: 工具tips
+wordpress_id: 333
+categories:
+- tips备忘
+---
+
+Source Insight 中把当前文件的全路径复制到剪贴板
+
+  
+
+
+步骤1 ： 设置 _Source Insight_菜单Options->_Custom Commands，如下图：_
+
+![工具tips - xiao le - me](http://img0.ph.126.net/qta14TDeHciv16qR0lKxwQ==/2194660393513657341.jpg)
+
+cmd /c echo %f | clip
+
+  
+
+
+步骤2： 在上图对话窗口中选择 Keys，为新命令添加一个快捷键。
+
+  
+
+
+步骤3： 在 SI 中打开某个文件，然后按下快捷键，就可以在剪贴板中获得全路径。
+
+  
+
+
+命令解释：
+
+  
+
+
+%f  ---  是 SI 中对全路径的变量。
+
+| clip  --  clip是windows自带的剪贴板工具，通过管道可以接受input放到剪贴板中。
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+

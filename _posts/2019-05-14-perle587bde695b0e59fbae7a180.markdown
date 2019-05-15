@@ -1,0 +1,24 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:35:01+00:00
+layout: post
+link: http://localhost/blog/?p=334
+slug: perl%e5%87%bd%e6%95%b0%e5%9f%ba%e7%a1%80
+title: perl函数基础
+wordpress_id: 334
+categories:
+- 默认分类
+---
+
+  1. 函数声明调用语法
+    1. 函数定义：  sub func {  ...... };
+    2. 函数声明：  sub func(......); 
+    3. 函数调用：  my returnValue =  func();
+  2. 函数输入参数：
+    1. 传递机制是  pass-by-reference，即修改 @_ 中的值的话就会修改参数的实际值。
+  3. 函数返回值：
+    1. 无论函数返回的是何种数据结构，总是会被转换为一个array。
+    2. 可以通过 wantarray 来判断应该返回数组还是单个变量。
+    3.   
+

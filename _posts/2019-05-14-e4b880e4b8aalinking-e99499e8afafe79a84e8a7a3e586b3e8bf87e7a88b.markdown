@@ -1,0 +1,24 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-14 01:36:09+00:00
+layout: post
+link: http://localhost/blog/?p=374
+slug: '%e4%b8%80%e4%b8%aalinking-%e9%94%99%e8%af%af%e7%9a%84%e8%a7%a3%e5%86%b3%e8%bf%87%e7%a8%8b'
+title: 一个linking 错误的解决过程
+wordpress_id: 374
+categories:
+- 工作方法论
+---
+
+在做 6850 代码porting的过程，在linking阶段出现了一个 “toupper” 的错误，而这个错误在 6800 那边是没有的。以下是解决这个问题的过程：  
+  
+
+
+  1. 在之前出现过类似的问题，是通过加编译flag的方法，此次也尝试在代码中查找是否由于漏了某个flag导致这个symbol没有被define。但是从代码来看，没有找到这种情况。
+  2. 分析问题状态：使用该symbol的地方是在 MW domain，但是该symbol 被define的地方是在 base domain里面，
+  3. 查看base 被build出来的 lib文件（使用 nm 命令），没有找到 toupper 的定义，反而能找到 __cpp_toupper， 在base代码里面是这样写的： #define toupper __cpp_toupper ，因此感到奇怪
+  4. 接着去查看该module的 make文件，发现该文件是有被build的
+  5. 接着去查看base domain的make文件，发现该 module没有被build进来，因此问题原因确定： 是 mw使用了 base的这个代码，但是base在后来没有再把该模块build进来，导致产生了这个问题。
+  6. 解决办法： 咨询 DL 后，把该定义放在了 mw 的文件中。  
+
