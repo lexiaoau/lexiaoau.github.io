@@ -3,6 +3,7 @@ layout: page
 description: "Thinking will not overcome fear but action will."
 ---
 
+<a href="categories">categories</a>
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
@@ -18,6 +19,7 @@ description: "Thinking will not overcome fear but action will."
             {{ post.content | strip_html | truncate:200 }}
         </div>
     </a>
+
     <p class="post-meta">
         Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
     </p>
