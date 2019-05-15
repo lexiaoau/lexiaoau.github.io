@@ -1,0 +1,231 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-15 11:11:11+00:00
+layout: post
+link: http://localhost/blog/?p=457
+published: true
+slug: null
+title: Python 字符串操作
+wordpress_id: 457
+categories:
+- python
+---
+
+
+
+
+**双引号和单引号的区别**
+
+
+
+
+
+
+
+_>>>"Let's go!"  
+"Let's go!"_  
+_hhh>>iii  
+>>> '"Hello, world!" she said'  
+'"Hello, world!" she said'_**转义字符**  
+uhhhh  Unicode 16位    
+
+
+xhh  十六进制
+
+ooo  八进制  
+
+
+
+
+
+**连接字符串**
+
+
+
+
+_>>> "Hello, " + "world!"  
+'Hello, world!'  
+>>> x = "Hello, "  
+>>> y = "world!"  
+>>> x + y  
+'Hello, world!'_
+
+_  
+_
+
+但是字符串不能和数字直接相连，例如:
+
+_>>> temp = 42_
+
+_>>> print "The temperature is " + str(temp)_
+
+_The temperature is 42_
+
+
+
+
+
+
+
+
+
+
+
+
+
+**长字符串 （用连续的3个单引号）**
+
+
+
+
+_print '''This is a very long string.  
+It continues here.  
+And it's not over yet.  
+"Hello, world!"  
+Still here.'''_
+
+_  
+_
+
+_  
+_
+
+**原字符串（r‘ ’）（取消转义）**
+
+_>>> print r'C:nowhere'  
+C:nowhere  
+>>> print r'C:Program Filesfnordfoobarbazfrozzbozz'  
+C:Program Filesfnordfoobarbazfrozzbozz_
+
+_  
+_
+
+（注意：最后一个字符，不可以是反斜杠   ）
+
+
+
+
+
+
+
+**=======================  Unicode  ======================================**
+
+
+
+
+_>>> u'Hello, world!'  
+u'Hello, world!'_
+
+
+
+
+**常用函数**
+
+
+
+
+  1. string.find(s, sub[, start[, end]])  类似的有  rfind  函数
+    1. 例子：
+      1.       2. >>> 'With a moo-moo here, and a moo-moo there'.find('moo')
+      3. 7
+      4. >>> title = "Monty Python's Flying Circus"
+      5. >>> title.find('Monty')
+      6. 0
+      7. 也可以用  “in” 判断是否包含，例如：
+        1. "k" in "hack"  -----> True
+  2. string.count(s, sub[, start[, end]])
+  3. 例子：
+  4. <div style="line-height: 28px;"><br></br>>>> 'This is a test'.replace('is', 'eez')<br></br>'Theez eez a test'</div><br></br>
+
+  5.   
+
+
+  6. string.split([, sep[, maxsplit]])
+  7. 例子：
+  8. >>> <span style="background-color: #ff99cc;">'1+2+3+4+5'.split('+')</span><br></br>['1', '2', '3', '4', '5']<br></br>>>> '/usr/bin/env'.split('/')<br></br>['', 'usr', 'bin', 'env']<br></br>>>> 'Using the default'.split()<br></br>['Using', 'the', 'default']
+
+
+
+
+
+
+
+`re.``split`(_pattern_, _string_, _maxsplit=0_, _flags=0_)[](https://docs.python.org/2/library/re.html#re.split)
+例子：
+
+    <span style="line-height: 28px;">>>> </span><span style="line-height: 28px;">re</span><span style="line-height: 28px;">.</span><span style="line-height: 28px;">split</span><span style="line-height: 28px;">(</span><span style="line-height: 28px;">'W+'</span><span style="line-height: 28px;">,</span> <span style="line-height: 28px;">'Words, words, words.'</span><span style="line-height: 28px;">,</span> <span style="line-height: 28px;">1</span><span style="line-height: 28px;">)</span><br></br><span style="line-height: 28px;">['Words', 'words, words.']</span><br></br><span style="line-height: 28px;">>>> </span><span style="line-height: 28px;">re</span><span style="line-height: 28px;">.</span><span style="line-height: 28px;">split</span><span style="line-height: 28px;">(</span><span style="line-height: 28px;">'[a-f]+'</span><span style="line-height: 28px;">,</span> <span style="line-height: 28px;">'0a3B9'</span><span style="line-height: 28px;">,</span> <span style="line-height: 28px;">flags</span><span style="line-height: 28px;">=</span><span style="line-height: 28px;">re</span><span style="line-height: 28px;">.</span><span style="line-height: 28px;">IGNORECASE</span><span style="line-height: 28px;">)</span><br></br><span style="line-height: 28px;">['0', '3', '9']</span>
+
+  1. string.join(words[, sep])
+  2. 例子：
+  3.  
+
+    >>> seq = ['1', '2', '3', '4', '5']<br></br>>>> <span style="background-color: #ff99cc;">sep.join(seq)</span> # Joining a list of strings<br></br>'1+2+3+4+5'<br></br>>>> dirs = '', 'usr', 'bin', 'env'<br></br>>>> <span style="background-color: #ff99cc;">'/'.join(dirs)</span><br></br>'/usr/bin/env'<br></br>>>> print 'C:' + '\'.join(dirs)<br></br>C:usrbinenv
+
+  4. string.strip(s[, chars])  类似的，还有  lstrip，  rstrip
+  5. 例子：
+  6. >>> <span style="background-color: #ff99cc;">' internal whitespace is kept '.strip()</span><br></br>'internal whitespace is kept'<br></br>>>> <span style="background-color: #ff99cc;">'*** SPAM * for * everyone!!! ***'.strip(' *!')</span><br></br>'SPAM * for * everyone'
+
+  7.   
+
+
+  8. string.replace(s, old, new[, maxreplace])
+  9. 例子：(不修改原字符串，如果需要修改，可以把函数返回结果赋值于原字符串)
+  10. 字符串反转（逆序）
+  11. 例子：(注：切片用法中第三个参数是作为步进数，-1 表示了是反向步进)
+  12. <div style="line-height: 28px;"><br></br>>>> <span style="background-color: rgb(255 , 153 , 204); line-height: 28px;">' internal whitespace is kept '[::-1]</span><br></br>' tpek si ecapsetihw lanretni '</div><br></br>
+
+  13.   
+
+
+  14. string.replace(s, old, new[, maxreplace])
+  15. 例子：(不修改原字符串，如果需要修改，可以把函数返回结果赋值于原字符串)
+  16. <div style="line-height: 28px;"><br></br>>>> <span style="background-color: rgb(255 , 153 , 204); line-height: 28px;">'This is a test'.replace('is', 'eez')</span><br></br>'Theez eez a test'</div><br></br>
+
+  17.   
+
+
+
+
+
+**字符串格式化**
+
+
+
+
+%[(_keyname_)][_flags_][_width_][._precision_]_typecode_
+
+
+
+
+  1. keyname --  字典的键
+  2. flag  ----  是如何对齐和补0
+  3. width  -----  数字的整体长度。可以用 * 代替(with a * in the format string to force their values to be taken from the next item in the inputs to the right of the % operator)
+    1. >>> '%f, %.2f, %.*f' % (1/3.0, 1/3.0, _4_, 1/3.0) '
+    2.  0.333333, 0.33, 0.3333
+  4. precision  ------  小数位数。可以用 * 代替
+  5. typecode  ------  %s, %d  ......
+
+
+
+
+
+
+
+**不常用的功能**
+
+
+
+
+
+
+
+  1. 支持使用Template
+    1. 字符串模板
+    2. 例子：
+      1.       2. >>> from string import Template
+      3. >>> s = Template('$x, glorious $x!')
+      4. >>> s.substitute(x='slurm')
+      5. 'slurm, glorious slurm!'
+  2. string.translate(s, table[, deletechars])
+  3.   

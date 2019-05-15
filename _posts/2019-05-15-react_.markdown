@@ -1,0 +1,23 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-15 11:11:11+00:00
+layout: post
+link: http://localhost/blog/?p=443
+published: true
+slug: null
+title: react 笔记（杂）
+wordpress_id: 443
+categories:
+- jsx
+- react
+- 前端
+---
+
+
+
+
+  1. props
+    1. Props 的只读性
+      1. 所有 React 组件都必须像纯函数一样保护它们的 props 不被更改。
+    2. D

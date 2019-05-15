@@ -1,0 +1,24 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-15 11:11:11+00:00
+layout: post
+link: http://localhost/blog/?p=448
+published: false
+slug: null
+title: 前端项目记录
+wordpress_id: 448
+categories:
+- 前端
+---
+
+使用react实现 content box  
+  
+疑问：  
+  
+
+
+  1. 什么时候该用 this.FUNCTION ，为什么有时候 onclick=this.FUNCTION 会变成直接调用该函数？
+  2. this.FUNCTION 与 arrow function 调用的区别
+  3. scope问题，this的范围与绑定
+  4. css flex 为什么经常不起作用？

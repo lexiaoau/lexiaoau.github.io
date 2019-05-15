@@ -1,0 +1,68 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-15 11:11:11+00:00
+layout: post
+link: http://localhost/blog/?p=444
+published: false
+slug: null
+title: github 使用
+wordpress_id: 444
+categories:
+- github
+---
+
+[http://www.runoob.com/w3cnote/git-guide.html](http://www.runoob.com/w3cnote/git-guide.html)  
+  
+  
+
+
+### 常用命令：
+
+git status  
+git log --- 查看commit历史  
+  
+  
+  
+
+
+### 检出仓库
+    
+    <span style="border: 0px; color: black; margin: 0px; padding: 0px;">git clone </span><span style="border: 0px; color: #666600; margin: 0px; padding: 0px;">/</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;">path</span><span style="border: 0px; color: #666600; margin: 0px; padding: 0px;">/</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;">to</span><span style="border: 0px; color: #666600; margin: 0px; padding: 0px;">/</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;">repository </span>
+    
+    <span style="border: 0px; color: black; margin: 0px; padding: 0px;">git clone username@host</span><span style="border: 0px; color: #666600; margin: 0px; padding: 0px;">:</span><span style="border: 0px; color: #008800; margin: 0px; padding: 0px;">/path/</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;">to</span><span style="border: 0px; color: #666600; margin: 0px; padding: 0px;">/</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;">repository</span>
+
+  
+添加改动  
+`git add `  
+`git add *`  
+  
+提交  
+git commit -m "代码提交信息"  
+  
+
+
+### 推送改动
+
+git push origin master  
+  
+  
+
+
+### 更新与合并
+
+git pull  
+  
+  
+  
+
+
+### 标签
+
+git tag 1.0.0 1b2e1d63ff  
+  
+  
+  
+  
+  
+

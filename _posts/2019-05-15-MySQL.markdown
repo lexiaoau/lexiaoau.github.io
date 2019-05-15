@@ -1,0 +1,55 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-15 11:11:11+00:00
+layout: post
+link: http://localhost/blog/?p=452
+published: true
+slug: null
+title: 使用MySQL
+wordpress_id: 452
+categories:
+- MySQL
+---
+
+三、修改mysql的配置文件，让 mysql 默认编码为utf8  
+在 /etc/mysql/my.cnf 文件中添加如下两行：  
+[mysqld]  
+character-set-server=utf8  
+再创建表的时候默认编码就是 utf8 了。  
+然后继续添加如下代码才能使得终端上显示的不乱码：  
+[client]  
+default-character-set=utf8  
+---------------------  
+
+
+
+
+
+mysql -u root -p  
+mysql -u le -p -A  
+
+
+
+
+
+create database xldb;  
+
+CREATE USER 'le'@'localhost' IDENTIFIED BY 'zzxx'; // mysql 8  
+
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password';  
+GRANT ALL PRIVILEGES ON xldb.* to 'le'@'localhost';  
+SHOW GRANTS FOR 'le'@'localhost';  
+set password for 'le' = [...];  
+
+show table status like '%fund';  
+
+
+SHOW CREATE TABLE 000001fund;  
+
+查看所有表数  
+SELECT count(TABLE_NAME) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'xldb';  
+
+
+数据库备份命令  
+mysqldump --add-drop-database --databases ... -u... -p... > dump.xldb.20190426.sql  

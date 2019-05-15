@@ -1,0 +1,516 @@
+---
+author: lexiao
+comments: true
+date: 2019-05-15 11:11:11+00:00
+layout: post
+link: http://localhost/blog/?p=458
+published: true
+slug: null
+title: Python数据结构
+wordpress_id: 458
+categories:
+- python
+---
+
+[https://docs.python.org/2/tutorial/datastructures.html](https://docs.python.org/2/tutorial/datastructures.html)
+
+
+
+
+
+常用的数据结构：  list, tuple, dictionary
+
+
+
+
+
+常用的操作：  _indexing_, _slicing_, _adding_, _multiplying_,  _membership checking _.
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+  1. list
+
+
+    1. _indexing_
+
+
+      1. 例子：
+
+
+      2.
+
+
+        1.  >>> greeting = 'Hello'
+
+
+        2. >>> greeting[0]
+
+
+        3. 'H'
+
+
+        4. greeting[-1]        -->   'o'
+
+
+
+
+
+      3. 多个相同的元素的例子：
+
+
+      4.
+
+
+        1. # A list with one ending for each number from 1 to 31
+
+
+        2. endings = ['st', 'nd', 'rd'] + 17 * ['th']
+
+
+        3.  + ['st', 'nd', 'rd'] + 7 * ['th']
+
+
+        4.  + ['st']
+
+
+
+
+
+
+
+
+    2. _slicing_
+
+
+      1. 例子：
+
+
+        1.
+
+        2. >>> tag[9:30]
+
+
+        3. >>> numbers[3:6]
+
+
+        4. [4, 5, 6]
+
+
+        5. >>> numbers[0:1]
+
+
+
+
+
+      2. the first is inclusive and the second is exclusive. （括号里面的数字是包前不包后）。
+
+
+      3. 缺省值的 slicing
+
+
+        1. 例子：
+
+
+          1.
+
+          2. numbers[-3  :   ]
+
+
+          3. numbers[   :  3 ]
+
+
+          4. numbers[   :   ]
+
+
+
+
+
+
+
+
+
+
+
+    3. _multiplying_
+
+
+      1. 例子：
+
+
+        1.
+
+        2. 'python' * 5
+
+
+        3. [42] * 10
+
+
+        4. sequence = [None] * 10           #  None 是表示空值，类似于 c++ 的 Null
+
+
+
+
+
+
+
+
+    4. _membership checking_
+
+
+      1. 例子：
+
+
+        1.
+
+        2. >>> permissions = 'rw'
+
+
+        3. >>> 'w' in permissions
+
+
+        4. True
+
+
+        5. >>> 'x' in permissions
+
+
+        6. False
+
+
+        7.
+
+        8. >>> subject = '$$$ Get rich now!!! $$$'
+
+
+        9. >>> '$$$' in subject                    # 可以用来检测 子字符串
+
+
+        10. True
+
+
+        11. ————
+
+
+        12.
+
+        13. database = [
+
+
+        14.  ['albert', '1234'],
+
+
+        15.  ['jones', '9843']
+
+
+        16. ]
+
+
+        17. if [username, pin] in database: print 'Access granted'        # 可以用来判断复制数据结构
+
+
+
+
+
+
+
+
+    5. 求长度，最大值，最小值
+
+
+      1.
+
+      2. >>> len(numbers)
+
+
+      3. >>> max(numbers)
+
+
+      4. >>> min(numbers)
+
+
+
+
+
+    6. list 的转换和基本操作
+
+
+      1. str_list = list("Hello")              # 得到的是包含字符串中每个字母的 list
+
+
+      2. del names[2]                       ###  删除list中的元素
+
+
+      3. names[2:]       =   'ar'            ###  改变元素值
+
+
+        1. 更多例子：
+
+
+        2.
+
+        3. >>> numbers = [1, 5]
+
+
+        4. >>> numbers[1:1] = [2, 3, 4]
+
+
+        5. >>> numbers
+
+
+        6. [1, 2, 3, 4, 5]
+
+
+        7.
+
+        8. >>> numbers
+
+
+        9. [1, 2, 3, 4, 5]
+
+
+        10. >>> numbers[1:4] = []
+
+
+        11. >>> numbers
+
+
+        12. [1, 5]
+
+
+
+
+
+
+
+
+    7. list 的循环：
+
+
+      1. for i in range(0,len( df.price.values ) ):
+
+
+      2.
+
+
+    <span style="color: blue;">for</span> i <span style="color: blue;">in</span> range(len(test_list)):
+
+
+
+
+
+
+
+
+    8. 去除重复元素： stCodeList = list(set(df['code'].tolist() ) )
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+dictionary
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+  1. 创建：
+
+
+  2. 例子：
+
+
+  3.
+
+
+    phonebook = {'Alice': '2341', 'Beth': '9102', 'Cecil': '3258'}
+
+    ######   使用 其它 list 来创建
+    >>> items = [('name', 'Gumby'), ('age', 42)]
+    >>> d = <span style="background-color: #ffcc99;">dict(items)</span>
+
+    >>> d = <span style="background-color: #ffcc99;">dict(name='Gumby', age=42)</span>
+    >>> d
+    {'age': 42, 'name': 'Gumby'}
+
+
+
+
+
+  4. 基本操作：
+
+
+    1. ? len(d) returns the number of items (key-value pairs) in d.
+? d[k] returns the value associated with the key k.
+? d[k] = v associates the value v with the key k.
+? del d[k] deletes the item with key k.
+? k in d checks whether there is an item in d that has the key k
+
+
+    2. 判断 key 是否存在：
+
+
+      1. if Dict.has_key(stCode):  已经过时，不推荐使用
+
+
+      2. if stCode in Dict: # stCode 是 key
+
+
+
+
+
+    3. 获取所有的key 的 list：
+
+
+      1. stCodeList = Dict.keys()
+
+
+
+
+
+    4.
+
+
+
+
+
+
+
+  5.
+
+
+Note：
+
+
+
+  6.
+
+
+ 
+
+
+
+
+
+
+
+
+<blockquote>
+
+>
+> 1） key 的类型必须是  immutable type ：  floating-point (real) numbers, strings, or tuples
+>
+> </blockquote>
+
+
+
+
+
+
+
+
+
+  1.
+
+
+    1.  
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+ 
