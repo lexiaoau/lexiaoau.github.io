@@ -12,8 +12,9 @@ title: Categories
     <div id="#{{ category_name | slugize }}"></div>
     <p></p>
 
-    <h1 class="category-head" style="color:blue;">{{ category_name }}</h3>
+    <h1 class="category-head" style="color:blue;">{{ category_name }}</h1>
     <a name="{{ category_name | slugize }}"></a>
+    <h1>({{ site.categories[category_name].length }})</h1>
     {% for post in site.categories[category_name] %}
     <article class="archive-item">
       <h4><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
