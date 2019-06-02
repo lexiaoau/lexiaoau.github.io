@@ -17,47 +17,55 @@ categories:
 
 
 
-  1. JSX 的基本语法规则：
+1. JSX 的基本语法规则：
     1. 遇到 HTML 标签（以 `<` 开头），就用 HTML 规则解析；遇到代码块（以 `{` 开头），就用 JavaScript 规则解析。
     2. 例子：
 
+        ```js
+        var names = ['Alice', 'Emily', 'Kate'];
+        ReactDOM.render(
+          <div>
+          {
+            names.map(function (name) {
+              return <div>Hello, {name}</div>;
+            })
+          }
+        </div>,
+          document.getElementById('example')
+        );
+        ```
 
+    3. 另一个例子
 
-    1. <blockquote><code style="border: none; direction: ltr; font-family: monospace, Consolas, Monaco, "Andale Mono"; font-size: 1.2em; hyphens: none; list-style-type: none; margin: 0px; padding: 0px; tab-size: 4; text-shadow: white 0px 1px; word-spacing: normal;"><br></br><span style="border: none; color: #0077aa; list-style-type: none; margin: 0px; padding: 0px;">var</span> names <span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">=</span> <span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">[</span><span style="border: none; color: #669900; list-style-type: none; margin: 0px; padding: 0px;">'Alice'</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">,</span> <span style="border: none; color: #669900; list-style-type: none; margin: 0px; padding: 0px;">'Emily'</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">,</span> <span style="border: none; color: #669900; list-style-type: none; margin: 0px; padding: 0px;">'Kate'</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">]</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">;</span><br></br><br></br>ReactDOM<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">.</span><span style="border: none; color: #111111; list-style-type: none; margin: 0px; padding: 0px;">render<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">(</span></span><br></br>  <span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span>div<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span><br></br>  <span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">{</span><br></br>    names<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">.</span><span style="border: none; color: #111111; list-style-type: none; margin: 0px; padding: 0px;">map<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">(</span></span><span style="border: none; color: #0077aa; list-style-type: none; margin: 0px; padding: 0px;">function</span> <span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">(</span>name<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">)</span> <span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">{</span><br></br>      <span style="border: none; color: #0077aa; list-style-type: none; margin: 0px; padding: 0px;">return</span> <span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span>div<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span>Hello<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">,</span> <span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">{</span>name<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">}</span><span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">!</span><span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span><span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">/</span>div<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span><br></br>    <span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">}</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">)</span><br></br>  <span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">}</span><br></br>  <span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span><span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">/</span>div<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">,</span><br></br>  document<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">.</span><span style="border: none; color: #111111; list-style-type: none; margin: 0px; padding: 0px;">getElementById<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">(</span></span><span style="border: none; color: #669900; list-style-type: none; margin: 0px; padding: 0px;">'example'</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">)</span><br></br><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">)</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">;</span><br></br></code>
->
-> </blockquote>
+        ```js
+        var arr = [
+          <h1>Hello world</h1>,
+          <h2>React is awesome<h2>
+        ];
+        ReactDOM.render(
+          <div>{arr}</div>,
+          document.getElementById('example')
+        );
+        ```
 
-
-
-
-    2. <blockquote><code style="border: none; direction: ltr; font-family: monospace, Consolas, Monaco, "Andale Mono"; font-size: 1.2em; hyphens: none; list-style-type: none; margin: 0px; padding: 0px; tab-size: 4; text-shadow: white 0px 1px; word-spacing: normal;"><br></br><span style="border: none; color: #0077aa; list-style-type: none; margin: 0px; padding: 0px;">var</span> arr <span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">=</span> <span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">[</span><br></br>  <span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span>h1<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span>Hello world<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">!</span><span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span><span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">/</span>h1<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">,</span><br></br>  <span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span>h2<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span>React is awesome<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span><span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">/</span>h2<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">,</span><br></br><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">]</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">;</span><br></br>ReactDOM<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">.</span><span style="border: none; color: #111111; list-style-type: none; margin: 0px; padding: 0px;">render<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">(</span></span><br></br>  <span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span>div<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">{</span>arr<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">}</span><span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span><span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">/</span>div<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">,</span><br></br>  document<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">.</span><span style="border: none; color: #111111; list-style-type: none; margin: 0px; padding: 0px;">getElementById<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">(</span></span><span style="border: none; color: #669900; list-style-type: none; margin: 0px; padding: 0px;">'example'</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">)</span><br></br><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">)</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">;</span><br></br></code>
->
-> </blockquote>
-
-    3. `  
-`
-
-  1. 组件
-    1. React 允许将代码封装成组件（component），然后像插入普通 HTML 标签一样，在网页中插入这个组件。
+1. 组件
+    1. React 允许将代码封装成组件（**component**），然后像插入普通 HTML 标签一样，在网页中插入这个组件。
     2. 组件类的第一个字母必须大写，否则会报错，比如`HelloMessage`不能写成`helloMessage`
-    3. `组件的用法与原生的 HTML 标签完全一致，可以任意加入属性，`组件的属性可以在组件类的 `this.props` 对象上获取，比如 `name` 属性就可以通过 `this.props.name` 读取
-    4.   
+    3. 组件的用法与原生的 HTML 标签完全一致，可以任意加入属性，组件的属性可以在组件类的 `this.props` 对象上获取，比如 `name` 属性就可以通过 `this.props.name` 读取
 
-    5. <blockquote><code style="border: none; direction: ltr; font-family: monospace, Consolas, Monaco, "Andale Mono"; font-size: 1.2em; hyphens: none; list-style-type: none; margin: 0px; padding: 0px; tab-size: 4; text-shadow: white 0px 1px; word-spacing: normal;"><br></br><span style="border: none; color: #0077aa; list-style-type: none; margin: 0px; padding: 0px;">var</span> HelloMessage <span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">=</span> React<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">.</span><span style="border: none; color: #111111; list-style-type: none; margin: 0px; padding: 0px;">createClass<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">(</span></span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">{</span><br></br>  render<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">:</span> <span style="border: none; color: #0077aa; list-style-type: none; margin: 0px; padding: 0px;">function</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">(</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">)</span> <span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">{</span><br></br>    <span style="border: none; color: #0077aa; list-style-type: none; margin: 0px; padding: 0px;">return</span> <span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span>h1<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span><br></br>      Hello <span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">{</span>this<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">.</span>props<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">.</span>name<span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">}</span><br></br>   <strike> <span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span><span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">/</span>h1<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span><span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span>p<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span><br></br>      some text<br></br>    <span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;"><</span><span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">/</span>p<span style="background: rgba(255 , 255 , 255 , 0.5); border: none; color: #a67f59; list-style-type: none; margin: 0px; padding: 0px;">></span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">;</span></strike><br></br>  <span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">}</span><br></br><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">}</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">)</span><span style="border: none; color: #999999; list-style-type: none; margin: 0px; padding: 0px;">;</span></code>
->
-> </blockquote>
+
 
       1. var HelloMessage = React.createClass({
       2. render: function() {
       3. return Hello {**this.props.name**};
       4. }
       5. });
-      6.   
+      6.
 
       7.       8. ****,
-      9.   
+      9.
 
-      10.   
+      10.
 
       11.       12. var NotesList = React.createClass({
       13. render: function() {
@@ -69,9 +77,9 @@ categories:
 ;
       20. })
       21. }
-      22.   
-组件调用例子：  
-注意：实参名字必须和形参名字一致。  
+      22.
+组件调用例子：
+注意：实参名字必须和形参名字一致。
 
 
 const TitleBar = ({ _titleText_ , isFold=false  }) => {.....}
@@ -88,7 +96,8 @@ const TitleBar = ({ _titleText_ , isFold=false  }) => {.....}
 
 
 * ,
-* #### 获取真实的DOM节点
+
+### 获取真实的DOM节点
 
 
 
@@ -128,4 +137,4 @@ const TitleBar = ({ _titleText_ , isFold=false  }) => {.....}
 
 * f
 * f
-*   
+*

@@ -52,6 +52,8 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
+  # syntax_highlighter: pygments
+  syntax_highlighter: rouge
 
 # Featured Tags
 featured-tags: true                     # 是否使用首页标签
@@ -62,4 +64,3 @@ featured-condition-size: 1              # 相同标签数量大于这个数，�
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
-

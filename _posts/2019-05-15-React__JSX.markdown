@@ -14,40 +14,58 @@ categories:
 - 前端
 ---
 
+```js
+ReactDOM.render(
+    <div>
+    <h1>菜鸟教程</h1>
+    <h2>欢迎学习 React</h2>
+    <p data-myattribute = "somevalue">这是一个很不错的 JavaScript 库!</p>
+    </div>
+    ,
+    document.getElementById('example')
+);
+```
+
+-------------------------------------------------------------------------------------------------
 
 
 
+### 通过独立文件引入 react 代码
 
-<blockquote>ReactDOM.render(    <div>     <h1>菜鸟教程</h1>     <h2>欢迎学习 React</h2>     <p data-myattribute = "somevalue">这是一个很不错的 JavaScript 库!</p>     </div>     ,     document.getElementById('example'));</blockquote>
+helloworld_react.js 文件，代码如下：
 
+```js
+ReactDOM.render(
+    <h1>Hello, world!</h1>,
+    document.getElementById('example')
+);
+```
 
--------------------------------------------------------------------------------------------------  
+```html
+<body>
+    <div id="example"></div>
+    <script type="text/babel" src="helloworld_react.js"></script>
+</body>
+```
 
-
-
-#### _通过独立文件引入 react 代码_
-
-<blockquote></blockquote>
-
-
-ReactDOM.render(  <h1>Hello, world!</h1>,   document.getElementById('example'));  
-
------  
-
-<body>  <div id="example"></div><script type="text/babel" src="helloworld_react.js"></script></body>  
-
--------------------------------------------------------------------------------------------------  
-
+-------------------------------------------------------------------------------------------------
 
 
-## JavaScript 表达式
+
+### JavaScript 表达式
 
 我们可以在 JSX 中使用 JavaScript 表达式。表达式写在花括号 **{}** 中。实例如下：
 
+```js
+ReactDOM.render(
+    <div>
+        <h1>_{1+1}_</h1>
+    </div>,
+    document.getElementById('example')
+);
+```
 
-ReactDOM.render(    <div>       <h1>_{1+1}_</h1>     </div>     ,     document.getElementById('example'));  
-
--------------------------------------------------------------------------------------------------  
+-------------------------------------------------------------------------------------------------
 
 
 
@@ -55,9 +73,9 @@ ReactDOM.render(    <div>       <h1>_{1+1}_</h1>     </div>     ,     document.g
 ## React 组件
 
 
-×××××××××××××××××××××××××××××××××××××××××  
+×××××××××××××××××××××××××××××××××××××××××
 
-_组件规则_  
+_组件规则_
 
 
 
@@ -67,43 +85,47 @@ _组件规则_
     1. 添加属性时， class 属性需要写成 className ，for 属性需要写成 htmlFor ，这是因为 class 和 for 是 JavaScript 的保留字。
 
 
-_组件用法_  
+_组件用法_
 
 
 
   1. 使用函数（或者es6）定义一个组件
   2. **const element = ** 为用户自定义的组件。
-  3.   
+  3.
 
 
+```js
+function HelloMessage(props) {
+    return <h1>Hello {props.name}!</h1>;
+}
 
+const element = <HelloMessage name="Runoob"/>;
 
-
-
-
-function HelloMessage(props) {    return <h1>Hello World!</h1>; }  const element = <HelloMessage />;   ReactDOM.render(    element,     document.getElementById('example'));  
-
-
-
-
-
-
-    <span style="border: 0px; color: #000088; margin: 0px; padding: 0px;">class</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;"> </span><span style="border: 0px; color: #660066; margin: 0px; padding: 0px;">Welcome</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;"> </span><span style="border: 0px; color: #000088; margin: 0px; padding: 0px;">extends</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;"> </span><span style="border: 0px; color: #660066; margin: 0px; padding: 0px;">React</span><span style="border: 0px; color: #666600; margin: 0px; padding: 0px;">.</span><span style="border: 0px; color: #660066; margin: 0px; padding: 0px;">Component</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;"> </span><span style="border: 0px; color: #666600; margin: 0px; padding: 0px;">{</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;"><br></br>  render</span><span style="border: 0px; color: #666600; margin: 0px; padding: 0px;">()</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;"> </span><span style="border: 0px; color: #666600; margin: 0px; padding: 0px;">{</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;"><br></br>    </span><span style="border: 0px; color: #000088; margin: 0px; padding: 0px;">return</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;"> </span><span style="border: 0px; color: #008800; margin: 0px; padding: 0px;"><h1><br></br></h1><br></br></span><span style="border: 0px; color: #660066; margin: 0px; padding: 0px;">Hello</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;"> </span><span style="border: 0px; color: #660066; margin: 0px; padding: 0px;">World</span><span style="border: 0px; color: #666600; margin: 0px; padding: 0px;">!</</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;">h1</span><span style="border: 0px; color: #666600; margin: 0px; padding: 0px;">>;</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;"><br></br>  </span><span style="border: 0px; color: #666600; margin: 0px; padding: 0px;">}</span><span style="border: 0px; color: black; margin: 0px; padding: 0px;"><br></br></span><span style="border: 0px; color: #666600; margin: 0px; padding: 0px;">}</span>
-
-
-
+ReactDOM.render(
+    element,
+    document.getElementById('example')
+);
+```
 
 ### _如果我们需要向组件传递参数，可以使用 **this.props** 对象,实例如下：_
 
 
 
 
-## React 实例
+#### React 实例 ####
 
-function HelloMessage(props) {    return <h1>Hello {props.name}!</h1>; }  const element = <HelloMessage name="Runoob"/>;   ReactDOM.render(    element,     document.getElementById('example'));
+```js
+function HelloMessage(props) {
+    return <h1>Hello {props.name}!</h1>;
+}
 
+const element = <HelloMessage name="Runoob"/>;
 
-
+ReactDOM.render(
+    element,
+    document.getElementById('example')
+);
+```
 
 
 
@@ -115,4 +137,28 @@ function HelloMessage(props) {    return <h1>Hello {props.name}!</h1>; }  const 
 
 ## React 实例
 
-function Name(props) {    return <h1>网站名称：{props.name}</h1>; }function Url(props) {    return <h1>网站地址：{props.url}</h1>; }function Nickname(props) {    return <h1>网站小名：{props.nickname}</h1>; }function App() {    return (    <div>         <Name name="菜鸟教程" />         <Url url="http://www.runoob.com" />         <Nickname nickname="Runoob" />     </div>     ); }  ReactDOM.render(     <App />,     document.getElementById('example'));
+```js
+function Name(props) {
+    return <h1>网站名称：{props.name}</h1>;
+}
+function Url(props) {
+    return <h1>网站地址：{props.url}</h1>;
+}
+function Nickname(props) {
+    return <h1>网站小名：{props.nickname}</h1>;
+}
+function App() {
+    return (
+    <div>
+        <Name name="菜鸟教程" />
+        <Url url="http://www.runoob.com" />
+        <Nickname nickname="Runoob" />
+    </div>
+    );
+}
+
+ReactDOM.render(
+     <App />,
+    document.getElementById('example')
+);
+```
