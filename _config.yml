@@ -54,9 +54,9 @@ kramdown:
   input: GFM                            # use Github Flavored Markdown !important
   # syntax_highlighter: pygments
   syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    block:
-      line_numbers: true
+#  syntax_highlighter_opts:
+#    block:
+#      line_numbers: true
 
 # Featured Tags
 featured-tags: true                     # 是否使用首页标签
