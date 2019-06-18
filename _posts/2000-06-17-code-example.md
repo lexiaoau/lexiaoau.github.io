@@ -79,11 +79,85 @@ class Columns extends React.Component {
 ---
 
 
+## 特殊的 children prop
+
+* JSX 标签中的所有内容都会作为一个 children prop 传递
+
+```js
+function FancyBorder(props) {
+  return (
+    <div className={'FancyBorder FancyBorder-' + props.color}>
+      {props.children}             {/*  use props.children */}
+    </div>
+  );
+}
+```
 
 
 
+```js
+
+function WelcomeDialog() {
+  return (
+    <FancyBorder color="blue">
+      <h1 className="Dialog-title">  //// one child
+        Welcome
+      </h1>
+      <p className="Dialog-message">     //// another child
+        Thank you for visiting our spacecraft!    
+      </p>
+    </FancyBorder>
+  );
+}
+```
+
+---
 
 
+## 列表 & Key, 渲染多个组件
+
+```js
+function NumberList(props) {
+  const numbers = props.numbers;    // 组件接收 numbers 数组作为参数
+  const listItems = numbers.map((number) =>
+    <li key={number.toString()}>{number}</li>
+  );
+  return (
+    <ul>{listItems}</ul>
+  );
+}
+
+const numbers = [1, 2, 3, 4, 5];
+ReactDOM.render(
+  <NumberList numbers={numbers} />,
+  document.getElementById('root')
+);
+```
+
+---
+
+## Ref
+
+
+```js
+
+class AutoFocusTextInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.textInput = React.createRef();     //////////////
+  }
+
+  componentDidMount() {
+    this.textInput.current.focusTextInput();          /////// current
+  }
+
+  render() {
+    return (
+      <CustomTextInput ref={this.textInput} />    ///  ref=
+    );
+  }
+}
+```
 
 
 
