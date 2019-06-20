@@ -6,7 +6,7 @@ title: Categories
 
 
 <div id="archives">
-{% assign sorted_cats = site.categories | sort %}
+{% assign sorted_cats = site.categories | sort: 'size'  %}
 {% for category in sorted_cats %}
   <div class="archive-group">
     {% capture category_name %}{{ category | first }}{% endcapture %}
