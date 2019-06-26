@@ -27,9 +27,26 @@ categories:
 
 ```js
 
-arr = [{"device":"desktop","sessions":504,"reportmonth":"2019-01"},{"device":"mobile","sessions":113,"reportmonth":"2019-01"},{"device":"tablet","sessions":14,"reportmonth":"2019-01"},{"device":"desktop","sessions":714,"reportmonth":"2019-02"},{"device":"mobile","sessions":114,"reportmonth":"2019-02"},{"device":"tablet","sessions":36,"reportmonth":"2019-02"},{"device":"desktop","sessions":700,"reportmonth":"2019-03"},{"device":"mobile","sessions":96,"reportmonth":"2019-03"},{"device":"tablet","sessions":28,"reportmonth":"2019-03"},{"device":"desktop","sessions":562,"reportmonth":"2019-04"},{"device":"mobile","sessions":102,"reportmonth":"2019-04"},{"device":"tablet","sessions":41,"reportmonth":"2019-04"},{"device":"desktop","sessions":662,"reportmonth":"2019-05"},{"device":"mobile","sessions":68,"reportmonth":"2019-05"},{"device":"tablet","sessions":24,"reportmonth":"2019-05"}]
+arr = [
+    {"device":"desktop","sessions":504,"reportmonth":"2019-01"},
+{"device":"mobile","sessions":113,"reportmonth":"2019-01"},
+{"device":"tablet","sessions":14,"reportmonth":"2019-01"},
+{"device":"desktop","sessions":714,"reportmonth":"2019-02"},
+{"device":"mobile","sessions":114,"reportmonth":"2019-02"},
+{"device":"tablet","sessions":36,"reportmonth":"2019-02"},
+{"device":"desktop","sessions":700,"reportmonth":"2019-03"},
+{"device":"mobile","sessions":96,"reportmonth":"2019-03"},
+{"device":"tablet","sessions":28,"reportmonth":"2019-03"},
+{"device":"desktop","sessions":562,"reportmonth":"2019-04"},
+{"device":"mobile","sessions":102,"reportmonth":"2019-04"},
+{"device":"tablet","sessions":41,"reportmonth":"2019-04"},
+{"device":"desktop","sessions":662,"reportmonth":"2019-05"},
+{"device":"mobile","sessions":68,"reportmonth":"2019-05"},
+{"device":"tablet","sessions":24,"reportmonth":"2019-05"}]
 
-arr.filter(e => e.reportmonth === mon ).map(a => a.sessions ).reduce( (a,b) => a + b, 0 )
+arr.filter(e => e.reportmonth === mon )
+   .map(a => a.sessions )
+   .reduce( (a,b) => a + b, 0 )
 
 
 ```
