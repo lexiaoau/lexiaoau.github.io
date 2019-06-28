@@ -6,7 +6,7 @@ layout: post
 link: http://localhost/blog/?p=441
 published: true
 slug: null
-title: redux 基础
+title: redux 理解
 wordpress_id: 441
 categories:
 - react
