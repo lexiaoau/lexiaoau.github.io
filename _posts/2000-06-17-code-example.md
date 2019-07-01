@@ -8,6 +8,7 @@ published: true
 slug: null
 title: React 之 code example
 wordpress_id: 440
+tags: recent fe
 categories:
 - jsx
 - react
