@@ -8,6 +8,7 @@ published: true
 slug: null
 title: JavaScript 之 code example
 wordpress_id: 440
+tags: recent fe
 categories:
 - javascript
 - 前端
