@@ -8,6 +8,7 @@ published: true
 slug: null
 title: redux 理解
 wordpress_id: 441
+tags: recent fe
 categories:
 - react
 - 前端
