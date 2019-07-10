@@ -1,3 +1,18 @@
+---
+author: lexiao
+comments: true
+date: 2019-07-10 11:11:11+00:00
+layout: post
+link: http://localhost/blog/?p=440
+published: true
+slug: null
+title: Typescript 之 code example
+wordpress_id: 440
+tags: recent fe
+categories:
+- 前端
+---
+
 ```typescript
 for (let i: number = 0; i < 5; ++i) {
   let line: string = "";
