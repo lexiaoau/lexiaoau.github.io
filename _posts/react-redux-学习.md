@@ -6,7 +6,7 @@ layout: post
 link: http://localhost/blog/?p=440
 published: true
 slug: null
-title: 前端-非react-汇总
+title: react-redux-学习.md
 wordpress_id: 440
 tags: summary
 categories:
