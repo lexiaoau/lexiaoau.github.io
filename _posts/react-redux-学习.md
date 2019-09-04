@@ -8,7 +8,7 @@ published: true
 slug: null
 title: react-redux-学习.md
 wordpress_id: 440
-tags: summary
+tags: recent
 categories:
 - 前端
 - redux
