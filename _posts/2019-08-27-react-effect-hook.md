@@ -17,6 +17,9 @@ categories:
 
 [Official Doc](https://zh-hans.reactjs.org/docs/hooks-effect.html)
 
+[Hook Example](https://codesandbox.io/react-hooks)
+
+
 ## Effect Hook 使用规则
 
 -   其名称以 “useEffect” 开头
