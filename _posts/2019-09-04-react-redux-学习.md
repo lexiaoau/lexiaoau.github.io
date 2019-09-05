@@ -86,6 +86,187 @@ function mapStateToProps(state) {
 ??? Selector Functions 
 
 
+---
+
+# 如何定义 mapDispatchToProps
+
+## 发送action 到 store 的 2 种方法
+
+1. 被连接的组件有默认的 props.dispatch
+2. 传递函数作为参数给 connect() 函数
+
+## 第一种方法
+
+连接组件的代码例子：
+
+```js
+
+connect()(MyComponent)
+// which is equivalent with
+connect(
+  null,
+  null
+)(MyComponent)
+
+// or
+connect(mapStateToProps /** no second argument */)(MyComponent)
+```
+
+发送action的代码例子：
+
+```js
+
+function Counter({ count, dispatch }) {
+  return (
+    <div>
+      <button onClick={() => dispatch({ type: 'DECREMENT' })}>-</button>
+    </div>
+  )
+}
+```
+
+## 第二种方法
+
+### 说明：
+- 如果使用该方法，那么组件就不会接受 dispatch 作为参数（第一种方法）。
+- 可以把dispatch的责任下放给子组件，使得子组件即使不知道 redux store，也可以往store 发送action。
+
+
+## 定义 mapDispatchToProps 的 2 种形式
+
+## 第一种形式 -- 函数
+
+### 函数参数
+
+- 第一个参数 ：  dispatch
+- 第二个参数 ：  ownProps ( optional )
+
+### 返回值
+
+- 简单对象
+  - 对象中每个 key 会被作为组件的参数（props）
+  - 对象中每个 value 一般应该是一个 dispatch action function .
+- 如果使用 action creator ， 那么就只要使用 key 就可以了。
+- 使用 redux 的 bindActionCreators() ，可以简化步骤。
+
+
+## 第二种形式 -- 对象 （官方推荐的形式）
+
+一个包含多个 action creators 的对象。
+connect() 会自动调用 bindActionCreators 把这些 action creators 注册到dispatch 。
+
+
+## 补充说明
+
+- 如果在 connect() 里面不提供 mapDispatchToProps ，那么组件会接收 dispatch 作为参数（反之不会有该参数）。
+- 如果只想要 mapDispatchToProps 而不要 mapStateToProps ， 可以把 mapStateToProps 设置为 null 。
+
+
+mapDispatchToProps 代码例子：
+
+```js
+
+//----------------------------------------------------------------
+//----------------------------------------------------------------
+//----------------------------------------------------------------
+
+// ---------------  这是 action 的定义 ---------------------------
+export const increment = () => ({ type: "INC" });
+export const decrement = () => ({ type: "DEC" });
+export const reset = () => ({ type: "RESET" });
+
+
+// ---------------  不定义mapDispatchToProps， 直接使用 dispatch ---------------------------
+
+import { connect } from "react-redux";
+import { increment, decrement, reset } from "./actions";
+
+function Counter({ count, dispatch }) {
+  return (
+    <div>
+      <button onClick={() => dispatch(decrement())}>-</button>
+      <span>{count}</span>
+      <button onClick={() => dispatch(increment())}>+</button>
+      <button onClick={() => dispatch(reset())}>reset</button>
+    </div>
+  );
+}
+
+const mapStateToProps = state => ({
+  count: state.count
+});
+
+export default connect(mapStateToProps)(Counter);
+
+
+// ---------------  mapDispatchToProps 函数形式 ---------------------------
+
+function Counter({ count, increment, decrement, reset }) {
+  return (
+    <div>
+      <button onClick={decrement}>-</button>
+      <span>{count}</span>
+      <button onClick={increment}>+</button>
+      <button onClick={reset}>reset</button>
+    </div>
+  );
+}
+
+const mapStateToProps = state => ({
+  count: state.count
+});
+
+const mapDispatchToProps = dispatch => ({
+  decrement: () => dispatch(decrement()),
+  increment: () => dispatch(increment()),
+  reset: () => dispatch(reset())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Counter);
+
+
+// ---------------  mapDispatchToProps 对象形式 ---------------------------
+
+const mapDispatchToProps = {
+  decrement,
+  increment,
+  reset
+};
+
+
+// ---------------  mapDispatchToProps 使用 bindActionCreators ---------------------------
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ increment, decrement, reset }, dispatch)
+}
+
+
+// ---------------  mapDispatchToProps 最简单形式（官方推荐） ---------------------------
+
+export default connect(
+  mapStateToProps,
+  { increment, decrement, reset }
+)(Counter);
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
