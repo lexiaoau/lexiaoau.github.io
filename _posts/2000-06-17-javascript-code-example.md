@@ -56,7 +56,44 @@ arr.filter(e => e.reportmonth === mon )
 
 
 
+## 比较 timestamp
 
+
+
+```js
+
+// 生成 timestamp
+const timeStamp = (new Date()).toISOString();
+
+// 使用之前 生成 timestamp 来创建新的  Date object
+const createTime = new Date(user.verificationCodeUpdatedAt);
+
+// 与当前时间比较，比较的单位是 毫秒 ，以下代码判断是否大于 10 分钟。
+const curTime = new Date();
+(curTime - createTime) > 10 * 60 * 1000
+
+```
+
+---
+
+
+
+## Node JS 如何 export/import 多个常量
+
+```js
+
+// file    utils/appConfigConst.js           export 常量
+module.exports = {
+    ReutersApiToken: 'token'
+}
+
+// file     utils/dbService.js                  import 和 使用常量
+const AppConfigTableKey = require('./appConfigConst');
+console.log(AppConfigTableKey.ReutersApiToken); 
+
+```
+
+---
 
 
 
