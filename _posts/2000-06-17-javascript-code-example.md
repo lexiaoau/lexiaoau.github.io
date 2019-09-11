@@ -150,6 +150,34 @@ const axiosConfig = {
 ```
 
 
+---
+---
+---
+
+## 字符串及数字转换函数
+
+
+```js
+
+const ssecLast    = parseFloat(ssecData[2]);
+
+// 数字 加 字符串，结果会变成字符串
+// Math.round 是把小数部分删除，只保留整数部分
+const ssecDiffRatio = (Math.round( ( (ssecCurrent - ssecLast) / ssecLast ) * 10000) / 100 )  + '';
+
+// toLocaleString() 可以变成千位数用逗号分割的格式
+const ssecCurrentPrice = ssecCurrent.toLocaleString();
+
+// substring(5,7) 是截取 字符串中 第5和第6 字符。
+const ssecMont = (ssecData[30]).substring(5,7);
+
+
+
+```
+
+---
+---
+---
 
 
 
