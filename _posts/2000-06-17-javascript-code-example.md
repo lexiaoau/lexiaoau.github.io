@@ -112,6 +112,43 @@ console.log(process.env.DB_PASSWORD）
 
 ```
 
+---
+---
+---
+
+## 使用 axios
+
+
+
+```js
+
+
+const axiosConfig = {
+        url: getTokenApiUrl,
+        method: 'post',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        data: {
+            "CreateServiceToken_Request_1": {
+                "ApplicationID": process.env.REUTERS_API_APPLICATION_ID
+            }
+        }
+    }
+
+    try {
+        let rsp = await axios(axiosConfig);
+        console.log(rsp["data"]);   
+    }
+    }
+    catch (err) {
+        console.log('Error caught', err);
+    }
+
+
+```
+
 
 
 
