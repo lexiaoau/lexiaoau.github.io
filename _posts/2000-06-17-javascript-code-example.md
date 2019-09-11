@@ -94,8 +94,23 @@ console.log(AppConfigTableKey.ReutersApiToken);
 ```
 
 ---
+---
+---
+
+## 提取环境变量
+
+假设环境变量保存在文件 .env.docker-development
+DB_PASSWORD=123
+
+### 启动命令：    NODE_ENV=docker-development node utils/reutersService.js
+
+```js
+// 调用 环境变量
+
+console.log(process.env.DB_PASSWORD）
 
 
+```
 
 
 
