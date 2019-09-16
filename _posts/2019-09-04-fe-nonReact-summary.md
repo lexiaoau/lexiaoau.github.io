@@ -23,11 +23,12 @@ categories:
 ## CSS
 
 - 显示圆形图片
-    - <img style="float:left; border-radius: 50%" src="https://images.pexels.com/photos/2749939/pexels-photo-2749939.jpeg" />
+    - img style="float:left; border-radius: 50%" src="" 
     
     ```html
 
- <img style="float:left; border-radius: 50%" src="https://i....jpeg" />
+ < />
+img style="float:left; border-radius: 50%" src="https://i....jpeg"
 ```
 
 
