@@ -28,7 +28,9 @@ categories:
     ```html
 
  < />
-img style="float:left; border-radius: 50%" src="https://i....jpeg"
+<br>
+img style="float:left; border-radius: 50%" src="#"
+
 ```
 
 
