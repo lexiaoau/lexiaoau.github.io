@@ -34,6 +34,14 @@ img style="float:left; border-radius: 50%" src="#"
 ```
 
 
+#
+
+## HTML Element
+
+- 动态增加/删除表格行的办法：
+    - e.parentNode.parentNode.parentNode.removeChild(e.parentNode.parentNode);
+    - JQuery：  jQuery(".form-table").append(markup);
+
 
 
 
