@@ -256,6 +256,46 @@ export default connect(
 
 
 
+---
+---
+---
+
+# connect() 函数
+
+原型
+
+```js
+function connect(mapStateToProps?, mapDispatchToProps?, mergeProps?, options?)
+```
+
+
+
+## 第三个参数：   mergeProps
+
+说明：
+- 提供一个途径，把 stateProps， dispatchProps， ownProps 三个参数合并成为一个参数，然后传递给组件。
+- 如果不提供该 mergeProps，那么组件接收到的参数会是 { ...ownProps, ...stateProps, ...dispatchProps }
+- mergeProps 的signature是 mergeProps?: (stateProps, dispatchProps, ownProps) => Object
+- 
+
+
+
+
+
+
+## 第四个参数：   options
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
