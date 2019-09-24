@@ -180,6 +180,34 @@ const ssecMont = (ssecData[30]).substring(5,7);
 ---
 
 
+## 正则表达式匹配
+
+
+```js
+
+// 'ASX listed companies as at Tue Sep 24 16:26:30 AEST 2019\n\nCompany name,ASX code,GICS industry group\n"MOQ LIMITED","MOQ","Software & Services"\n"1300 SMILES LIMITED","ONT","Health Care Equipment & Services"\n"1414 DEGREES LIMITED","14D","Capital Goods"\n"1ST GROUP LIMITED","1ST","Health Care Equipment & Services"\n"333D LIMITED","T3D","Commercial & Professional Services"\n"360 CAPITAL GROUP","TGP","Real Estate"\n"360 CAPITAL TOTAL RETURN FUND","TOT","Not Applic"\n"3D OIL LIMITED","TDO","Energy"\n"3D RESO' 
+
+        let reg = /,"([A-Z0-9]{3})",/gm ;
+
+        // get all matches of patter, m - multiple line, g - match all instance
+        let result = content.match(reg);
+        
+// result :
+[ ',"MOQ",',
+  ',"ONT",',
+  ',"14D",',
+  ',"1ST",',
+  ',"T3D",',
+  ',"TGP",',
+  ',"TOT",',
+  ',"TDO",' ]
+
+```
+
+---
+---
+---
+
 
 
 
