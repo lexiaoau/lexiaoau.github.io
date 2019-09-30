@@ -212,6 +212,32 @@ group\n"MOQ LIMITED","MOQ","Software & Services"\n"1300 SMILES LIMITED","ONT","H
 ---
 ---
 
+##  loop , copy pefromance
+
+
+```js
+
+while( length-- ) {}
+
+// classical for with length
+for (let p = 0, pLen = arrData.length; p < pLen; ++p) {}
+
+// loop over object
+for (let key in obj) {
+  let value = obj[key];
+  console.log(key, value);
+}
+
+// duplicate array
+let newArray = oldArray.slice(  );
+
+
+```
+
+
+---
+---
+---
 
 
 
