@@ -15,7 +15,7 @@ categories:
 ---
 
 
-# 如何定义 mapStateToProps
+# typescript 数据类型
 
 ---
 
@@ -174,6 +174,264 @@ categories:
 </table>
 
 ---
+
+
+# 类
+
+```js
+
+class Greeter {
+    greeting: string;
+    constructor(message: string) {
+        this.greeting = message;
+    }
+    greet() {
+        return "Hello, " + this.greeting;
+    }
+}
+
+let greeter = new Greeter("world");
+
+```
+
+## 继承
+
+```js
+
+class Animal {
+    name: string;
+    constructor(theName: string) { this.name = theName; }
+    move(distanceInMeters: number = 0) {
+        console.log(`${this.name} moved ${distanceInMeters}m.`);
+    }
+}
+
+class Snake extends Animal {
+    constructor(name: string) { super(name); }
+    move(distanceInMeters = 5) {
+        console.log("Slithering...");
+        super.move(distanceInMeters);
+    }
+}
+
+class Horse extends Animal {
+    constructor(name: string) { super(name); }
+    move(distanceInMeters = 45) {
+        console.log("Galloping...");
+        super.move(distanceInMeters);
+    }
+}
+
+let sam = new Snake("Sammy the Python");
+let tom: Animal = new Horse("Tommy the Palomino");
+
+sam.move();
+tom.move(34);
+
+```
+
+- 子类使用 super() 调用父类的构造函数
+- 方法可以被覆盖
+- 调用哪个类的方法是根据 runtime instance type
+
+## 公共，私有与受保护的修饰符
+
+- 默认为public
+- 构造函数也可以被标记成protected。 这意味着这个类不能在包含它的类外被实例化，但是能被继承。
+
+## readonly修饰符
+
+只读属性必须在声明时或构造函数里被初始化。
+
+```js
+
+class Octopus {
+    readonly name: string;
+    readonly numberOfLegs: number = 8;
+    constructor (theName: string) {
+        this.name = theName;
+    }
+}
+let dad = new Octopus("Man with the 8 strong legs");
+dad.name = "Man with the 3-piece suit"; // 错误! name 是只读的.
+
+```
+
+## 参数属性
+
+参数属性通过给构造函数参数添加一个访问限定符来声明。 使用private限定一个参数属性会声明并初始化一个私有成员；对于public和protected来说也是一样。
+
+```js
+
+class Animal {
+    constructor(private name: string) { }               // use private
+    move(distanceInMeters: number) {
+        console.log(`${this.name} moved ${distanceInMeters}m.`);
+    }
+}
+
+```
+
+## 存取器
+
+```js
+
+let passcode = "secret passcode";
+
+class Employee {
+    private _fullName: string;
+
+    get fullName(): string {             ////////////  use get
+        return this._fullName;
+    }
+
+    set fullName(newName: string) {  ////////////  use set
+        if (passcode && passcode == "secret passcode") {
+            this._fullName = newName;
+        }
+        else {
+            console.log("Error: Unauthorized update of employee!");
+        }
+    }
+}
+
+let employee = new Employee();
+employee.fullName = "Bob Smith";                    ////  to set
+if (employee.fullName) {                        //////  to get
+    alert(employee.fullName);
+}
+
+
+```
+
+## 静态属性
+
+```js
+
+class Grid {
+    static origin = {x: 0, y: 0};
+    calculateDistanceFromOrigin(point: {x: number; y: number;}) {
+        let xDist = (point.x - Grid.origin.x);              /////   Grid.origin.x
+        return ...;
+    }
+    constructor (public scale: number) { }
+}
+
+
+```
+
+## 抽象类
+
+```js
+
+abstract class Department {
+
+    constructor(public name: string) {    }
+
+    printName(): void {
+        console.log('Department name: ' + this.name);
+    }
+
+    abstract printMeeting(): void; // 必须在派生类中实现
+}
+
+```
+
+- 抽象类中的抽象方法不包含具体实现并且必须在派生类中实现。 
+- 抽象方法必须包含abstract关键字并且可以包含访问修饰符。
+
+## 类是一种类型，可以用在任何使用 interface 的地方
+
+---
+---
+---
+
+# 函数
+
+## 为函数添加类型的方式
+
+```js
+
+function add(x: number, y: number): number {
+    return x + y;
+}
+
+```
+
+```js
+
+let myAdd = function(x: number, y: number): number { return x + y; };
+
+```
+
+```js
+
+let myAdd: (x:number, y:number) => number =             //// => 后面是函数返回值类型
+    function(x: number, y: number): number { return x + y; };
+
+```
+
+```js
+
+
+
+```
+
+```js
+
+
+
+```
+
+## 特殊参数
+
+### 可选参数
+
+- 在参数名旁使用?实现可选参数的功能。
+- 可选参数必须跟在必须参数后面。
+- 
+
+### 有默认初始化值的参数
+
+- 在所有必须参数后面的带默认初始化的参数都是可选的，
+- 带默认值的参数不需要放在必须参数的后面。可以传 undefined
+
+```js
+
+function buildName(firstName = "Will", lastName: string) {
+    return firstName + " " + lastName;
+}
+
+let result1 = buildName("Bob");                  // error, too few parameters
+let result2 = buildName("Bob", "Adams", "Sr.");  // error, too many parameters
+let result3 = buildName("Bob", "Adams");         // okay and returns "Bob Adams"
+let result4 = buildName(undefined, "Adams");     // okay and returns "Will Adams"
+
+```
+
+### 剩余参数
+
+- 想同时操作多个参数，或者并不知道会有多少参数传递进来。
+- 剩余参数个数  >= 0
+
+```js
+
+function buildName(firstName: string, ...restOfName: string[]) {
+  return firstName + " " + restOfName.join(" ");
+}
+
+let employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
+
+let buildNameFun: (fname: string, ...rest: string[]) => string = buildName;
+
+```
+
+
+
+
+
+
+
 
 
 
