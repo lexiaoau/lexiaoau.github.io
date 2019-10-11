@@ -427,6 +427,85 @@ let buildNameFun: (fname: string, ...rest: string[]) => string = buildName;
 ```
 
 
+## 泛型
+
+```js
+
+////
+////    example         1
+////
+function loggingIdentity<T>(arg: T): T {
+    console.log(arg.length);  // Error: T doesn't have .length
+    return arg;
+}
+
+////
+////    example         2
+////
+function loggingIdentity<T>(arg: T[]): T[] {
+    console.log(arg.length);  // Array has a .length, so no more error
+    return arg;
+}
+
+////
+////    example         3
+////
+function loggingIdentity<T>(arg: Array<T>): Array<T> {
+    console.log(arg.length);  // Array has a .length, so no more error
+    return arg;
+}
+
+
+
+```
+
+
+### 泛型类型
+
+以下例子创建了一个接口，一个泛型函数，并且把函数赋值給了一个变量。
+接口是描述了函数的一些特点（例如参数类型和个数，函数返回值）; 在这个描述中使用泛型来指代具体类型。
+
+```js
+
+interface GenericIdentityFn {
+    <T>(arg: T): T;
+}
+
+function identity<T>(arg: T): T {
+    return arg;
+}
+
+let myIdentity: GenericIdentityFn = identity;
+
+```
+
+```js
+
+interface GenericIdentityFn<T> {
+    (arg: T): T;
+}
+
+function identity<T>(arg: T): T {
+    return arg;
+}
+
+let myIdentity: GenericIdentityFn<number> = identity;
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
