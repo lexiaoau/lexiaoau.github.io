@@ -240,6 +240,37 @@ let newArray = oldArray.slice(  );
 ---
 
 
+## 精准小数位数
+
+把要保留的小数位乘以 10n 提升到整数位，然后用 Math.round 去掉小数部分，然后再除以 10n 再次变为小数。
+
+```js
+const szscDiffRatio = (Math.round( ( (szscCurrent - szscLast) / szscLast ) * 10000) / 100 )  + '';
+```
+
+
+## 类型转换
+
+```js
+
+//// 数值转为字符串
+const numStr = num + ''; //// 与空字符串相加
+
+///// 字符串转为数值
+parseInt(), parseFloat()
+
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
