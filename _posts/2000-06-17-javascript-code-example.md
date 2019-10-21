@@ -72,7 +72,44 @@ const createTime = new Date(user.verificationCodeUpdatedAt);
 const curTime = new Date();
 (curTime - createTime) > 10 * 60 * 1000
 
+
+///// ---------------------------------------------------------------------
+
+module.exports.checkPeriodReached =  function( dateToCheck,  setDays, setSeconds  ) {    
+    try {
+        const dataDate = new Date( dateToCheck );
+        const curTime = new Date();
+        const diffTime =curTime - dataDate ;
+
+        const dayPart = setDays * 24   * 60 * 60 * 1000 ;
+        const secondsPart = setSeconds * 1000 ;
+        const diffPeriod = dayPart + secondsPart ;
+
+        if( diffTime >  diffPeriod  ) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    } catch (err) {
+       console.error('checkPeriodReached error:', err);
+    }    
+}
+
+
+
+//////   设置为距今3个月之前的月份（跨年底也可以的）
+ startDate.setMonth( currentDate.getMonth() - 3 );
+
+
+
+//// set sleep
+const sleep = async (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+ }
+
 ```
+
 
 ---
 
@@ -261,7 +298,52 @@ parseInt(), parseFloat()
 
 ```
 
+## 获取深层次值的安全方法
 
+```js 
+
+//// 例如 reutersRawData.Charges.ChargesType[0].ChargesList.ChargesItem
+module.exports.getDescendentValue =  function( obj, desc, defaultValue  ) {
+    try {
+        var arr = desc.split('.');
+        while (arr.length>0) {
+            let cur = arr.shift();
+            //// handle array
+            if( cur.includes('[')  )
+            {
+                let parts = cur.split('[') ;
+                let fieldName = parts[0].trim() ;
+                if ( obj[fieldName] ) {
+                    obj = obj[fieldName] ;
+                } else {
+                    return defaultValue;
+                }
+
+                let numStr = (parts[1].split(']'))[0] ;
+                numStr = Number(numStr) ;
+
+                if( !Array.isArray(obj) || obj.length < (numStr + 1) ) {
+                    return defaultValue;
+                }
+                obj = obj[numStr];
+            }
+            //// handle object
+            else {
+                if( obj[cur] ) {
+                    obj = obj[cur];
+                }
+                else {
+                return defaultValue;
+                }
+            }
+        }
+        return obj;
+    } catch (err) {
+        return defaultValue;
+    }    
+}
+
+```
 
 
 
