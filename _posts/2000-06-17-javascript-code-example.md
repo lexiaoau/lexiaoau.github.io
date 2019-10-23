@@ -242,6 +242,9 @@ const ssecMont = (ssecData[30]).substring(5,7);
   ',"TGP",',
   ',"TOT",',
   ',"TDO",' ]
+  
+  ////  只匹配8位数字，但是有前置匹配字符“<LipperId>”和后置匹配字符“<”。这样可以避免误中其它字符串。
+  let reg = /(?<=<LipperId>)\d{8}(?=<)/gm ;
 
 ```
 
