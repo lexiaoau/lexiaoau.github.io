@@ -49,6 +49,8 @@ arr.filter(e => e.reportmonth === mon )
    .map(a => a.sessions )
    .reduce( (a,b) => a + b, 0 )
 
+//// filter null
+fundGroupNameArray = fundGroupNameArray.filter( x => x); 
 
 ```
 
