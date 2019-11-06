@@ -53,3 +53,45 @@ SELECT count(TABLE_NAME) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'xl
 
 数据库备份命令  
 mysqldump --add-drop-database --databases ... -u... -p... > dump.xldb.20190426.sql  
+
+
+
+
+
+
+
+
+---
+
+## 修改数据库表结构的命令例子
+
+
+```sql
+
+ALTER TABLE `aocai_reuters_production`.`FundGeos` 
+ADD COLUMN `screen_code` VARCHAR(45) NULL DEFAULT NULL AFTER `name`;
+
+ALTER TABLE `aocai_reuters_production`.`Funds` 
+CHANGE COLUMN `mgt_charge_annual` `mgt_charge_annual` FLOAT NULL DEFAULT NULL ,
+CHANGE COLUMN `TOTRET10YR` `TOTRET10YR` INT(10) NULL DEFAULT NULL;
+
+ALTER TABLE `aocai_reuters_production`.`Stocks` 
+ADD COLUMN `total_revenue` DECIMAL(17,5) NULL DEFAULT NULL AFTER `total_debt`,
+ADD COLUMN `last_split_factor` VARCHAR(255) NULL DEFAULT NULL AFTER `last_split_date`,
+ADD COLUMN `ex_dividend_date` DATE NULL DEFAULT NULL AFTER `ev`;
+
+-- 不匹配null，可以匹配 ‘--’ ，
+UPDATE aocai_reuters_production.Stocks SET `25sma`  = NULL where  `25sma`	 NOT REGEXP '^[0-9]+\\.?[0-9]*$';
+
+ALTER TABLE `aocai_reuters_production`.`Stocks` 
+CHANGE COLUMN `hi` `hi` DECIMAL(17,5) NULL DEFAULT NULL,
+CHANGE COLUMN `vo` `vo` BIGINT(19) NULL DEFAULT NULL;
+
+```
+
+
+
+
+
+
+
