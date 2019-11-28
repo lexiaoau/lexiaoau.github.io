@@ -369,6 +369,41 @@ const object3 = {...object1, ...object2 }
 
 ```
 
+## 检查运行速度 （使用 performance ）
+
+
+```js
+
+const {
+  performance,
+  PerformanceObserver
+} = require('perf_hooks');
+
+function test() {
+	const strVal = '3';
+
+	let t1 = performance.now();
+
+	for (var i = 10000000; i >= 0; i--) {
+		let num = String(strVal);
+		// let num = +strVal;
+	}
+	let t2 = performance.now();
+
+	console.log( t2 - t1);
+}
+
+test();
+
+```
+
+
+
+
+
+
+
+
 
 
 
