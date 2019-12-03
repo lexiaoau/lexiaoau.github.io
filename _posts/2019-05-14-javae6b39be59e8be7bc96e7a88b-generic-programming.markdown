@@ -13,7 +13,7 @@ categories:
 
 <font color="#0000ff" size="4">声明一个泛型的类：</font>
     
-    <br>
+```java    
     
     /**
      * Generic version of the Box class.
@@ -27,21 +27,21 @@ categories:
         public T get() { return t; }
     }
     
-    <br>
+```    
     
     <font color="#0000ff" style="line-height: 25px;" size="4">调用一个泛型的类：</font>
     
-    <br>
     
+```java        
     Box<Integer> integerBox;
     
     Box<Integer> integerBox = new Box<Integer>();
     
-    <br>
+```    
     
     <font color="#0000ff" style="line-height: 25px;" size="4">包含多种类型的泛型类：</font>
     
-    <br>
+```java        
     
     public interface Pair<K, V> {
         public K getKey();
@@ -62,39 +62,41 @@ categories:
         public V getValue() { return value; }
     }
     
-    <br>
+ ```   
     
-    <span style="white-space:pre;">	</span><font color="#3366ff">调用：</font>
-    
+    <font color="#3366ff">调用：</font>
+ 
+```java        
     Pair<String, Integer> p1 = new OrderedPair<String, Integer>("Even", 8);
     Pair<String, String>  p2 = new OrderedPair<String, String>("hello", "world");
+```    
     
-    <br>
     
-    <span style="line-height: 22px;">	</span><font color="#3366ff" style="line-height: 22px;">调用“泛型”函数：</font>
-    
+    <font color="#3366ff" style="line-height: 22px;">调用“泛型”函数：</font>
+ 
+```java        
     <strong>public static <K, V> boolean compare(Pair<K, V> p1, Pair<K, V> p2)</strong> {。。。。}
     
     boolean same = Util.<strong><Integer, String></strong>compare(p1, p2);
+```    
     
-    <br>
     
-    <br>
     
-    <br>
     
-    <br>
     
-    <br>
     
-    <br>
     
-    <br>
     
-    <br>
     
-    <br>
     
-    <br>
     
-    <br>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
