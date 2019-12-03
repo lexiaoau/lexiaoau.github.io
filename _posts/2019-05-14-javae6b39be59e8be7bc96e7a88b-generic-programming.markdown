@@ -11,7 +11,7 @@ categories:
 - java
 ---
 
-<font color="#0000ff" size="4">声明一个泛型的类：</font>
+## 声明一个泛型的类：
     
 ```java    
     
@@ -29,7 +29,7 @@ categories:
     
 ```    
     
-    <font color="#0000ff" style="line-height: 25px;" size="4">调用一个泛型的类：</font>
+## 调用一个泛型的类：
     
     
 ```java        
@@ -39,7 +39,7 @@ categories:
     
 ```    
     
-    <font color="#0000ff" style="line-height: 25px;" size="4">包含多种类型的泛型类：</font>
+## 包含多种类型的泛型类：
     
 ```java        
     
@@ -64,7 +64,7 @@ categories:
     
  ```   
     
-    <font color="#3366ff">调用：</font>
+## 调用：
  
 ```java        
     Pair<String, Integer> p1 = new OrderedPair<String, Integer>("Even", 8);
@@ -72,10 +72,10 @@ categories:
 ```    
     
     
-    <font color="#3366ff" style="line-height: 22px;">调用“泛型”函数：</font>
+## 调用“泛型”函数：
  
 ```java        
-    <strong>public static <K, V> boolean compare(Pair<K, V> p1, Pair<K, V> p2)</strong> {。。。。}
+    public static <K, V> boolean compare(Pair<K, V> p1, Pair<K, V> p2)
     
     boolean same = Util.<strong><Integer, String></strong>compare(p1, p2);
 ```    
