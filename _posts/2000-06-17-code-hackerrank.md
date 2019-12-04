@@ -1,3 +1,17 @@
+---
+author: lexiao
+comments: true
+date: 2019-06-17 11:11:11+00:00
+layout: post
+link: http://localhost/blog/?p=440
+published: true
+slug: null
+title: Hacker algo code example
+wordpress_id: 440
+tags: recent fe
+categories:
+- code
+---
 
 
 
