@@ -88,6 +88,64 @@ public class GreetingController {
   3. @ComponentScan -- 自动在同一个包里面寻找 其它 component
 
 
+# HTML 处理
+
+## 导航跳转
+
+```java
+
+//// 在 controller 类里，使用“redirect” +  “路径”实现跳转
+return "redirect:/results";
+
+//// @Override addViewControllers(), 登记了一个名字为“results”的view，对应路径“/results”
+//// 用了Thymeleaf ， 对应的是这个路径的文件  “src/main/resources/templates/results.html”
+@Controller
+public class WebController implements WebMvcConfigurer {
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/results").setViewName("results");
+    }
+}
+
+//// 这个return，对应的是 “src/main/resources/templates/form.html", 注意：不需要写 后缀 .html
+  @GetMapping("/")
+  public String showForm(PersonForm personForm) {
+    return "form";
+  }
+
+
+
+```
+
+## 表单数据检查
+
+步骤：
+- 使用一个 类 来对应表单数据，在该类中定义数据类型和检验规则
+- 在controller类中，定义一个方法处理表单提交（POST）。该方法可以接受2个参数，第一个是 “表单数据object”(使用 @Valid 来把参数绑定到表单数据），第二个是 BindingResult 。如果提交时，表单数据不合法，那么 BindingResult 会 hasErrors()   。
+- 前端网页中使用 Thymeleaf 来把表单数据绑定到对应 object 。
+
+```java
+
+//// 使用一个 类 来对应表单数据，在该类中定义数据类型和检验规则
+import javax.validation.constraints.Min;
+@Min(18)
+  private Integer age;
+
+//// 在controller类中，定义一个方法处理表单提交（POST）。该方法可以接受2个参数
+@PostMapping("/")
+  public String checkPersonInfo(@Valid PersonForm personForm, BindingResult bindingResult) {
+    if (bindingResult.hasErrors()) {
+      return "form";
+    }
+    return "redirect:/results";
+  }
+
+```
+
+
+
+
 
 
 
