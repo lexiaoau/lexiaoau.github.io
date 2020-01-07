@@ -14,6 +14,13 @@ categories:
 - 前端
 ---
 
+# 特殊syntax
+
+[计算属性名---computed property names](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Object_initializer)
+
+[展开语法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+
 # code example
 
 
