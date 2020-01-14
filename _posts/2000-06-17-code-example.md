@@ -117,6 +117,8 @@ function WelcomeDialog() {
 
 ## 列表 & Key, 渲染多个组件
 
+[example](https://www.robinwieruch.de/react-list-component)
+
 ```js
 function NumberList(props) {
   const numbers = props.numbers;    // 组件接收 numbers 数组作为参数
