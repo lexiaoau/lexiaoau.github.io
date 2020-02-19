@@ -82,6 +82,31 @@ categories:
 
 ```
 
+## 增加 many-to-many Association
+
+### 步骤 （例如 SubIndustry 和 Deal )
+
+- 创建model   Deal 和 SubIndustry
+- 添加  SubIndustry.belongsToMany(models.Deal, { through: 'DealSubindustry'} );
+- 添加  Deal.belongsToMany(models.SubIndustry, { through: 'DealSubindustry'} );
+- 在数据库中创建表  DealSubindustries   ， 这个可以通过 model 和 migration 完成 。
+    - npx sequelize-cli model:generate --name DealSubindustry --attributes DealId:integer,SubindustryId:integer
+- 在表 DealSubindustries ，添加mapping id
+
+在代码中如下执行查询：
+
+```js
+
+        const dbRes = await db.Deal.findAll({
+            include: [db.SubIndustry ],
+            where : {
+                id: 100
+            }
+        });
+        console.log(dbRes[0].SubIndustries);
+
+```
+
 
 
 
