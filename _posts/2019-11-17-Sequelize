@@ -62,9 +62,25 @@ categories:
 ```
 
 
+## 增加 one-to-many Association
 
+### 步骤 （例如 Industry.hasMany(models.SubIndustry, { as: 'Subindustry'} ); )
 
+- 创建model   Industry 和 SubIndustry
+- 在 Industry 的 model  js 文件里面，添加   Industry.hasMany(models.SubIndustry, { as: 'Subindustry'} );
+- 在数据库中创建表  SubIndustries   ， 这个可以通过 migration 完成 。
+- 在表 SubIndustries ，手工添加列   IndustryId
 
+在代码中如下执行查询：
+
+```js
+
+        const dbRes = await db.Industry.findAll({
+            include: [{model: db.SubIndustry , as : 'Subindustry'}],
+        });
+        const sub1 = dbRes[0].Subindustry ;
+
+```
 
 
 
