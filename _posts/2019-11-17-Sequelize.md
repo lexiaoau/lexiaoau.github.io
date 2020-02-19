@@ -68,6 +68,7 @@ categories:
 
 - 创建model   Industry 和 SubIndustry
 - 在 Industry 的 model  js 文件里面，添加   Industry.hasMany(models.SubIndustry, { as: 'Subindustry'} );
+- 在 SubIndustry 的 model  js 文件里面，添加   SubIndustry.belongsTo(models.Industry,  );
 - 在数据库中创建表  SubIndustries   ， 这个可以通过 migration 完成 。
 - 在表 SubIndustries ，手工添加列   IndustryId
 
@@ -79,6 +80,13 @@ categories:
             include: [{model: db.SubIndustry , as : 'Subindustry'}],
         });
         const sub1 = dbRes[0].Subindustry ;
+        
+        //-----------------------------------------------------------------------
+        const subind1 = await db.SubIndustry.create({desp: 'sub iij512' }   );
+
+        const parentIndustry = await db.Industry.findOne({            where: {                id: 8,            }        })
+
+        await subind1.setIndustry( parentIndustry ) ;           //*****   "set"  , not "add", "add" is for list not single one
 
 ```
 
