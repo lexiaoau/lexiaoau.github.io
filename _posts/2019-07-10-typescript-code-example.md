@@ -11,6 +11,7 @@ wordpress_id: 440
 tags: recent fe
 categories:
 - react
+- typescript
 ---
 
 ```typescript
@@ -393,6 +394,16 @@ createArray1 = function<T>(length: number, value: T): Array<T> {
 }
 
 createArray(3, 'x'); // ['x', 'x', 'x']
+
+//------------   快捷类成员变量生成器
+//                                             以下例子生成了 2 个成员变量
+
+export class Ingredient {
+  constructor(public name: string, public amount: number) {}
+}
+
+
+
 ```
 
 
