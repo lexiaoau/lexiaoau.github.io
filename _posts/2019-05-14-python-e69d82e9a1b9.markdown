@@ -24,7 +24,7 @@ categories:
   
 ## 使用
 
-···python
+```python
 
 from selenium import webdriver
 import time
