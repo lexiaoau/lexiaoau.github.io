@@ -11,7 +11,6 @@ wordpress_id: 440
 categories:
 - jsx
 - react
-- 前端
 ---
 
 # React 哲学
