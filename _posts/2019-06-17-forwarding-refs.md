@@ -9,7 +9,7 @@ slug: null
 title: React高级 之 Refs 转发
 wordpress_id: 440
 categories:
-- jsx
+
 - react
 ---
 

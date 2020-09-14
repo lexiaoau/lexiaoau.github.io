@@ -9,7 +9,7 @@ slug: null
 title: React Hook 之 Effect
 wordpress_id: 440
 categories:
-    - jsx
+    
     - react
 ---
 

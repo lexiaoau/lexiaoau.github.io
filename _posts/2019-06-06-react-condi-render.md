@@ -9,7 +9,7 @@ slug: null
 title: React 之 条件渲染
 wordpress_id: 440
 categories:
-- jsx
+
 - react
 ---
 

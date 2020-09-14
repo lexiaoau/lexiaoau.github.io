@@ -9,7 +9,7 @@ slug: null
 title: React 之 组合 vs 继承
 wordpress_id: 440
 categories:
-- jsx
+
 - react
 ---
 

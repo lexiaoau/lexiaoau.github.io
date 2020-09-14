@@ -9,7 +9,7 @@ slug: null
 title: react 之 State
 wordpress_id: 442
 categories:
-- jsx
+
 - react
 ---
 

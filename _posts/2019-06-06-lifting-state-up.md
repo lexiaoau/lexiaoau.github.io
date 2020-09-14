@@ -9,7 +9,7 @@ slug: null
 title: React 之 状态提升
 wordpress_id: 440
 categories:
-- jsx
+
 - react
 ---
 

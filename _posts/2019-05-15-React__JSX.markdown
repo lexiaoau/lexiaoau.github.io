@@ -9,7 +9,7 @@ slug: null
 title: React 之 JSX
 wordpress_id: 450
 categories:
-- jsx
+
 - react
 ---
 

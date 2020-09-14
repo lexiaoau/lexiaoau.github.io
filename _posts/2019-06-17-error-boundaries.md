@@ -9,7 +9,7 @@ slug: null
 title: React高级 之 错误边界
 wordpress_id: 440
 categories:
-- jsx
+
 - react
 ---
 
