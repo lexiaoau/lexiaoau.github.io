@@ -11,7 +11,6 @@ wordpress_id: 442
 categories:
 - jsx
 - react
-- 前端
 ---
 
 

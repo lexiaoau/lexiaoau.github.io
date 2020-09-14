@@ -9,8 +9,7 @@ slug: null
 title: redux 基础
 wordpress_id: 441
 categories:
-- react
-- 前端
+- redux
 ---
 
 

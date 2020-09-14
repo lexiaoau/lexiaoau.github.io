@@ -11,7 +11,6 @@ wordpress_id: 440
 categories:
 - jsx
 - react
-- 前端
 ---
 
 # 使用 State Hook

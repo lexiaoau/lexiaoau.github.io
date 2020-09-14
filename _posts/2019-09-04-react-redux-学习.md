@@ -10,7 +10,6 @@ title: react-redux-学习.md
 wordpress_id: 440
 tags: recent
 categories:
-- 前端
 - redux
 ---
 
