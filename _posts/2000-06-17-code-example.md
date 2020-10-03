@@ -162,17 +162,73 @@ class AutoFocusTextInput extends React.Component {
 }
 ```
 
+---
+
+## React 函数组件的写法例子（使用typescript）
+
+1. 主流写法
+
+
+- 定义interface，然后参数就是interface的类型
+- 使用解构语法，从interface类型中取出变量。还可以使用默认值
+
+
+2. 非主流写法
+
+- 使用React.FC , 繁琐，不被社区接受
+
+```js
+
+interface FullName {
+    firstName: string;
+    lastName: string;
+}
+function FunctionalComponent(props:FullName){
+    // props.firstName
+    // props.lastName
+}
+
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+
+interface OptionalMiddleName {
+    firstName: string;
+    middleName?: string;
+    lastName: string;
+}
+function Component({firstName, middleName = "N/A", lastName}:OptionalMiddleName){
+    // If middleName wasn't passed in, value will be "N/A"
+}
+
+
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+//----------------------------------------------------------------------
+
+import React from "react";
+
+export type WrapperVariant = "small" | "regular";
+
+interface WrapperProps {
+  variant?: WrapperVariant;
+}
+
+export const Wrapper: React.FC<WrapperProps> = ({
+  children,
+  variant = "regular",
+}) => {
+  return (
+    <Box
+      maxW={variant === "regular" ? "800px" : "400px"}
+    >
+      {children}
+    </Box>
+  );
+};
 
 
 
 
-
-
-
-
-
-
-
-
-
+```
 
