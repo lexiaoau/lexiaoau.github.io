@@ -10,7 +10,6 @@ title: Typescript 之 code example
 wordpress_id: 440
 tags: recent fe
 categories:
-- react
 - typescript
 ---
 
