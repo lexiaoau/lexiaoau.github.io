@@ -14,12 +14,42 @@ categories:
 - typescript
 ---
 
-[TOC]
-
 ---
 
+# 目录 -- 高级类型
 
-# 类
+### Partial, Readonly, Record, Pick
+
+https://juejin.im/post/6844904066489778183
+
+
+```js
+
+///----    使用  Record
+  type Coord = Record<'x' | 'y', number>;
+
+///----    使用  Partial ，将每个属性变成可选
+  type CoordPart = Partial<Coord>;
+  // type CoordPart = Partial<Record<'x' | 'y', number>>;
+
+///----    使用  Readonly，将每个属性变成只读
+  type Coord_Readonly = Readonly<CoordPart>;
+  // type Coord_Readonly = Readonly<Record<'x' | 'y', number>>;
+
+///----    使用  Pick， 筛选部分属性成为新类型
+  type CoordX = Pick<Coord, 'x'|'y'>;
+
+///----    使用  Record
+  enum OrganisationType {
+    ADMINISTRATIVE_BODY = 'ADMINISTRATIVE_BODY',
+    ASSOCIATION = 'ASSOCIATION',
+    CLUB = 'CLUB',
+  }
+  type handler = Record<string, { type: OrganisationType; roles: string[] }> ;
+
+```
+
+# 目录 -- 类
 
 ```js
 
@@ -189,7 +219,7 @@ abstract class Department {
 ---
 ---
 
-# 函数
+# 目录 -- 函数
 
 ## 为函数添加类型的方式
 
@@ -270,46 +300,17 @@ let buildNameFun: (fname: string, ...rest: string[]) => string = buildName;
 ```
 
 
-## 泛型
-
-```js
-
-////
-////    example         1
-////
-function loggingIdentity<T>(arg: T): T {
-    console.log(arg.length);  // Error: T doesn't have .length
-    return arg;
-}
-
-////
-////    example         2
-////
-function loggingIdentity<T>(arg: T[]): T[] {
-    console.log(arg.length);  // Array has a .length, so no more error
-    return arg;
-}
-
-////
-////    example         3
-////
-function loggingIdentity<T>(arg: Array<T>): Array<T> {
-    console.log(arg.length);  // Array has a .length, so no more error
-    return arg;
-}
+# 目录 -- 泛型
 
 
-
-```
-
-
-### 泛型类型
+## 泛型接口
 
 以下例子创建了一个接口，一个泛型函数，并且把函数赋值給了一个变量。
 接口是描述了函数的一些特点（例如参数类型和个数，函数返回值）; 在这个描述中使用泛型来指代具体类型。
 
 ```js
 
+//////////////  声明了一种函数的  prototype ，可以用来约束相关函数
 interface GenericIdentityFn {
     <T>(arg: T): T;
 }
@@ -318,25 +319,97 @@ function identity<T>(arg: T): T {
     return arg;
 }
 
-let myIdentity: GenericIdentityFn = identity;
+let myIdentity   : GenericIdentityFn = identity;
+let myIdentityNum: GenericIdentityFn<number> = identity;
 
 ```
+
+
+---
+
+## 结合类，使用泛型
+
+
 
 ```js
 
-interface GenericIdentityFn<T> {
-    (arg: T): T;
+//////////////  声明了一种函数的  prototype ，可以用来约束相关函数
+class Data<T> {
+	value: T;
+	makeArray?(v: T): T[];
+	constructor (val: T) {
+		this.value = val;
+	}
 }
 
-function identity<T>(arg: T): T {
-    return arg;
-}
-
-let myIdentity: GenericIdentityFn<number> = identity;
+const d1 = new Data<number>();
+const d2 = new Data<string>();
 
 ```
 
+
 ---
+
+## 泛型对于类型的约束
+
+### Extend 的作用
+- T 在没有明确指定时，被解析为 Animal 接口的类型（区别于默认值）；
+- T 接受 Animal 接口的类型；
+- T 接受 任何继承自 Animal 接口的类型，所有的后代继承；
+- T 可以extend union，那么T 只需要满足 union中任何一种类型都可以
+- 关于“源类型”的关系，是include，而不是 only 。
+	- 只是保证 T 包含 SourceType 里面声明的数据，而不是只有这些数据。例如 T extend SRC , 如果 SRC 是 { tag: string } , 那么 T 可以是 { tag :string , x : number, y :number }
+
+```js
+
+//////////////   “T extends Animal = Person” ， 是指定 T  的默认值是 Person类型，如果没有指定的话
+
+function logName<T extends Animal = Person>(data: T): void {
+	console.log(data.name);
+}
+
+logName({ name: 'zhangsan', age: 3 });  // 正常
+
+//////////////  T 包含 SourceType 里面声明的数据，而不是只有这些数据。
+  interface PartialType {    tag: string  }
+
+  function excludeTag<T extends PartialType>(obj: T) {
+        let { tag, ...rest } = obj;
+        return rest;  // Pick<T, Exclude<keyof T, "tag">>
+    }
+
+    const taggedPoint = { x: 10, y: 20, tag: "point" };
+    const point = excludeTag(taggedPoint);  // { x: number, y: number }
+
+```
+
+### 默认类型
+- 如果指定了默认类型，且类型推断无法选择一个候选类型，那么将使用默认类型作为推断结果。
+
+
+### 字面量 约束条件
+
+约束条件也可以使用接口字面量的方式，他对输入数据的要求，是对象中必须包含字面量中描述的属性：
+
+
+```js
+
+function log<T extends { name: string }>(value: T): void {
+	console.log(value);
+}
+
+log({ name: 'hi' }); // 正常
+log({ name: 'hi', target: 'zhangsan' });    // 正常
+log({ target: 'zhangsan' });    // ...'target' does not exist in type '{ name: string; }'
+log(true); // Error
+
+```
+
+
+
+---
+
+
 
 # typescript 数据类型
 
